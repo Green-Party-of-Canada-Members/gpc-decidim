@@ -8,11 +8,12 @@ gem "decidim", "0.23.3"
 # gem "decidim-consultations", "0.23.1"
 # gem "decidim-initiatives", "0.23.1"
 # gem "decidim-templates", "0.23.1"
-gem "decidim-decidim_awesome", "~> 0.6.2"
+gem "decidim-decidim_awesome", "~> 0.7.0"
 # gem "decidim-term_customizer"
 gem "decidim-calendar"
 gem "decidim-direct_verifications"
 gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
+gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 
 gem "bootsnap", "~> 1.3"
 
