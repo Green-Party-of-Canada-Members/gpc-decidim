@@ -7,6 +7,13 @@ GIT
       decidim-core (>= 0.22.0)
       deface (~> 1.5)
 
+GIT
+  remote: https://github.com/digidemlab/decidim-module-analytics
+  revision: b4e44a7d2f81d9c76816b8f0233f879c2c128cdf
+  specs:
+    decidim-analytics (0.23.1)
+      decidim-core (>= 0.20.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -819,6 +826,7 @@ DEPENDENCIES
   byebug (~> 11.0)
   daemons
   decidim (= 0.23.3)
+  decidim-analytics!
   decidim-calendar
   decidim-decidim_awesome (~> 0.6.2)
   decidim-dev (= 0.23.3)

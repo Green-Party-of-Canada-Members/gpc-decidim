@@ -132,7 +132,7 @@ Decidim.configure do |config|
   config.enable_html_header_snippets = false
 
   # Allow organizations admins to track newsletter links.
-  # config.track_newsletter_links = true
+  config.track_newsletter_links = true
 
   # Amount of time that the data portability files will be available in the server.
   # config.data_portability_expiry_time = 7.days

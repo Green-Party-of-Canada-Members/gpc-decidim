@@ -13,6 +13,7 @@ gem "decidim-decidim_awesome", "~> 0.6.2"
 gem "decidim-calendar"
 gem "decidim-direct_verifications"
 gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
+gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 
 gem "bootsnap", "~> 1.3"
 
