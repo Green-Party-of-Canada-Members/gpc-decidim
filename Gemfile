@@ -25,6 +25,7 @@ gem "faker", "~> 1.9"
 gem "wicked_pdf", "~> 1.4"
 
 gem "figaro"
+gem "whenever", require: false
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
