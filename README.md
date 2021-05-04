@@ -1,22 +1,40 @@
-# decidim-app
+# Decidim for the Green Party Canada
 
 Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
 
-This is the open-source repository for decidim-app, based on [Decidim](https://github.com/decidim/decidim).
+This is the open-source repository for https://gpcmembers.com based on [Decidim](https://github.com/decidim/decidim).
 
-## Setting up the application
+![Test](https://github.com/Green-Party-of-Canada-Members/gpc-decidim/actions/workflows/test.yml/badge.svg)
 
-You will need to do some steps before having the app working properly once you've deployed it:
+![GPC Homepage](app/assets/images/screenshot.png)
 
-1. Open a Rails console in the server: `bundle exec rails console`
-2. Create a System Admin user:
-```ruby
-user = Decidim::System::Admin.new(email: <email>, password: <password>, password_confirmation: <password>)
-user.save!
+## Deploying the app
+
+Deployed with [Capistrano](http://capistranorb.com/) using [Figaro](https://github.com/laserlemon/figaro) for `ENV` configuration.
+
+In your machine, execute:
+
 ```
-3. Visit `<your app url>/system` and login with your system admin credentials
-4. Create a new organization. Check the locales you want to use for that organization, and select a default locale.
-5. Set the correct default host for the organization, otherwise the app will not work properly. Note that you need to include any subdomain you might be using.
-6. Fill the rest of the form and submit it.
+cap production deploy
+```
 
-You're good to go!
+Please refer to the private documentation repository for details.
+
+## Contributing:
+
+
+If you wan to contribute to this repository, please open a Pull Request and wait until the test pass. 
+
+In order to configure your enviroment for development, please install [RBENV](https://github.com/rbenv/rbenv) and (optionally but recommended) [RBENV-VARS](https://github.com/rbenv/rbenv-vars) and [PostgreSQL](https://www.postgresql.org/) in your own machine.
+
+Then, make a copy of this repository, create a development instance with seeds and start your local application:
+
+```
+git clone git@github.com:Green-Party-of-Canada-Members/gpc-decidim.git
+cd gpc-decidim
+bundle install
+bundle exec rake db:create db:migrate db:seed
+bin/rails s
+```
+
+Visit: http://localhost:3000/
