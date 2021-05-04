@@ -35,3 +35,6 @@ config/application.yml
 # Ignore public uploads
 public/uploads/*
 
+# ignore capistrano files
+Capfile
+config/deploy*
