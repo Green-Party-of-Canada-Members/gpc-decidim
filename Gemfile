@@ -28,9 +28,6 @@ gem "faker", "~> 2.14"
 gem "rspec"
 gem "rubocop-faker"
 
-# rails bug: https://github.com/rails/rails/issues/42157
-gem "rails", "5.2.5"
-
 gem "figaro"
 gem "whenever", require: false
 
