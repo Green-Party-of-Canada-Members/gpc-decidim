@@ -12,10 +12,10 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.7.0"
 # gem "decidim-term_customizer"
+gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 gem "decidim-calendar"
 gem "decidim-direct_verifications"
 gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
-gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 
 gem "bootsnap", "~> 1.4"
 
@@ -55,6 +55,6 @@ group :development do
 end
 
 group :production do
-  gem 'delayed_job_active_record'
   gem "daemons"
+  gem "delayed_job_active_record"
 end
