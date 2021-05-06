@@ -9,8 +9,8 @@ DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.7.0"
+gem "decidim-templates", DECIDIM_VERSION
 # gem "decidim-term_customizer"
 gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 gem "decidim-calendar"
@@ -27,6 +27,9 @@ gem "wicked_pdf", "~> 1.4"
 gem "faker", "~> 2.14"
 gem "rspec"
 gem "rubocop-faker"
+
+# rails bug: https://github.com/rails/rails/issues/42157
+gem "rails", "5.2.5"
 
 gem "figaro"
 gem "whenever", require: false
