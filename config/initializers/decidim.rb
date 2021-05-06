@@ -30,7 +30,7 @@ Decidim.configure do |config|
   # config.content_processors = []
 
   # Whether SSL should be enabled or not.
-    config.force_ssl = false
+  config.force_ssl = false
 
   # Map and Geocoder configuration
   #
@@ -66,7 +66,7 @@ Decidim.configure do |config|
   #        attribution: %(
   #          <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap</a> contributors
   #        ).strip
-          # Translatable attribution:
+  # Translatable attribution:
   #       # attribution: -> { I18n.t("tile_layer_attribution") }
   #      }
   #    },
@@ -107,7 +107,7 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-    config.currency_unit = "$"
+  config.currency_unit = "$"
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
@@ -229,11 +229,11 @@ Decidim.configure do |config|
   # Only needed if you want to have Etherpad integration with Decidim. See
   # Decidim docs at docs/services/etherpad.md in order to set it up.
   #
-    config.etherpad = {
-      server: Rails.application.secrets.etherpad[:server],
-      api_key: Rails.application.secrets.etherpad[:api_key],
-      api_version: Rails.application.secrets.etherpad[:api_version]
-    }
+  config.etherpad = {
+    server: Rails.application.secrets.etherpad[:server],
+    api_key: Rails.application.secrets.etherpad[:api_key],
+    api_version: Rails.application.secrets.etherpad[:api_version]
+  }
 
   # Sets Decidim::Exporters::CSV's default column separator
   # config.default_csv_col_sep = ";"
