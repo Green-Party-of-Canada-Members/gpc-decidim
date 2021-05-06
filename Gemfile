@@ -4,12 +4,12 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = "0.24.1"
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-# gem "decidim-templates", DECIDIM_VERSION
+gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.7.0"
 # gem "decidim-term_customizer"
 gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"

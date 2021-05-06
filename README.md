@@ -14,22 +14,21 @@ Deployed with [Capistrano](http://capistranorb.com/) using [Figaro](https://gith
 
 In your machine, execute:
 
-```
+```bash
 cap production deploy
 ```
 
 Please refer to the private documentation repository for details.
 
-## Contributing:
+## Contributing
 
-
-If you wan to contribute to this repository, please open a Pull Request and wait until the test pass. 
+If you wan to contribute to this repository, please open a Pull Request and wait until the test pass.
 
 In order to configure your enviroment for development, please install [RBENV](https://github.com/rbenv/rbenv) and (optionally but recommended) [RBENV-VARS](https://github.com/rbenv/rbenv-vars) and [PostgreSQL](https://www.postgresql.org/) in your own machine.
 
 Then, make a copy of this repository, create a development instance with seeds and start your local application:
 
-```
+```bash
 git clone git@github.com:Green-Party-of-Canada-Members/gpc-decidim.git
 cd gpc-decidim
 bundle install
