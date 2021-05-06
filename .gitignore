@@ -38,3 +38,6 @@ public/uploads/*
 # ignore capistrano files
 Capfile
 config/deploy*
+
+.rspec-failues
+.vscode/*
