@@ -462,7 +462,7 @@ GEM
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
     excon (0.81.0)
-    execjs (2.8.0)
+    execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.1)
@@ -934,6 +934,7 @@ DEPENDENCIES
   decidim-extra_user_fields!
   decidim-templates!
   delayed_job_active_record
+  execjs (~> 2.7.0)
   faker (~> 2.14)
   figaro
   letter_opener_web (~> 1.3)
