@@ -4,7 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }.freeze
+# DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.24-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/Platoniq/decidim", tag: "fix/comparisons" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
