@@ -4,7 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "release/0.24-stable" }.freeze
+# DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", tag: "release/0.24-stable" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/Platoniq/decidim", tag: "fix/comparisons" }.freeze
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
@@ -18,6 +19,9 @@ gem "decidim-direct_verifications"
 gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
 
 gem "bootsnap", "~> 1.4"
+# a bug in 2.8.0 is preventing precompilation
+# https://github.com/rails/execjs/issues/99
+gem "execjs", "~> 2.7.0"
 
 gem "puma", ">= 5.0.0"
 gem "uglifier", "~> 4.1"
