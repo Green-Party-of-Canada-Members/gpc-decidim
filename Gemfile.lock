@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Platoniq/decidim
-  revision: 8851e320b955bbfc11dd0b67546749fc167e2774
+  revision: 832d91e8809d852ca3cb66bc05e18dba20ce303e
   tag: fix/comparisons
   specs:
     decidim (0.24.2)
@@ -658,7 +658,7 @@ GEM
       activerecord (>= 5.2)
       activesupport (>= 5.2)
     polyglot (0.3.5)
-    premailer (1.14.3)
+    premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
