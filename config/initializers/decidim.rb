@@ -35,12 +35,11 @@ Decidim.configure do |config|
   # Map and Geocoder configuration
   #
   # == HERE Maps ==
-  #  config.maps = {
-  #    provider: :here,
-  #    api_key: Rails.application.secrets.maps[:api_key],
-  #   static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
-  #    static: false,
-  #  }
+   config.maps = {
+     provider: :here,
+     api_key: Rails.application.secrets.maps[:api_key],
+     static: { url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview" }
+   }
   #
   # == OpenStreetMap (OSM) services ==
   # To use the OSM map service providers, you will need a service provider for

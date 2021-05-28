@@ -13,6 +13,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-decidim_awesome", "~> 0.7.0"
 gem "decidim-templates", DECIDIM_VERSION
 # gem "decidim-term_customizer"
+gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 gem "decidim-calendar"
 gem "decidim-direct_verifications"
