@@ -15,6 +15,7 @@ gem "decidim-templates", DECIDIM_VERSION
 # gem "decidim-term_customizer"
 gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 gem "decidim-calendar"
+gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-direct_verifications"
 gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
 
