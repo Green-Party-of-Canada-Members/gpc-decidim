@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Platoniq/decidim
-  revision: df1655b969119ba7554be02005339c8e31ef230b
+  revision: 5d4bbf1d2c96093d3733948ed8ccb5f9e3c9cd56
   tag: fix/comparisons
   specs:
     decidim (0.24.2)
@@ -139,7 +139,7 @@ GIT
       factory_bot_rails (~> 4.8)
       i18n-tasks (~> 0.9.18)
       mdl (~> 0.5)
-      nokogiri (~> 1.11, >= 1.11.1)
+      nokogiri (~> 1.11, >= 1.11.4)
       puffing-billy (~> 2.4.0)
       puma (~> 5.0)
       rails-controller-testing (~> 1.0)
@@ -338,7 +338,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    carrierwave (2.2.1)
+    carrierwave (2.2.2)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -518,7 +518,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.12.10)
+    graphql (1.12.11)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
