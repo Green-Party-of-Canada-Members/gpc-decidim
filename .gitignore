@@ -41,3 +41,4 @@ config/deploy*
 
 .rspec-failues
 .vscode/*
+.rbenv-vars

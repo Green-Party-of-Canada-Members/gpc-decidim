@@ -252,28 +252,8 @@ Decidim.configure do |config|
   # Machine Translation Configuration
   #
   # Enable machine translations
-  config.enable_machine_translations = false
-  #
-  # If you want to enable machine translation you can create your own service
-  # to interact with third party service to translate the user content.
-  #
-  # An example class would be something like:
-  #
-  # class MyTranslationService
-  #   attr_reader :text, :original_locale, :target_locale
-  #
-  #   def initialize(text, original_locale, target_locale)
-  #     @text = text
-  #     @original_locale = original_locale
-  #     @target_locale = target_locale
-  #   end
-  #
-  #   def translate
-  #     # Actual code to translate the text
-  #   end
-  # end
-  #
-  # config.machine_translation_service = "MyTranslationService"
+  config.enable_machine_translations = true
+  config.machine_translation_service = "DeeplTranslator"
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
