@@ -29,6 +29,8 @@ gem "uglifier", "~> 4.1"
 
 gem "wicked_pdf", "~> 1.4"
 
+gem "deepl-rb", require: "deepl"
+
 gem "faker", "~> 2.14"
 gem "rspec"
 gem "rubocop-faker"
