@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "deepl"
-
 class DeeplTranslator
   attr_reader :text, :source_locale, :target_locale, :resource, :field_name
 
@@ -17,7 +15,7 @@ class DeeplTranslator
   def translate
     translation = DeepL.translate text, source_locale, target_locale
 
-    Decidim::MachineTranslationSaveJob.perform_now(
+    Decidim::MachineTranslationSaveJob.perform_later(
       resource,
       field_name,
       target_locale,
