@@ -12,7 +12,6 @@ class DeeplTranslator
     @target_locale = target_locale
     @source_locale = source_locale
 
-    setup_deepl
   end
 
   def translate
@@ -24,14 +23,5 @@ class DeeplTranslator
       target_locale,
       translation.text
     )
-  end
-
-  private
-
-  def setup_deepl
-    DeepL.configure do |config|
-      config.auth_key = Rails.application.secrets.translator[:api_key]
-      config.host = Rails.application.secrets.translator[:host]
-    end
   end
 end

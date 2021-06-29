@@ -262,3 +262,9 @@ end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
+
+# DeepL Translation service configuration
+DeepL.configure do |config|
+  config.auth_key = Rails.application.secrets.translator[:api_key]
+  config.host = Rails.application.secrets.translator[:host]
+end
