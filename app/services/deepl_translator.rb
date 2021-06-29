@@ -9,7 +9,6 @@ class DeeplTranslator
     @text = text
     @target_locale = target_locale
     @source_locale = source_locale
-
   end
 
   def translate
