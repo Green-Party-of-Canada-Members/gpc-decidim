@@ -17,7 +17,6 @@ gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-anal
 gem "decidim-calendar"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-direct_verifications"
-gem "decidim-extra_user_fields", git: "https://github.com/PopulateTools/decidim-module-extra_user_fields"
 
 gem "bootsnap", "~> 1.4"
 # a bug in 2.8.0 is preventing precompilation
