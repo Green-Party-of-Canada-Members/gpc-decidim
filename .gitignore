@@ -39,6 +39,6 @@ public/uploads/*
 Capfile
 config/deploy*
 
-.rspec-failues
+.rspec-failures
 .vscode/*
 .rbenv-vars
