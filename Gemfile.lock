@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Platoniq/decidim
-  revision: 83b4a968592c78710e2bcf19750b0811640de7fe
+  revision: 5312bb946f5440edb9746421c0b95f95873bc485
   tag: fix/comparisons
   specs:
     decidim (0.24.3)
@@ -447,7 +447,7 @@ GEM
       rest-client (>= 1.6)
     eventmachine (1.2.7)
     eventmachine_httpserver (0.2.1)
-    excon (0.92.0)
+    excon (0.92.1)
     execjs (2.7.0)
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
@@ -540,7 +540,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kramdown (2.3.1)
+    kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
