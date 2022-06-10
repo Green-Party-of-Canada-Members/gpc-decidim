@@ -17,7 +17,7 @@ module CreateOmniauthRegistrationOverride
 
       # No registration allowed
       Rails.logger.info "WARNING: Attempt to register via OAuth: #{verified_email || form.email}"
-      broadcast :error, "Sorry, registration via OAuth is disabled. You need to be registered in the platform first."
+      broadcast :invalid
     end
   end
 end
