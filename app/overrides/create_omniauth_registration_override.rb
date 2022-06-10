@@ -8,7 +8,7 @@ module CreateOmniauthRegistrationOverride
     alias_method :original_call, :call
 
     def call
-      user = User.find_by(
+      user = Decidim::User.find_by(
         email: verified_email,
         organization: organization
       )
