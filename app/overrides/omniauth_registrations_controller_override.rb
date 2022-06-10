@@ -7,7 +7,7 @@ module OmniauthRegistrationsControllerOverride
   included do
     before_action :ensure_user_exists, only: :create
 
-    def call
+    def ensure_user_exists
       form_params = user_params_from_oauth_hash || params[:user]
       @form = form(OmniauthRegistrationForm).from_params(form_params)
 
