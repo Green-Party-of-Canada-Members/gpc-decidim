@@ -1,1 +1,1 @@
-Decidim::CreateOmniauthRegistration.include(CreateOmniauthRegistrationOverride)
+Decidim::Devise::OmniauthRegistrationsController.include(OmniauthRegistrationsControllerOverride)
