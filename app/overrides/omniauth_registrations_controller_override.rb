@@ -16,7 +16,7 @@ module OmniauthRegistrationsControllerOverride
 
       # No registration allowed
       Rails.logger.info "WARNING: Attempt to register via OAuth: #{verified_email || form.email}"
-      flash[:alert] =  "Sorry, the email #{email} is not registered. Only existing users are allowed to login."
+      flash[:alert] = "Sorry, the email #{email} is not registered. Only existing users are allowed to login."
       redirect_to decidim.root_path
     end
   end
