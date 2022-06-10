@@ -5,40 +5,19 @@ module CreateOmniauthRegistrationOverride
   extend ActiveSupport::Concern
 
   included do
-    def create_or_find_user
-      generated_password = SecureRandom.hex
+    alias_method :original_call, :call
 
-      @user = User.find_or_initialize_by(
+    def call
+      user = User.find_by(
         email: verified_email,
         organization: organization
       )
 
-      if @user.persisted?
-        # If user has left the account unconfirmed and later on decides to sign
-        # in with omniauth with an already verified account, the account needs
-        # to be marked confirmed.
-        @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
-      else
-        # No registration allowed
-        Rails.logger.info "WARNING: Attempt to register via OAuth: #{verified_email || form.email}"
-        raise ActiveRecord::RecordInvalid, "Sorry, registration via OAuth is disabled. You need to be registered in the platform first."
-        # @user.email = (verified_email || form.email)
-        # @user.name = form.name
-        # @user.nickname = form.normalized_nickname
-        # @user.newsletter_notifications_at = nil
-        # @user.password = generated_password
-        # @user.password_confirmation = generated_password
-        # if form.avatar_url.present?
-        #   url = URI.parse(form.avatar_url)
-        #   filename = File.basename(url.path)
-        #   file = URI.open(url)
-        #   @user.avatar.attach(io: file, filename: filename)
-        # end
-        # @user.skip_confirmation! if verified_email
-      end
+      return original_call if user.present?
 
-      @user.tos_agreement = "1"
-      @user.save!
+      # No registration allowed
+      Rails.logger.info "WARNING: Attempt to register via OAuth: #{verified_email || form.email}"
+      broadcast :error, "Sorry, registration via OAuth is disabled. You need to be registered in the platform first."
     end
   end
 end
