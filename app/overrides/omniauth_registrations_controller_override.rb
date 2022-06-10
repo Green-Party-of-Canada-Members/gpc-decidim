@@ -15,8 +15,8 @@ module OmniauthRegistrationsControllerOverride
       return if email.present? && Decidim::User.exists?(email: email, organization: current_organization)
 
       # No registration allowed
-      Rails.logger.info "WARNING: Attempt to register via OAuth: #{verified_email || form.email}"
-      flash[:alert] = "Sorry, the email #{email} is not registered. Only existing users are allowed to login."
+      Rails.logger.info "WARNING: Attempt to register via OAuth: #{email}"
+      flash[:alert] = I18n.t("email_not_registered", email: email)
       redirect_to decidim.root_path
     end
   end
