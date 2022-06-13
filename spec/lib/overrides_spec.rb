@@ -9,6 +9,8 @@ checksums = [
   {
     package: "decidim-core",
     files: {
+      # controllers
+      "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       # cells

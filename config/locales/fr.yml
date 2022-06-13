@@ -1,0 +1,3 @@
+---
+fr:
+  email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
