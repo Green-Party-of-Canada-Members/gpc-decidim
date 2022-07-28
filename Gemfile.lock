@@ -179,7 +179,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-calendar
-  revision: c6b84cf62d4da2f74931420bcab0fd933de71d1e
+  revision: 3c8bda510842c3482905fd4f246f48a36c7be47d
   tag: update-26
   specs:
     decidim-calendar (0.26.0)
