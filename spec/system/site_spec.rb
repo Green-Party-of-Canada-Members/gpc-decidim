@@ -41,10 +41,14 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
     visit proposal_path
 
     expect(page).to have_content(process.title["en"])
-    expect(page).to have_content("amendment")
+    expect(page).to have_content("AMENDED BY")
+    expect(page).to have_content(emendation.authors.first.name)
   end
 
   it "renders an amendment" do
     visit emendation_path
+
+    expect(page).to have_content(emendation.title["en"])
+    expect(page).to have_content("Amendment to \"#{proposal.title["en"]}\"")
   end
 end

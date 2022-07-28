@@ -46,7 +46,6 @@ group :development do
   gem "capistrano-rails-console", require: false
   gem "capistrano-rbenv", require: false
   gem "capistrano-sidekiq", require: false
-
 end
 
 group :production do
