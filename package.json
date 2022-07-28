@@ -12,6 +12,7 @@
     "@fullcalendar/list": "^5.11.2",
     "@fullcalendar/timegrid": "^5.11.2",
     "@rails/webpacker": "^6.0.0-rc.6",
+    "@rails/actioncable": "^6.0.5",
     "codemirror": "^5.65.7",
     "europa": "^4.0.0",
     "form-storage": "^1.3.5",
