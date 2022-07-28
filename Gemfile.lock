@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/digidemlab/decidim-module-analytics
-  revision: b4e44a7d2f81d9c76816b8f0233f879c2c128cdf
-  specs:
-    decidim-analytics (0.23.1)
-      decidim-core (>= 0.20.0)
-
-GIT
   remote: https://github.com/openpoke/decidim
   revision: 181ab2f134ca1612e1c7c22c861c0bcf1f355e4a
   tag: diff-booster
@@ -835,7 +828,6 @@ DEPENDENCIES
   capistrano-rails-console
   capistrano-rbenv (~> 2.2)
   decidim!
-  decidim-analytics!
   decidim-calendar!
   decidim-conferences!
   decidim-decidim_awesome

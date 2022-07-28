@@ -13,7 +13,6 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-templates", DECIDIM_VERSION
 # gem "decidim-term_customizer"
-gem "decidim-analytics", git: "https://github.com/digidemlab/decidim-module-analytics"
 gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
 gem "decidim-decidim_awesome"
 gem "decidim-direct_verifications"
