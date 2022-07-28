@@ -1,29 +1,33 @@
-name: Test
+name: "[CI] Test"
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 env:
-  RUBY_VERSION: 2.7.2
-  NODE_VERSION: 12.9.1
-    
+  RUBY_VERSION: 2.7.6
+
 jobs:
-  test:
-    name: Test
+  test-report:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:11
-        ports:
-          - 5432:5432
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         env:
-          DATABASE_USERNAME: postgres
-          DATABASE_PASSWORD: postgres
-          POSTGRES_HOST_AUTH_METHOD: trust
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+          POSTGRES_PASSWORD: postgres
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
 
     steps:
       - uses: actions/checkout@v2
@@ -44,7 +48,9 @@ jobs:
           DATABASE_PASSWORD: postgres
 
       - name: Precompile assets
-        run: bundle exec rake assets:precompile
+        run: |
+          yarn install
+          bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
 
