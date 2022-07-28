@@ -14,13 +14,12 @@ checksums = [
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       # cells
-      "/app/cells/decidim/date/show.erb" => "7e050b942e447386fc96ef6528039cec"
+      "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec"
     }
   },
   {
     package: "decidim-meetings",
     files: {
-      "/app/views/decidim/meetings/meetings/show.html.erb" => "f10b79ff2fbb714470fd7eef6f3a0056",
       "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24"
     }
   }
