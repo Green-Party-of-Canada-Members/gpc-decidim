@@ -39,13 +39,14 @@ group :development do
   gem "spring-watcher-listen"
   gem "web-console"
 
-  gem "capistrano", "~> 3.15"
-  gem "capistrano-bundler", "~> 2.0", require: false
-  gem "capistrano-figaro-yml", "~> 1.0.2", require: false
-  gem "capistrano-passenger", "~> 0.2.0", require: false
-  gem "capistrano-rails", "~> 1.6", require: false
+  gem "capistrano", "~> 3.17", require: false
+  gem "capistrano-bundler", require: false
+  gem "capistrano-passenger", require: false
+  gem "capistrano-rails", require: false
   gem "capistrano-rails-console", require: false
-  gem "capistrano-rbenv", "~> 2.2", require: false
+  gem "capistrano-rbenv", require: false
+  gem "capistrano-sidekiq", require: false
+
 end
 
 group :production do
