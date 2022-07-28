@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 if Rails.env.production?
-    # skip rails active storage routes
+  # skip rails active storage routes
   Rack::Attack.safelist("bypass active storage") do |request|
     request.path.start_with?("/rails/active_storage")
   end
