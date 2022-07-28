@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/openpoke/decidim
-  revision: 181ab2f134ca1612e1c7c22c861c0bcf1f355e4a
+  revision: 3e96158155cb3bdd4e750172d908aa326a494f43
   tag: diff-booster
   specs:
     decidim (0.26.2)
