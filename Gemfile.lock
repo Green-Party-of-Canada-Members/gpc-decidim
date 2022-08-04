@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim
-  revision: fb4030bc3c1f9390670a3dd3714b19f2401c15d7
+  revision: ab01be0405be357925c32f937a64a355ee43af4c
   tag: diff-booster
   specs:
     decidim (0.26.2)
@@ -803,7 +803,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.14.0)
+    webmock (3.16.0)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
