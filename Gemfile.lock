@@ -760,8 +760,6 @@ GEM
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.8.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
@@ -823,7 +821,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-term_customizer!
   deepl-rb
-  faker (~> 2.18)
+  faker
   letter_opener_web
   listen
   puma
@@ -832,7 +830,6 @@ DEPENDENCIES
   sidekiq-cron
   spring
   spring-watcher-listen
-  uglifier
   web-console
   wicked_pdf (~> 2.1)
 
