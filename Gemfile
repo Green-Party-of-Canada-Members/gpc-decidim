@@ -20,7 +20,6 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "bootsnap", "~> 1.7"
 
 gem "puma"
-gem "uglifier"
 
 gem "wicked_pdf", "~> 2.1"
 
@@ -31,7 +30,7 @@ group :development, :test do
   gem "rubocop-faker"
 
   gem "decidim-dev", DECIDIM_VERSION
-  gem "faker", "~> 2.18"
+  gem "faker"
 end
 
 group :development do
