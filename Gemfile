@@ -22,6 +22,8 @@ gem "bootsnap", "~> 1.7"
 gem "puma"
 gem "uglifier"
 
+gem "wicked_pdf", "~> 2.1"
+
 gem "deepl-rb", require: "deepl"
 
 group :development, :test do
@@ -38,18 +40,10 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen"
   gem "web-console"
-
-  gem "capistrano", "~> 3.17", require: false
-  gem "capistrano-bundler", require: false
-  gem "capistrano-passenger", require: false
-  gem "capistrano-rails", require: false
-  gem "capistrano-rails-console", require: false
-  gem "capistrano-rbenv", require: false
-  gem "capistrano-sidekiq", require: false
 end
 
 group :production do
-  gem "figaro"
+  gem 'aws-sdk-s3', require: false
   gem "sidekiq"
   gem "sidekiq-cron"
 end
