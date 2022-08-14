@@ -268,3 +268,6 @@ DeepL.configure do |config|
   config.auth_key = Rails.application.secrets.translator[:api_key]
   config.host = Rails.application.secrets.translator[:host]
 end
+
+# Inform Decidim about the assets folder
+Decidim.register_assets_path File.expand_path("app/packs", Rails.application.root)

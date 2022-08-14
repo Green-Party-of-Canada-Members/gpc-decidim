@@ -1,3 +1,5 @@
 # frozen_string_literal: true
 
-Decidim::Devise::OmniauthRegistrationsController.include(OmniauthRegistrationsControllerOverride)
+Rails.application.config.to_prepare do
+  Decidim::Devise::OmniauthRegistrationsController.include(OmniauthRegistrationsControllerOverride)
+end
