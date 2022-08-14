@@ -6,7 +6,7 @@ This is the open-source repository for https://gpcmembers.com based on [Decidim]
 
 ![Test](https://github.com/Green-Party-of-Canada-Members/gpc-decidim/actions/workflows/test.yml/badge.svg)
 
-![GPC Homepage](app/assets/images/screenshot.png)
+![GPC Homepage](app/packs/images/screenshot.png)
 
 ## Deploying the app
 
