@@ -3,6 +3,6 @@ fr:
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
     leadership_campaigns: Campagnes de leadership
-    leadership_race: Leadership Race
-    policy_process: Policy Process
+    leadership_race: Course à la chefferie
+    policy_process: Processus politique
     donate: Faites un don à ce candidat
