@@ -9,7 +9,7 @@ end
 Decidim.menu :menu do |menu|
   menu.remove_item :assemblies
   menu.remove_item :participatory_processes
-  menu.remove_item :calendar
+  # menu.remove_item :calendar
 end
 
 Rails.application.config.after_initialize do
