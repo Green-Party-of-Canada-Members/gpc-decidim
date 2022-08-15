@@ -42,7 +42,7 @@ group :development do
 end
 
 group :production do
-  gem 'aws-sdk-s3', require: false
+  gem "aws-sdk-s3", require: false
   gem "sidekiq"
   gem "sidekiq-cron"
 end

@@ -1,3 +1,8 @@
 ---
 fr:
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
+  gpc:
+    leadership_campaigns: Campagnes de leadership
+    leadership_race: Leadership Race
+    policy_process: Policy Process
+    donate: Faites un don à ce candidat
