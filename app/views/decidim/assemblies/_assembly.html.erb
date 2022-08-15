@@ -1,0 +1,5 @@
+<% if leadership_space?(assembly) %>
+	<%= cell "leadership_m", assembly %>
+<% else %>
+	<%= card_for assembly %>
+<% end %>

@@ -1,3 +1,8 @@
 ---
 en:
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
+  gpc:
+    leadership_campaigns: Leadership Campaigns
+    leadership_race: Leadership Race
+    policy_process: Policy Process
+    donate: Donate to this contestant
