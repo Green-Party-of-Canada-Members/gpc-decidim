@@ -1,0 +1,25 @@
+<div class="row view-header">
+  <div class="m-bottom column">
+    <%= link_to proposals_path, class: "small hollow js-back-to-list" do %>
+      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+      <%= t("back_to_list", scope: "decidim.proposals.proposals.show") %>
+    <% end %>
+  </div>
+
+  <div class="column <%= " mediumlarge-8 large-9" if contestants_component?(current_component) %>">
+    <% if @proposal.emendation? %>
+      <h2 class="heading3"><%= t("changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true), scope: "decidim.proposals.proposals.show") %></h2>
+    <% else %>
+      <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
+    <% end %>
+    <% unless component_settings.participatory_texts_enabled? || contestants_component?(current_component) %>
+      <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
+    <% end %>
+  </div>
+
+  <% if contestants_component?(current_component) %>
+    <div class="medium-5 mediumlarge-4 large-3 columns">
+      <%= render "assembly" %>
+    </div>
+  <% end %>
+</div>

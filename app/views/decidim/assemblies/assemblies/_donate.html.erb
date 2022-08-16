@@ -1,5 +1,5 @@
 <%= link_to(
-  t("gpc.donate"),
-  donate_link(current_participatory_space),
+  t("gpc.donate", name: translated_attribute(current_participatory_space.title)),
+  donate_link(translated_attribute(current_participatory_space.title)),
   class: "card__button button button--sc small warning expanded"
 ) %>

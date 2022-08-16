@@ -22,6 +22,21 @@ checksums = [
     files: {
       "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24"
     }
+  },
+  {
+    package: "decidim-assemblies",
+    files: {
+      "/app/cells/decidim/assemblies/assemblies/show.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
+      "/app/cells/decidim/assemblies/_assembly.html.erb" => "d7bb73188f6c1299c926bafa59aedc24"
+    }
+  },
+  {
+    package: "decidim-proposals",
+    files: {
+      "/app/cells/decidim/proposals/proposals/index.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
+      "/app/cells/decidim/proposals/proposals/show.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
+      "/app/cells/decidim/proposals/proposals/_proposal.html.erb" => "d7bb73188f6c1299c926bafa59aedc24"
+    }
   }
 ]
 

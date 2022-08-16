@@ -15,9 +15,9 @@ end
 Rails.application.config.after_initialize do
   Decidim::DecidimAwesome::Admin::MenuHacksController.include(ApplicationHelper) if defined?(Decidim::DecidimAwesome::Admin::MenuHacksController)
 
-  race = Rails.application.secrets.dig(:gpc, :leadership_race)
-  process = Rails.application.secrets.dig(:gpc, :policy_process)
-  space = Rails.application.secrets.dig(:gpc, :leadership_space)
+  race = Rails.application.secrets.dig(:gpc, :processes, :leadership_race)
+  process = Rails.application.secrets.dig(:gpc, :processes, :policy_process)
+  space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
   # custom processes menus
   if race
     Decidim.menu :menu do |menu|

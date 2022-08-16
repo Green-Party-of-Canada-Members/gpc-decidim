@@ -2,8 +2,12 @@
 
 # This cell renders the Medium (:m) assembyl card
 # for an given instance of an Assembly
-class LeadershipMCell < Decidim::Assemblies::AssemblyMCell
+class ContestantMCell < Decidim::Proposals::ProposalMCell
   include ApplicationHelper
+
+  def has_authors?
+    false
+  end
 
   def description
     attribute = model.try(:short_description) || model.try(:body) || model.description
