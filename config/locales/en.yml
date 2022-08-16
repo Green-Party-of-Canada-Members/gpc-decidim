@@ -5,4 +5,5 @@ en:
     leadership_campaigns: Leadership Campaigns
     leadership_race: Leadership Race
     policy_process: Policy Process
-    donate: Donate to this contestant
+    donate: Donate to %{name}
+    campaign_space: '%{name} Campaign'
