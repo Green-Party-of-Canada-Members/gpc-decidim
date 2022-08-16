@@ -20,22 +20,22 @@ checksums = [
   {
     package: "decidim-meetings",
     files: {
-      "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24"
+      "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24",
+      "/app/views/decidim/meetings/meetings/show.html.erb" => "d0f2ec43188acab470151f40294bdbc8"
     }
   },
   {
     package: "decidim-assemblies",
     files: {
-      "/app/cells/decidim/assemblies/assemblies/show.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-      "/app/cells/decidim/assemblies/_assembly.html.erb" => "d7bb73188f6c1299c926bafa59aedc24"
+      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "f409a2c1cc8383d769cc37b329cf616c"
     }
   },
   {
     package: "decidim-proposals",
     files: {
-      "/app/cells/decidim/proposals/proposals/index.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-      "/app/cells/decidim/proposals/proposals/show.html.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-      "/app/cells/decidim/proposals/proposals/_proposal.html.erb" => "d7bb73188f6c1299c926bafa59aedc24"
+      "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
+      "/app/views/decidim/proposals/proposals/show.html.erb" => "f27bbec257eb6da28dbdd07ac0a224a5",
+      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "c080ee4886c7fa162dc198f43b068e33"
     }
   }
 ]

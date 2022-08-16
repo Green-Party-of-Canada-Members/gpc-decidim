@@ -5,12 +5,18 @@ module ApplicationHelper
     "(#{value.zone} #{value.formatted_offset})"
   end
 
-  def leadership_space?(space, parents: true)
-    return false if space.blank?
+  def leadership_assembly?(space, parents: true)
+    return false if space.blank? || !space.respond_to?(:slug)
 
     return true if space.slug == Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
 
-    parents ? leadership_space?(space.parent) : false
+    parents ? leadership_assembly?(space.parent) : false
+  end
+
+  def leadership_race_process?(space)
+    return false if space.blank? || !space.respond_to?(:slug)
+
+    return true if space.slug == Rails.application.secrets.dig(:gpc, :processes, :leadership_race)
   end
 
   def contestants_component?(component)
