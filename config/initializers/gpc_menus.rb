@@ -48,7 +48,7 @@ Rails.application.config.after_initialize do
                     decidim_assemblies.assembly_path(space),
                     position: 2.1,
                     if: Decidim::Assemblies::OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
-                    active: leadership_space?(Decidim::Assembly.find_by(slug: params[:slug]))
+                    active: leadership_assembly?(Decidim::Assembly.find_by(slug: params[:slug]))
     end
   end
 end

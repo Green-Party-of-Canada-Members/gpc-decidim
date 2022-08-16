@@ -1,4 +1,4 @@
-<% if leadership_space?(current_participatory_space) %>
+<% if leadership_assembly?(current_participatory_space) %>
   <div class="medium-7 mediumlarge-8 columns">
     <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb",
                locals: { assemblies: current_participatory_space.ancestors.to_a } %>
