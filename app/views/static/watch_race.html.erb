@@ -1,0 +1,10 @@
+<% add_decidim_meta_tags({
+  description: t(".description"),
+  title: t(".title")
+}) %>
+
+<main class="wrapper watch_race">
+  <div class="watch_race-iframe">
+    <iframe id="watchRaceIframe" class="auto-height-iframe" frameborder="0" allowfullscreen src="<%= @iframe_url %>" ></iframe>
+  </div>
+</main>

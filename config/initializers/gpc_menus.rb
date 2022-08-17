@@ -18,6 +18,7 @@ Rails.application.config.after_initialize do
   race = Rails.application.secrets.dig(:gpc, :processes, :leadership_race)
   process = Rails.application.secrets.dig(:gpc, :processes, :policy_process)
   space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
+  watch_race = Rails.application.secrets.dig(:gpc, :live, :watch_race)
   # custom processes menus
   if race
     Decidim.menu :menu do |menu|
@@ -49,6 +50,16 @@ Rails.application.config.after_initialize do
                     position: 2.1,
                     if: Decidim::Assemblies::OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
                     active: leadership_assembly?(Decidim::Assembly.find_by(slug: params[:slug]))
+    end
+  end
+
+  if watch_race
+    Decidim.menu :menu do |menu|
+      menu.add_item :watch_race,
+                    (I18n.t("static.watch_race.title") + image_pack_tag("media/images/live-on-air.png")).html_safe,
+                    Rails.application.routes.url_helpers.watch_race_static_path,
+                    position: 1.1,
+                    active: :inclusive
     end
   end
 end
