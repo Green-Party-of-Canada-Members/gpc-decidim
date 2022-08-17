@@ -7,3 +7,7 @@ en:
     policy_process: Policy Process
     donate: Donate to %{name}
     campaign_space: '%{name} Campaign'
+  static:
+    watch_race:
+      title: Watch Race!
+      description: Watch Race!
