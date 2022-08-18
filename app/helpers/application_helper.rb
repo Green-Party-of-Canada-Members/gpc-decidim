@@ -10,7 +10,7 @@ module ApplicationHelper
 
     return true if space.slug == Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
 
-    parents ? leadership_assembly?(space.parent) : false
+    parents ? leadership_assembly?(space.try(:parent)) : false
   end
 
   def leadership_race_process?(space)
