@@ -7,6 +7,7 @@ fr:
     policy_process: Processus politique
     donate: Faites un don à %{name}
     campaign_space: Campagne de %{name}
+    leadership_events: Événements
   static:
     watch_race:
       title: Actualités!

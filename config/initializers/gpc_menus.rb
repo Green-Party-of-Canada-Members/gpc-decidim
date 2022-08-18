@@ -16,6 +16,7 @@ Rails.application.config.after_initialize do
   Decidim::DecidimAwesome::Admin::MenuHacksController.include(ApplicationHelper) if defined?(Decidim::DecidimAwesome::Admin::MenuHacksController)
 
   race = Rails.application.secrets.dig(:gpc, :processes, :leadership_race)
+  events = Rails.application.secrets.dig(:gpc, :assemblies, :leadership_events)
   process = Rails.application.secrets.dig(:gpc, :processes, :policy_process)
   space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
   watch_race = Rails.application.secrets.dig(:gpc, :live, :watch_race)
@@ -26,7 +27,18 @@ Rails.application.config.after_initialize do
                     I18n.t("gpc.leadership_race"),
                     decidim_participatory_processes.participatory_process_path(race),
                     position: 2,
-                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
+                    if: Decidim::ParticipatoryProcess.published.exists?(slug: race),
+                    active: :inclusive
+    end
+  end
+
+  if events
+    Decidim.menu :menu do |menu|
+      menu.add_item :leadership_events,
+                    I18n.t("gpc.leadership_events"),
+                    decidim_assemblies.assembly_path(events),
+                    position: 2.1,
+                    if: Decidim::Assembly.published.exists?(slug: events),
                     active: :inclusive
     end
   end
@@ -37,7 +49,7 @@ Rails.application.config.after_initialize do
                     I18n.t("gpc.policy_process"),
                     decidim_participatory_processes.participatory_process_path(process),
                     position: 6,
-                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
+                    if: Decidim::ParticipatoryProcess.published.exists?(slug: process),
                     active: :inclusive
     end
   end
@@ -48,7 +60,7 @@ Rails.application.config.after_initialize do
                     I18n.t("gpc.leadership_campaigns"),
                     decidim_assemblies.assembly_path(space),
                     position: 2.1,
-                    if: Decidim::Assemblies::OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
+                    if: Decidim::Assembly.published.exists?(slug: space),
                     active: leadership_assembly?(Decidim::Assembly.find_by(slug: params[:slug]))
     end
   end
