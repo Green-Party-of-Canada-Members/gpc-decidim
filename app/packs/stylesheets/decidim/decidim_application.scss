@@ -7,6 +7,9 @@
 // By default this is empty.
 
 .wrapper {
+	&.watch_race {
+		padding:0;
+	}
 	.watch_race-iframe {
 		margin:0 auto;
 	 iframe {
