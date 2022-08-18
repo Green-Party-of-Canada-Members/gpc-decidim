@@ -55,6 +55,7 @@ Rails.application.config.after_initialize do
 
   if watch_race
     Decidim.menu :menu do |menu|
+      menu.remove_item :root
       menu.add_item :watch_race,
                     (I18n.t("static.watch_race.title") + image_pack_tag("media/images/live-on-air.png")).html_safe,
                     Rails.application.routes.url_helpers.watch_race_static_path,
