@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get "/watch_race", to: "static#watch_race", as: :watch_race_static
 
+  if Rails.application.secrets.dig(:gpc, :live, :watch_race).present?
+    get "/", to: redirect(Rails.application.routes.url_helpers.watch_race_static_path)
+  end
+
   mount Decidim::Core::Engine => "/"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
