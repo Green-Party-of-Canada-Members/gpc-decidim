@@ -33,10 +33,10 @@ Rails.application.config.after_initialize do
 
   if process
     Decidim.menu :menu do |menu|
-      menu.add_item :leadership_race,
+      menu.add_item :policy_process,
                     I18n.t("gpc.policy_process"),
                     decidim_participatory_processes.participatory_process_path(process),
-                    position: 3,
+                    position: 6,
                     if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
                     active: :inclusive
     end
