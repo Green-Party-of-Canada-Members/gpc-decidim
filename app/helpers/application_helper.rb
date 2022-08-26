@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def donate_link(name)
-    "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{locale}"
+    "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{I18n.locale}"
   end
 
   def campaign_assembly_link(title)
