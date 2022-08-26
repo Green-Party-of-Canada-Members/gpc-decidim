@@ -25,8 +25,8 @@ module ApplicationHelper
     return true if component.id.in?(Rails.application.secrets.dig(:gpc, :proposals, :contestants))
   end
 
-  def donate_link(id)
-    "https://www.greenparty.ca/en/civicrm/contribute/transact?id=1&source=L22.W.#{id}"
+  def donate_link(name)
+    "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{locale}"
   end
 
   def campaign_assembly_link(title)
