@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "diff-booster" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "0.26-canada" }.freeze
 # DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
