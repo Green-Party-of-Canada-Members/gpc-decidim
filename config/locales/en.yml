@@ -2,6 +2,7 @@
 en:
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
   gpc:
+    external_invites_disabled: Currently, invitations can only be sent to participants already registered on the site.
     leadership_campaigns: Leadership Campaigns
     leadership_race: Leadership Race
     policy_process: Policy Process
