@@ -18,7 +18,18 @@ In your machine, execute:
 cap production deploy
 ```
 
-Please refer to the private documentation repository for details.
+### ENV vars
+
+These ENV vars modifies the behavior of the application in some ways:
+
+| ENV | Description |
+| --- | --- |
+| `REDIRECT_AFTER_INVITATION` | If present, it redirects users registered that registers using an internal invitation (not users registered without it) to the URL specified in this var. |
+| `WATCH_RACE_IFRAME` | If present, it adds a menu named "Watch race! Live" and a page with and iframe pointing to whatever URL specified in this var. |
+| `REDIRECT_HOMEPAGE` | If present, it makes homepage requests (ie `/`) to be redirected to whatever URL specified in this var. It also removes the main "home" menu item.  |
+
+
+Please refer to the private documentation repository for further details.
 
 ## Contributing
 

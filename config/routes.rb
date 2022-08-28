@@ -10,9 +10,12 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
-  get "/watch_race", to: "static#watch_race", as: :watch_race_static
+  watch_race = Rails.application.secrets.dig(:gpc, :watch_race_iframe)
+  redirect_homepage = Rails.application.secrets.dig(:gpc, :redirect_homepage)
 
-  get "/", to: redirect(Rails.application.routes.url_helpers.watch_race_static_path) if Rails.application.secrets.dig(:gpc, :live, :watch_race).present?
+  get "/watch_race", to: "static#watch_race", as: :watch_race_static if watch_race.present?
+
+  get "/", to: redirect(redirect_homepage) if redirect_homepage.present?
 
   # ignore failure due non connections to database (can happen through precompilation process)
   # rubocop:disable Lint/SuppressedException:
