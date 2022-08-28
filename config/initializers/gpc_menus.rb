@@ -19,9 +19,17 @@ Rails.application.config.after_initialize do
   events = Rails.application.secrets.dig(:gpc, :assemblies, :leadership_events)
   process = Rails.application.secrets.dig(:gpc, :processes, :policy_process)
   space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
-  watch_race = Rails.application.secrets.dig(:gpc, :live, :watch_race)
+  watch_race = Rails.application.secrets.dig(:gpc, :watch_race_iframe)
+  redirect_homepage = Rails.application.secrets.dig(:gpc, :redirect_homepage)
+
+  if redirect_homepage.present?
+    Decidim.menu :menu do |menu|
+      menu.remove_item :root
+    end
+  end
+
   # custom processes menus
-  if race
+  if race.present?
     Decidim.menu :menu do |menu|
       menu.add_item :leadership_race,
                     I18n.t("gpc.leadership_race"),
@@ -32,7 +40,7 @@ Rails.application.config.after_initialize do
     end
   end
 
-  if events
+  if events.present?
     Decidim.menu :menu do |menu|
       menu.add_item :leadership_events,
                     I18n.t("gpc.leadership_events"),
@@ -43,7 +51,7 @@ Rails.application.config.after_initialize do
     end
   end
 
-  if process
+  if process.present?
     Decidim.menu :menu do |menu|
       menu.add_item :policy_process,
                     I18n.t("gpc.policy_process"),
@@ -54,7 +62,7 @@ Rails.application.config.after_initialize do
     end
   end
 
-  if space
+  if space.present?
     Decidim.menu :menu do |menu|
       menu.add_item :leadership,
                     I18n.t("gpc.leadership_campaigns"),
@@ -65,9 +73,8 @@ Rails.application.config.after_initialize do
     end
   end
 
-  if watch_race
+  if watch_race.present?
     Decidim.menu :menu do |menu|
-      menu.remove_item :root
       menu.add_item :watch_race,
                     (I18n.t("static.watch_race.title") + image_pack_tag("media/images/live-on-air.png")).html_safe,
                     Rails.application.routes.url_helpers.watch_race_static_path,
