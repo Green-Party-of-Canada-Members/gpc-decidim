@@ -2,6 +2,7 @@
 fr:
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
+    external_invites_disabled: Les invitations aux réunions ne peuvent être envoyées qu'aux participants déjà inscrits sur le site.
     leadership_campaigns: Campagnes de leadership
     leadership_race: Course à la chefferie
     policy_process: Processus politique
