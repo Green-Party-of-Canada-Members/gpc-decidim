@@ -9,6 +9,10 @@ fr:
     donate: Faites un don à %{name}
     campaign_space: Campagne de %{name}
     leadership_events: Événements
+    emails:
+      questionnaire_submit:
+        subject: New submit for "%{title}"
+        body: 'Nouvelle soumission pour le questionnaire "%{title}" avec le contenu suivant :'
   static:
     watch_race:
       title: Actualités!
