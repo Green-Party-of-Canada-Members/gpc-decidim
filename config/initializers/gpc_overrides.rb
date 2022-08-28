@@ -9,6 +9,9 @@ Rails.application.config.to_prepare do
   # disables inviting external users if enabled
   Decidim::Meetings::Admin::InvitesController.include(InvitesControllerOverride)
 
+  # sends notifications for answering surveys
+  Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
+
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
 end
