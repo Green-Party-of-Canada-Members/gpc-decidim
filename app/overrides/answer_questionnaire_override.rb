@@ -31,7 +31,12 @@ module AnswerQuestionnaireOverride
       return if emails.blank?
 
       answers = form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).map do |form_answer|
-        [translated_attribute(form_answer.question.body), form_answer.body]
+        body = if form_answer.choices.present?
+                 form_answer.choices.map { |c| c.custom_body.present? ? "#{c.body} (#{c.custom_body})" : c.body }.join("<br>\n")
+               else
+                 form_answer.body
+               end
+        [translated_attribute(form_answer.question.body), body]
       end.to_h
 
       emails.each do |email|
