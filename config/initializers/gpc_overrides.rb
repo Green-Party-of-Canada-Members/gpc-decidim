@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
+  # redirect registration if specified in secrets
+  Decidim::Devise::RegistrationsController.include(RegistrationsControllerOverride)
   # block registration through Omniauth signin
   Decidim::Devise::OmniauthRegistrationsController.include(OmniauthRegistrationsControllerOverride)
   # redirect users to interest after acceptin an invitation
