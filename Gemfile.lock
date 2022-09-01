@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim
-  revision: 433fb3204ef041fc6ebd5a21dd28c499039080c7
+  revision: 9fdddab5667a6c5c69b65b55bff7458d91aab791
   tag: 0.26-canada
   specs:
     decidim (0.26.2)
@@ -755,7 +755,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    ssrf_filter (1.1.0)
+    ssrf_filter (1.1.1)
     system_test_html_screenshots (0.2.0)
       actionpack (>= 5.2, < 6.1.a)
     temple (0.8.2)
