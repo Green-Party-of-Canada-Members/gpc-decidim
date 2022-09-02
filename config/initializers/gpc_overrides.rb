@@ -16,4 +16,7 @@ Rails.application.config.to_prepare do
 
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
+
+  # more highlighted elements for leadership process
+  Decidim::Proposals::HighlightedProposalsForComponentCell.include(HighlightedProposalsForComponentCellOverride)
 end
