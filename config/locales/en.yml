@@ -17,3 +17,12 @@ en:
     watch_race:
       title: Watch Race!
       description: Watch Race!
+  devise:
+    mailer:
+      invitation_instructions:
+        someone_invited_you: You are invited to join Green Party of Canada’s WeDecide. You can accept this invitation through the link below.
+        accept_until: This invitation will expire on %{due_date}. 
+        ignore: |-
+          This account comes with your Green Party of Canada membership and will allow you to participate in our online participatory democratic processes, including policy development and internal elections.<br /><br />
+          If you don't want to accept the invitation, please ignore this email.<br /><br />
+          Your account won't be created until you access the link above and set your nickname and password.

@@ -17,3 +17,12 @@ fr:
     watch_race:
       title: Actualités!
       description: Actualités!
+  devise:
+    mailer:
+      invitation_instructions:
+        someone_invited_you: Vous avez été invité à Décidons du Parti Vert du Canada. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
+        accept_until: Cette invitation expirera le %{due_date}. 
+        ignore: |-
+          Ce compte vient avec votre adhésion au Parti Vert du Canada et vous permettra de participer à nos processus de démocratie participative en ligne, y compris l'élaboration de politiques et les élections internes.<br /><br />
+          Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
+          Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
