@@ -27,3 +27,5 @@ fr:
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
           Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
         subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
+      direct_invite:
+        subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
