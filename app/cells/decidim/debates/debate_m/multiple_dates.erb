@@ -4,14 +4,14 @@
       <strong>
         <%= l start_date, format: :decidim_with_month_name %>
       </strong>
-      <%= formatted_start_time %> FIXME
+      <%= gpc_time_format(model.start_time) %>
     </div>
     <%= icon "arrow-thin-right", class: "icon--big muted", role: "img", "aria-hidden": true %>
     <div>
       <strong>
         <%= l end_date, format: :decidim_with_month_name %>
       </strong>
-      <%= formatted_end_time %> FIXME
+      <%= gpc_time_format(model.end_time) %>
     </div>
   </div>
 </li>
