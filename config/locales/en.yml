@@ -13,6 +13,15 @@ en:
       questionnaire_submit:
         subject: New submit for "%{title}"
         body: 'New submission for questionnaire "%{title}" with the following content:'
+    timezones:
+      PDT: PT
+      PST: PT
+      MDT: MT
+      MST: MT
+      CST: CT
+      CDT: CT
+      EDT: ET
+      ADT: AT
   static:
     watch_race:
       title: Watch Race!
