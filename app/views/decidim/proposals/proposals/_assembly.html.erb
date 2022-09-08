@@ -1,0 +1,6 @@
+<% link = campaign_assembly_link(translated_attribute(@proposal.title).strip) %>
+<%= link_to(
+  t("gpc.campaign_space", name: translated_attribute(@proposal.title)),
+  link,
+  class: "card__button button button--sc small warning expanded"
+) if link.present? %>

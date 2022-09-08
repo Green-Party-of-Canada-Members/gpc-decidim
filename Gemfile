@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "diff-booster" }.freeze
+DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "0.26-canada" }.freeze
 # DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
@@ -20,7 +20,8 @@ gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-te
 gem "bootsnap", "~> 1.7"
 
 gem "puma"
-gem "uglifier"
+
+gem "wicked_pdf", "~> 2.1"
 
 gem "deepl-rb", require: "deepl"
 
@@ -29,7 +30,7 @@ group :development, :test do
   gem "rubocop-faker"
 
   gem "decidim-dev", DECIDIM_VERSION
-  gem "faker", "~> 2.18"
+  gem "faker"
 end
 
 group :development do
@@ -38,18 +39,10 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen"
   gem "web-console"
-
-  gem "capistrano", "~> 3.17", require: false
-  gem "capistrano-bundler", require: false
-  gem "capistrano-passenger", require: false
-  gem "capistrano-rails", require: false
-  gem "capistrano-rails-console", require: false
-  gem "capistrano-rbenv", require: false
-  gem "capistrano-sidekiq", require: false
 end
 
 group :production do
-  gem "figaro"
+  gem "aws-sdk-s3", require: false
   gem "sidekiq"
   gem "sidekiq-cron"
 end
