@@ -1,0 +1,8 @@
+<p class="email-instructions">
+  <%= t("gpc.emails.questionnaire_submit.body", title: link_to(@title, @url)).html_safe %>
+</p>
+
+<% @answers.each do |question, answer| %>
+  <p><b><%= question %></b></p>
+  <p><%= answer.html_safe %></p>
+<% end %>

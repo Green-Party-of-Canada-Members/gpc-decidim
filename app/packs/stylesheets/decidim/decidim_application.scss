@@ -5,3 +5,34 @@
 // To override CSS variables or Foundation settings use _decidim-settings.scss
 //
 // By default this is empty.
+
+.wrapper {
+	&.watch_race {
+		padding:0;
+	}
+	.watch_race-iframe {
+		margin:0 auto;
+	 iframe {
+	 	display:block;
+	 	margin:auto
+	 }
+	}
+}
+
+#watchRaceIframe {
+	width: 1px;
+  min-width: 100%;
+  min-height: 2500px;
+}
+
+.main-nav {
+	.main-nav__link {
+		a[href="/watch_race"] {
+			padding-left: 1em;
+			img {
+				margin: 0 1em 0 0.6em;
+				height: 1em;
+			}
+		}
+	}
+}

@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim
-  revision: ab01be0405be357925c32f937a64a355ee43af4c
-  tag: diff-booster
+  revision: 9fdddab5667a6c5c69b65b55bff7458d91aab791
+  tag: 0.26-canada
   specs:
     decidim (0.26.2)
       decidim-accountability (= 0.26.2)
@@ -188,7 +188,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-calendar
-  revision: c994cf323ff5e4d68bbb6609797ba8d02e58bdcb
+  revision: 042806f037929a37cceeb2a32f362420060303c3
   tag: update-26
   specs:
     decidim-calendar (0.26.0)
@@ -258,11 +258,25 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     acts_as_list (0.9.19)
       activerecord (>= 3.0)
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
-    airbrussh (1.4.1)
-      sshkit (>= 1.6.1, != 1.7.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.626.0)
+    aws-sdk-core (3.140.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.525.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-kms (1.58.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.114.0)
+      aws-sdk-core (~> 3, >= 3.127.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.4)
+    aws-sigv4 (1.5.1)
+      aws-eventstream (~> 1, >= 1.0.2)
     axe-core-api (4.4.1)
       dumb_delegator
       virtus
@@ -290,28 +304,6 @@ GEM
     browser (2.7.1)
     builder (3.2.4)
     byebug (11.1.3)
-    capistrano (3.17.0)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (2.1.0)
-      capistrano (~> 3.1)
-    capistrano-passenger (0.2.1)
-      capistrano (~> 3.0)
-    capistrano-rails (1.6.2)
-      capistrano (~> 3.1)
-      capistrano-bundler (>= 1.1, < 3)
-    capistrano-rails-console (2.3.0)
-      capistrano (>= 3.5.0, < 4.0.0)
-      sshkit-interactive (~> 0.3.0)
-    capistrano-rbenv (2.2.0)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-    capistrano-sidekiq (2.3.0)
-      capistrano (>= 3.9.0)
-      capistrano-bundler
-      sidekiq (>= 6.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -411,7 +403,7 @@ GEM
       smart_properties
     erbse (0.1.4)
       temple
-    erubi (1.10.0)
+    erubi (1.11.0)
     et-orbi (1.2.7)
       tzinfo
     excon (0.92.4)
@@ -421,15 +413,13 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.21.0)
+    faker (2.23.0)
       i18n (>= 1.8.11, < 2)
-    faraday (2.4.0)
-      faraday-net_http (~> 2.0)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.1.0)
+    faraday-net_http (3.0.0)
     ffi (1.15.5)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     file_validators (2.3.0)
       activemodel (>= 3.2)
       mime-types (>= 1.0)
@@ -446,7 +436,7 @@ GEM
       activemodel (>= 4.1, < 7.1)
       activesupport (>= 4.1, < 7.1)
       railties (>= 4.1, < 7.1)
-    fugit (1.5.3)
+    fugit (1.6.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     geocoder (1.7.5)
@@ -479,8 +469,9 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
+    jmespath (1.6.1)
     json (2.6.2)
-    jwt (2.4.1)
+    jwt (2.5.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -528,23 +519,27 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    minitest (5.16.2)
+    minitest (5.16.3)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
     mixlib-shellout (3.2.7)
       chef-utils
-    msgpack (1.5.4)
+    msgpack (1.5.6)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     mustache (1.1.1)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (7.0.1)
     nio4r (2.5.8)
+    nokogiri (1.13.8-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
-    oauth (0.5.10)
+    oauth (1.1.0)
+      oauth-tty (~> 1.0, >= 1.0.1)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
+    oauth-tty (1.0.2)
+      version_gem (~> 1.1)
     oauth2 (1.4.10)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -579,7 +574,7 @@ GEM
       activerecord (>= 5.2)
       request_store (~> 1.1)
     parallel (1.22.1)
-    parser (3.1.2.0)
+    parser (3.1.2.1)
       ast (~> 2.4.1)
     pg (1.1.4)
     pg_search (2.3.6)
@@ -592,8 +587,8 @@ GEM
     premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (4.0.7)
-    puma (5.6.4)
+    public_suffix (5.0.0)
+    puma (5.6.5)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.6.0)
@@ -647,7 +642,7 @@ GEM
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
-    rb-fsevent (0.11.1)
+    rb-fsevent (0.11.2)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rectify (0.13.0)
@@ -657,7 +652,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.5.1)
-    redis (4.7.1)
+    redis (4.8.0)
     regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -705,7 +700,7 @@ GEM
       rubocop-ast (>= 0.5.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
-    rubocop-ast (1.19.1)
+    rubocop-ast (1.21.0)
       parser (>= 3.1.1.0)
     rubocop-faker (1.1.0)
       faker (>= 2.12.0)
@@ -732,10 +727,10 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     seven_zip_ruby (1.3.0)
-    sidekiq (6.5.1)
-      connection_pool (>= 2.2.2)
+    sidekiq (6.5.6)
+      connection_pool (>= 2.2.5)
       rack (~> 2.0)
-      redis (>= 4.2.0)
+      redis (>= 4.5.0, < 5)
     sidekiq-cron (1.7.0)
       fugit (~> 1)
       sidekiq (>= 4.2.1)
@@ -746,6 +741,9 @@ GEM
       simplecov (~> 0.8)
     simplecov-html (0.12.3)
     smart_properties (1.17.0)
+    snaky_hash (2.0.0)
+      hashie
+      version_gem (~> 1.1)
     social-share-button (1.2.4)
       coffee-rails
     spring (2.1.1)
@@ -759,12 +757,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sshkit (1.21.2)
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
-    sshkit-interactive (0.3.0)
-      sshkit (~> 1.12)
-    ssrf_filter (1.0.7)
+    ssrf_filter (1.1.1)
     system_test_html_screenshots (0.2.0)
       actionpack (>= 5.2, < 6.1.a)
     temple (0.8.2)
@@ -777,12 +770,11 @@ GEM
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.8.0)
     valid_email2 (2.3.1)
       activemodel (>= 3.2)
       mail (~> 2.5)
+    version_gem (1.1.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -803,7 +795,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.16.0)
+    webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -825,18 +817,13 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-s3
   bootsnap (~> 1.7)
   byebug
-  capistrano (~> 3.17)
-  capistrano-bundler
-  capistrano-passenger
-  capistrano-rails
-  capistrano-rails-console
-  capistrano-rbenv
-  capistrano-sidekiq
   decidim!
   decidim-calendar!
   decidim-conferences!
@@ -846,8 +833,7 @@ DEPENDENCIES
   decidim-templates!
   decidim-term_customizer!
   deepl-rb
-  faker (~> 2.18)
-  figaro
+  faker
   letter_opener_web
   listen
   puma
@@ -856,11 +842,11 @@ DEPENDENCIES
   sidekiq-cron
   spring
   spring-watcher-listen
-  uglifier
   web-console
+  wicked_pdf (~> 2.1)
 
 RUBY VERSION
    ruby 2.7.6p219
 
 BUNDLED WITH
-   2.3.13
+   2.3.20

@@ -1,0 +1,9 @@
+<% if contestants_component?(current_component) %>
+  <div style="margin: 1rem 0;">
+    <%= link_to(
+      t("gpc.donate", name: translated_attribute(@proposal.title)),
+      donate_link(translated_attribute(@proposal.title)),
+      class: "card__button button button--sc small warning"
+    ) %>
+  </div>
+<% end %>
