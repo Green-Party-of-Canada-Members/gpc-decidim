@@ -2,7 +2,11 @@
 
 module ApplicationHelper
   def gpc_time_zone(value)
-    "(#{value.zone} #{value.formatted_offset})"
+    t("gpc.timezones.#{value.zone}", default: value.zone)
+  end
+
+  def gpc_time_format(value)
+    (l value, format: "%l:%M %p").downcase
   end
 
   def leadership_assembly?(space, parents: true)
