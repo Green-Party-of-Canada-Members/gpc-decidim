@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim
-  revision: 9fdddab5667a6c5c69b65b55bff7458d91aab791
+  revision: 69ffba6c404645829e5c2317d35368628cbc735a
   tag: 0.26-canada
   specs:
     decidim (0.26.2)
@@ -388,7 +388,7 @@ GEM
       nokogiri (>= 1.13.2, < 1.14.0)
       rubyzip (~> 2.3.0)
     docile (1.4.0)
-    doorkeeper (5.5.4)
+    doorkeeper (5.6.0)
       railties (>= 5)
     doorkeeper-i18n (4.0.1)
     dumb_delegator (1.0.0)
@@ -526,7 +526,6 @@ GEM
     mixlib-shellout (3.2.7)
       chef-utils
     msgpack (1.5.6)
-    multi_json (1.15.0)
     multi_xml (0.6.0)
     mustache (1.1.1)
     nio4r (2.5.8)
@@ -538,31 +537,32 @@ GEM
       oauth-tty (~> 1.0, >= 1.0.1)
       snaky_hash (~> 2.0)
       version_gem (~> 1.1)
-    oauth-tty (1.0.2)
+    oauth-tty (1.0.3)
       version_gem (~> 1.1)
-    oauth2 (1.4.10)
+    oauth2 (2.0.8)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
-      multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+      snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
     omniauth (2.1.0)
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google-oauth2 (1.0.1)
+    omniauth-google-oauth2 (1.1.1)
       jwt (>= 2.0)
-      oauth2 (~> 1.1)
+      oauth2 (~> 2.0.6)
       omniauth (~> 2.0)
-      omniauth-oauth2 (~> 1.7.1)
+      omniauth-oauth2 (~> 1.8.0)
     omniauth-oauth (1.2.0)
       oauth
       omniauth (>= 1.0, < 3)
-    omniauth-oauth2 (1.7.3)
+    omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
-      omniauth (>= 1.9, < 3)
+      omniauth (~> 2.0)
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
@@ -669,7 +669,7 @@ GEM
       rspec-rails (< 6.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
-    rspec-expectations (3.11.0)
+    rspec-expectations (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-html-matchers (0.9.4)
