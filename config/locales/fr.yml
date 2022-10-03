@@ -28,6 +28,15 @@ fr:
       admin_login: Connexion admin
       sign_in_civicrm: S'identifier au compte PVC
     policy_process: Processus politique
+    timezones:
+      ADT: AT
+      CDT: CT
+      CST: CT
+      EDT: ET
+      MDT: MT
+      MST: MT
+      PDT: PT
+      PST: PT
   static:
     watch_race:
       description: Actualités!
