@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_30_105652) do
+ActiveRecord::Schema.define(version: 2022_09_14_143136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -410,6 +410,100 @@ ActiveRecord::Schema.define(version: 2022_08_30_105652) do
     t.datetime "updated_at", null: false
     t.index ["categorizable_type", "categorizable_id"], name: "decidim_categorizations_categorizable_id_and_type"
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
+  end
+
+  create_table "decidim_civicrm_contacts", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.bigint "decidim_user_id", null: false
+    t.integer "civicrm_contact_id", null: false
+    t.integer "civicrm_uid"
+    t.jsonb "extra", default: {}
+    t.boolean "marked_for_deletion", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "membership_types"
+    t.index ["decidim_organization_id", "civicrm_contact_id"], name: "index_unique_civicrm_contact_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_civicrm_contacts_on_decidim_organization_id"
+    t.index ["decidim_user_id"], name: "index_civicrm_contacts_on_decidim_user_id"
+  end
+
+  create_table "decidim_civicrm_event_meetings", force: :cascade do |t|
+    t.bigint "decidim_meeting_id", null: false
+    t.bigint "decidim_organization_id", null: false
+    t.integer "civicrm_registrations_count", default: 0
+    t.integer "civicrm_event_id"
+    t.jsonb "extra", default: {}
+    t.jsonb "data"
+    t.boolean "marked_for_deletion", default: false
+    t.boolean "redirect_active", default: false, null: false
+    t.string "redirect_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_meeting_id"], name: "index_civicrm_event_meetings_unique", unique: true
+    t.index ["decidim_organization_id"], name: "index_civicrm_event_meetings_organization"
+  end
+
+  create_table "decidim_civicrm_event_registrations", force: :cascade do |t|
+    t.bigint "event_meeting_id", null: false
+    t.bigint "decidim_meeting_registration_id"
+    t.integer "civicrm_event_registration_id", null: false
+    t.jsonb "extra", default: {}
+    t.jsonb "data"
+    t.boolean "marked_for_deletion", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_meeting_registration_id"], name: "index_civicrm_event_meeting_registration_unique"
+    t.index ["event_meeting_id"], name: "index_decidim_civicrm_event_registrations_on_event_id"
+  end
+
+  create_table "decidim_civicrm_group_memberships", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "contact_id"
+    t.integer "civicrm_contact_id"
+    t.boolean "marked_for_deletion", default: false
+    t.jsonb "extra", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["civicrm_contact_id", "group_id"], name: "index_unique_civicrm_membership_group_and_contact", unique: true
+    t.index ["civicrm_contact_id"], name: "index_decidim_civicrm_group_memberships_on_civicrm_contact_id"
+    t.index ["contact_id"], name: "index_decidim_civicrm_group_memberships_on_contact_id"
+    t.index ["group_id"], name: "index_decidim_civicrm_group_memberships_on_group_id"
+  end
+
+  create_table "decidim_civicrm_group_participatory_spaces", force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.string "participatory_space_type", null: false
+    t.bigint "participatory_space_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id", "participatory_space_type", "participatory_space_id"], name: "index_unique_civicrm_space_and_group", unique: true
+    t.index ["group_id"], name: "index_civicrm_group_spaces_on_group_id"
+    t.index ["participatory_space_type", "participatory_space_id"], name: "index_civicrm_group_spaces_on_space_id"
+  end
+
+  create_table "decidim_civicrm_groups", force: :cascade do |t|
+    t.bigint "decidim_organization_id", null: false
+    t.integer "civicrm_group_id", null: false
+    t.integer "civicrm_member_count", default: 0
+    t.string "title"
+    t.string "description"
+    t.jsonb "extra", default: {}
+    t.boolean "marked_for_deletion", default: false
+    t.boolean "auto_sync_members", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id", "civicrm_group_id"], name: "index_unique_civicrm_group_and_organization", unique: true
+    t.index ["decidim_organization_id"], name: "index_decidim_civicrm_groups_on_decidim_organization_id"
+  end
+
+  create_table "decidim_civicrm_membership_types", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.integer "civicrm_membership_type_id", null: false
+    t.string "name", null: false
+    t.boolean "marked_for_deletion", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_civicrm_membership_types_on_organization"
   end
 
   create_table "decidim_coauthorships", force: :cascade do |t|
@@ -1823,6 +1917,15 @@ ActiveRecord::Schema.define(version: 2022_08_30_105652) do
   add_foreign_key "decidim_budgets_orders", "decidim_budgets_budgets"
   add_foreign_key "decidim_budgets_projects", "decidim_budgets_budgets"
   add_foreign_key "decidim_categorizations", "decidim_categories"
+  add_foreign_key "decidim_civicrm_contacts", "decidim_organizations"
+  add_foreign_key "decidim_civicrm_contacts", "decidim_users"
+  add_foreign_key "decidim_civicrm_event_registrations", "decidim_civicrm_event_meetings", column: "event_meeting_id"
+  add_foreign_key "decidim_civicrm_event_registrations", "decidim_meetings_registrations", column: "decidim_meeting_registration_id"
+  add_foreign_key "decidim_civicrm_group_memberships", "decidim_civicrm_contacts", column: "contact_id"
+  add_foreign_key "decidim_civicrm_group_memberships", "decidim_civicrm_groups", column: "group_id"
+  add_foreign_key "decidim_civicrm_group_participatory_spaces", "decidim_civicrm_groups", column: "group_id"
+  add_foreign_key "decidim_civicrm_groups", "decidim_organizations"
+  add_foreign_key "decidim_civicrm_membership_types", "decidim_organizations"
   add_foreign_key "decidim_debates_debates", "decidim_scopes"
   add_foreign_key "decidim_editor_images", "decidim_organizations"
   add_foreign_key "decidim_editor_images", "decidim_users", column: "decidim_author_id"
