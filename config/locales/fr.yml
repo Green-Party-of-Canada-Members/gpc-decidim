@@ -1,31 +1,43 @@
 ---
 fr:
-  email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
-  gpc:
-    external_invites_disabled: Les invitations aux réunions ne peuvent être envoyées qu'aux participants déjà inscrits sur le site.
-    leadership_campaigns: Campagnes de leadership
-    leadership_race: Course à la chefferie
-    policy_process: Processus politique
-    donate: Faites un don à %{name}
-    campaign_space: Campagne de %{name}
-    leadership_events: Événements
-    emails:
-      questionnaire_submit:
-        subject: New submit for "%{title}"
-        body: 'Nouvelle soumission pour le questionnaire "%{title}" avec le contenu suivant :'
-  static:
-    watch_race:
-      title: Actualités!
-      description: Actualités!
   devise:
     mailer:
+      direct_invite:
+        subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
       invitation_instructions:
-        someone_invited_you: Vous avez été invité à Décidons du Parti Vert du Canada. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
-        accept_until: Cette invitation expirera le %{due_date}. 
+        accept_until: Cette invitation expirera le %{due_date}.
         ignore: |-
           Ce compte vient avec votre adhésion au Parti Vert du Canada et vous permettra de participer à nos processus de démocratie participative en ligne, y compris l'élaboration de politiques et les élections internes.<br /><br />
           Si vous ne souhaitez pas accepter l'invitation, veuillez ignorer cet e-mail.<br />
           Votre compte ne sera pas créé avant d'avoir cliqué sur le lien ci-dessus et défini votre pseudonyme et votre mot de passe.
+        someone_invited_you: Vous avez été invité à Décidons du Parti Vert du Canada. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
         subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
-      direct_invite:
-        subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
+  email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
+  gpc:
+    campaign_space: Campagne de %{name}
+    donate: Faites un don à %{name}
+    emails:
+      questionnaire_submit:
+        body: 'Nouvelle soumission pour le questionnaire "%{title}" avec le contenu suivant :'
+        subject: Nouvelle soumission pour "%{title}"
+    external_invites_disabled: Les invitations aux réunions ne peuvent être envoyées qu'aux participants déjà inscrits sur le site.
+    leadership_campaigns: Campagnes de leadership
+    leadership_events: Événements
+    leadership_race: Course à la chefferie
+    login:
+      admin_login: Connexion admin
+      sign_in_civicrm: S'identifier au compte PVC
+    policy_process: Processus politique
+    timezones:
+      ADT: AT
+      CDT: CT
+      CST: CT
+      EDT: ET
+      MDT: MT
+      MST: MT
+      PDT: PT
+      PST: PT
+  static:
+    watch_race:
+      description: Actualités!
+      title: Actualités!
