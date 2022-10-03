@@ -11,12 +11,12 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
+gem "decidim-civicrm", git: "https://github.com/openpoke/decidim-module-civicrm", branch: "docs-envs"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-decidim_awesome"
 gem "decidim-direct_verifications"
 gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", tag: "master"
-gem "decidim-civicrm", git: "https://github.com/openpoke/decidim-module-civicrm", branch: "docs-envs"
 
 gem "bootsnap", "~> 1.7"
 

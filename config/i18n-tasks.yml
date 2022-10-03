@@ -33,6 +33,9 @@ data:
   external:
     - "<%= %x[bundle info decidim-core --path].chomp %>/config/locales/%{locale}.yml"
     - "<%= %x[bundle info decidim-meetings --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info decidim-assemblies --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info decidim-participatory_processes --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info decidim-proposals --path].chomp %>/config/locales/%{locale}.yml"
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
   # router: conservative_router
 
@@ -96,13 +99,14 @@ search:
 # - '{devise,simple_form}.*'
 
 ## Consider these keys used:
-# ignore_unused:
+ignore_unused:
 # - 'activerecord.attributes.*'
 # - '{devise,kaminari,will_paginate}.*'
 # - 'simple_form.{yes,no}'
 # - 'simple_form.{placeholders,hints,labels}.*'
 # - 'simple_form.{error_notification,required}.:'
-
+  - gpc.*
+  - devise.*
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
 #   all:

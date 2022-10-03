@@ -15,6 +15,7 @@ checksums = [
       "/app/controllers/decidim/devise/invitations_controller.rb" => "faa5403c358f686a87eea2d9f4eaf1d4",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
+      "/app/views/decidim/devise/sessions/new.html.erb" => "1da8569a34bcd014ffb5323c96391837",
       # cells
       "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
       # other overrides
