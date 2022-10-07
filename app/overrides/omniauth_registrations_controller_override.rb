@@ -24,7 +24,7 @@ module OmniauthRegistrationsControllerOverride
     # Override this method to redirect to after invitation on new logins
     def after_sign_in_path_for(user)
       # for new logins redirect to preferences (or whatever is configured)
-      if user.is_a?(User) && user.sign_in_count == 1
+      if user.is_a?(Decidim::User) && user.sign_in_count == 1
         redirect = Rails.application.secrets.dig(:gpc, :redirect_after_invitation)
         return redirect if redirect.present?
       end
