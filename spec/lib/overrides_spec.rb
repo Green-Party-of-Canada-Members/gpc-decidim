@@ -11,7 +11,7 @@ checksums = [
     files: {
       # controllers
       "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
-      "/app/controllers/decidim/devise/registrations_controller.rb" => "abcc9270c6191f89d7b229e481b51e9a",
+      "/app/controllers/decidim/devise/registrations_controller.rb" => "0bd735750a5be12a2a0bf41a774248ad",
       "/app/controllers/decidim/devise/invitations_controller.rb" => "faa5403c358f686a87eea2d9f4eaf1d4",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
