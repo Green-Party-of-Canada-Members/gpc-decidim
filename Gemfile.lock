@@ -205,6 +205,16 @@ GIT
       decidim-core (~> 0.26.1)
       decidim-verifications (~> 0.26.1)
 
+GIT
+  remote: https://github.com/openpoke/decidim-module-decidim_awesome
+  revision: d7115a8c5deaa7516fd77115fcd4b66086769e3a
+  branch: main
+  specs:
+    decidim-decidim_awesome (0.8.4)
+      decidim-admin (>= 0.25.0, < 0.27)
+      decidim-core (>= 0.25.0, < 0.27)
+      sassc (~> 2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -368,10 +378,6 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-decidim_awesome (0.8.3)
-      decidim-admin (>= 0.25.0, < 0.27)
-      decidim-core (>= 0.25.0, < 0.27)
-      sassc (~> 2.3)
     decidim-direct_verifications (1.2.1)
       decidim-admin (>= 0.25.0)
       decidim-core (>= 0.25.0)
@@ -838,7 +844,7 @@ DEPENDENCIES
   decidim-calendar!
   decidim-civicrm!
   decidim-conferences!
-  decidim-decidim_awesome
+  decidim-decidim_awesome!
   decidim-dev!
   decidim-direct_verifications
   decidim-templates!
