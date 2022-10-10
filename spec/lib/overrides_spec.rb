@@ -16,6 +16,7 @@ checksums = [
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       "/app/views/decidim/devise/sessions/new.html.erb" => "1da8569a34bcd014ffb5323c96391837",
+      "/app/views/decidim/devise/shared/_omniauth_buttons_mini.html.erb" => "d3a413ce7c64959eee3b912406075f84",
       # cells
       "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
       # other overrides
