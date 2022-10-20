@@ -46,4 +46,6 @@ group :production do
   gem "aws-sdk-s3", require: false
   gem "sidekiq"
   gem "sidekiq-cron"
+  # Used to restart puma workers every 6h and free memory
+  gem "puma_worker_killer"
 end
