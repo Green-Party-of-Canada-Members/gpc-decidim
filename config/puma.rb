@@ -41,6 +41,11 @@ if ENV.fetch("RAILS_ENV") == "production"
   # process behavior so workers use less memory.
   #
   preload_app!
+  before_fork do
+    require 'puma_worker_killer'
+
+    PumaWorkerKiller.enable_rolling_restart(12 * 3600) # 12 hours in seconds
+  end
 else
   # Allow puma to be restarted by `rails restart` command.
   plugin :tmp_restart
