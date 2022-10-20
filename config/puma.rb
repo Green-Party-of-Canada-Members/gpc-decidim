@@ -42,7 +42,7 @@ if ENV.fetch("RAILS_ENV") == "production"
   #
   preload_app!
   before_fork do
-    require 'puma_worker_killer'
+    require "puma_worker_killer"
 
     PumaWorkerKiller.enable_rolling_restart(12 * 3600) # 12 hours in seconds
   end
