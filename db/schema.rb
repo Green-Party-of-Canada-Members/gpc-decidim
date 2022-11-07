@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_143136) do
+ActiveRecord::Schema.define(version: 2022_11_03_233649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -428,7 +428,7 @@ ActiveRecord::Schema.define(version: 2022_09_14_143136) do
   end
 
   create_table "decidim_civicrm_event_meetings", force: :cascade do |t|
-    t.bigint "decidim_meeting_id", null: false
+    t.bigint "decidim_meeting_id"
     t.bigint "decidim_organization_id", null: false
     t.integer "civicrm_registrations_count", default: 0
     t.integer "civicrm_event_id"
@@ -439,6 +439,7 @@ ActiveRecord::Schema.define(version: 2022_09_14_143136) do
     t.string "redirect_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["civicrm_event_id", "decidim_organization_id"], name: "index_unique_civicrm_event_organization", unique: true
     t.index ["decidim_meeting_id"], name: "index_civicrm_event_meetings_unique", unique: true
     t.index ["decidim_organization_id"], name: "index_civicrm_event_meetings_organization"
   end
