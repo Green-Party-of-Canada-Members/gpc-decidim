@@ -33,3 +33,8 @@ en:
     watch_race:
       description: Watch Race!
       title: Watch Race!
+  decidim:
+    calendar:
+      index:
+        filters:
+          civicrm: Green Party

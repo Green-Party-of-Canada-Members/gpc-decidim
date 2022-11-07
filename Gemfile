@@ -10,8 +10,8 @@ DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "0.26-canad
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
-gem "decidim-civicrm", git: "https://github.com/openpoke/decidim-module-civicrm", branch: "docs-envs"
+gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar"
+gem "decidim-civicrm", git: "https://github.com/openpoke/decidim-module-civicrm", branch: "improve_meetings"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-decidim_awesome", git: "https://github.com/openpoke/decidim-module-decidim_awesome", branch: "main"
 gem "decidim-direct_verifications"
@@ -44,7 +44,7 @@ end
 
 group :production do
   gem "aws-sdk-s3", require: false
-  gem "sidekiq"
+  gem "sidekiq", "<7"
   gem "sidekiq-cron"
   # Used to restart puma workers every 6h and free memory
   gem "puma_worker_killer"
