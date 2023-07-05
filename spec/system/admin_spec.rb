@@ -34,7 +34,7 @@ describe "Visit the signup page", type: :system, perform_enqueued: true do
   it "renders global moderations" do
     click_link "Global moderations"
     within ".layout-content" do
-      expect(page).to have_content("Moderations")
+      expect(page).to have_content("Reported content")
     end
   end
 

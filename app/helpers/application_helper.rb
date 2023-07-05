@@ -24,9 +24,10 @@ module ApplicationHelper
   end
 
   def contestants_component?(component)
-    return false if component.blank?
+    contestants = Rails.application.secrets.dig(:gpc, :components, :contestants)
+    return false if component.blank? || contestants.blank?
 
-    return true if component.id.in?(Rails.application.secrets.dig(:gpc, :components, :contestants))
+    return true if component.id.in?(contestants)
   end
 
   def donate_link(name)
