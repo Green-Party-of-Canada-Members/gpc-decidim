@@ -1,5 +1,10 @@
 ---
 fr:
+  decidim:
+    calendar:
+      index:
+        filters:
+          civicrm: Green Party
   devise:
     mailer:
       direct_invite:

@@ -1,0 +1,3 @@
+<!-- replace '.row.column.view-header' -->
+
+<%= render "decidim/proposals/proposals/proposal_title" %>

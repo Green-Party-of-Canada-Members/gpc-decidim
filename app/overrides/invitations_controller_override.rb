@@ -7,7 +7,7 @@ module InvitationsControllerOverride
   included do
     def after_accept_path_for(resource)
       redirect = Rails.application.secrets.dig(:gpc, :redirect_after_invitation)
-      redirect.presence || params[:invite_redirect] || after_sign_in_path_for(resource)
+      redirect.presence || invite_redirect_path || after_sign_in_path_for(resource)
     end
   end
 end
