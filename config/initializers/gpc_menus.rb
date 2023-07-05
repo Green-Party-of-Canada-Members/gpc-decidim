@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 # Awesome menu tweaker is not compatible with remove_item or custom "active" settings so we remove the feature
-Decidim::DecidimAwesome.configure do |config|
-  config.menu = :disabled
-end
+# Decidim::DecidimAwesome.configure do |config|
+#   config.menu = :disabled
+# end
 
 # Custom assembly menu for leaderships
-Decidim.menu :menu do |menu|
-  menu.remove_item :assemblies
-  menu.remove_item :participatory_processes
-  # menu.remove_item :calendar
-end
+# Decidim.menu :menu do |menu|
+#   menu.remove_item :assemblies
+#   menu.remove_item :participatory_processes
+#   # menu.remove_item :calendar
+# end
 
 Rails.application.config.after_initialize do
   Decidim::DecidimAwesome::Admin::MenuHacksController.include(ApplicationHelper) if defined?(Decidim::DecidimAwesome::Admin::MenuHacksController)
@@ -21,7 +21,7 @@ Rails.application.config.after_initialize do
   space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
   watch_race = Rails.application.secrets.dig(:gpc, :watch_race_iframe)
   redirect_homepage = Rails.application.secrets.dig(:gpc, :redirect_homepage)
-
+byebug
   if redirect_homepage.present?
     Decidim.menu :menu do |menu|
       menu.remove_item :root
