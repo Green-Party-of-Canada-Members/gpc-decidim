@@ -8,6 +8,7 @@ on:
 
 env:
   RUBY_VERSION: 2.7.6
+  NODE_VERSION: 16.9.1
 
 jobs:
   test-report:
@@ -47,9 +48,13 @@ jobs:
           DATABASE_USERNAME: postgres
           DATABASE_PASSWORD: postgres
 
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
       - name: Precompile assets
         run: |
-          yarn install
+          npm ci
           bundle exec rake assets:precompile
         env:
           RAILS_ENV: test
