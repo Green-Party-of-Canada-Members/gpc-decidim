@@ -11,8 +11,8 @@ checksums = [
     files: {
       # controllers
       "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
-      "/app/controllers/decidim/devise/registrations_controller.rb" => "0bd735750a5be12a2a0bf41a774248ad",
-      "/app/controllers/decidim/devise/invitations_controller.rb" => "faa5403c358f686a87eea2d9f4eaf1d4",
+      "/app/controllers/decidim/devise/registrations_controller.rb" => "a98113386111645ec6e4a9e3144aca23",
+      "/app/controllers/decidim/devise/invitations_controller.rb" => "679873eb1166db142625b9ce8283302c",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       "/app/views/decidim/devise/sessions/new.html.erb" => "1da8569a34bcd014ffb5323c96391837",
@@ -42,7 +42,13 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "f409a2c1cc8383d769cc37b329cf616c"
+      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "9b06118d61009d60fbe955e81593f74b"
+    }
+  },
+  {
+    package: "decidim-participatory_processes",
+    files: {
+      "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "747ee665f0c08484436f320865df62cc"
     }
   },
   {
