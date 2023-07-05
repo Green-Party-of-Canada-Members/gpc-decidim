@@ -32,7 +32,7 @@ These ENV vars modifies the behavior of the application in some ways:
 | `QUESTIONNAIRE_NOTIFY_EMAILS` | Fill it with different emails, separated by spaces, to send each one of them a notification each time a questionnaire is submitted |
 | `PROCESS_LEADERSHIP` | If defined, shows a menu directly to the process indicated (used when leadership race is on). Used to be `leadership` |
 | `PROCESS_POLICY` | If defined, shows a menu directly to the process indicated. Use to be `Policy2021` |
-| `ASSEMBLY_LEADERSHIP` | If defined, shows a menu directly to that assembly (used when leadership race is on). Used to be `leadership-campaigns` |
+| `ASSEMBLY_LEADERSHIP` | If defined, shows a menu directly to that assembly (used when leadership race is on). It also applies some custom design to the assembly children (each being an assembly contestant), particularly, it adds a "donate" button. Used to be `leadership-campaigns` |
 | `ASSEMBLY_LEADERSHIP_EVENTS` | If defined, redirects the specified assembly to the first published component instead of showing the main info page of the assembly. Used to be `events` |
 | `CONTESTANTS_COMPONENTS` | IDs of components (separated by spaces) that will hold contestants. This applies a special design to the proposals page, removing filters for instance. It also adds a link to "donate" money to this particular candidate. |
 

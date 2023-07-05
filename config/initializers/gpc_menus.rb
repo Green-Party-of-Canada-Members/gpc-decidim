@@ -21,7 +21,7 @@ Rails.application.config.after_initialize do
   space = Rails.application.secrets.dig(:gpc, :assemblies, :leadership)
   watch_race = Rails.application.secrets.dig(:gpc, :watch_race_iframe)
   redirect_homepage = Rails.application.secrets.dig(:gpc, :redirect_homepage)
-byebug
+
   if redirect_homepage.present?
     Decidim.menu :menu do |menu|
       menu.remove_item :root

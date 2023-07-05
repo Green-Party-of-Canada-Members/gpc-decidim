@@ -1,0 +1,3 @@
+<!-- insert_after 'erb[loud]:contains("render_proposal_body(@proposal)")' -->
+
+<%= render "decidim/proposals/proposals/donate" %>

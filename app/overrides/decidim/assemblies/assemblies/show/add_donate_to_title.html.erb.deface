@@ -1,0 +1,3 @@
+<!-- replace 'div.small-12.columns:contains("decidim/assemblies/assemblies/nav_breadcumb")' -->
+
+<%= render "decidim/assemblies/assemblies/assembly_title" %>

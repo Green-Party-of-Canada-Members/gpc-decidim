@@ -1,0 +1,3 @@
+<!-- replace 'erb[silent]:contains("if related_processes.any?")' -->
+
+<% if related_processes.any? && !leadership_race_process?(current_participatory_space) %>

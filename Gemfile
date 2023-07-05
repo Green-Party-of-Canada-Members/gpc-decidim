@@ -20,6 +20,8 @@ gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", 
 
 gem "bootsnap", "~> 1.7"
 
+gem "deface"
+
 gem "puma"
 
 gem "wicked_pdf", "~> 2.1"
