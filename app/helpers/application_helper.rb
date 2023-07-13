@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def generic_donate_url
-    @generic_donate_url ||= Rails.application.secrets.dig(:gpc, :donate_button).gsub("{{locale}}", I18n.locale.to_s)
+    @generic_donate_url ||= Rails.application.secrets.dig(:gpc, :donate_button).gsub("%{locale}", I18n.locale.to_s)
   end
 
   def campaign_assembly_link(title)
