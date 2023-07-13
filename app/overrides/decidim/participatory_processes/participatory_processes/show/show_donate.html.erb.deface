@@ -1,3 +1,4 @@
 <!-- insert_before '.card.extra.definition-data' -->
 
 <%= render "decidim/donate" %>
+<%= render "decidim/chat" %>

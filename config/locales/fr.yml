@@ -19,6 +19,7 @@ fr:
         subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
+    chat_button: Chat AG (beta)
     donate_button: Don $10
     donate_text_1: "Nous construisons un nouveau type de politique. Une politique ouverte et participative"
     donate_text_2: "Si vous croyez en ce que nous faisons, n'hésitez pas à faire un petit don pour nous aider à le construire"

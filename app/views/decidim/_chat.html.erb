@@ -1,0 +1,7 @@
+<% if generic_chat_url %>
+  <div class="card extra" style="padding: 1rem">
+    <p><%= link_to generic_chat_url, class: "button primary expanded", target: "_blank" do %>
+     <%= icon("chat") + " " + t("gpc.chat_button") %>
+    <% end %></p>
+  </div>
+<% end %>
