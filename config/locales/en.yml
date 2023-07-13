@@ -11,6 +11,7 @@ en:
         subject: Your invitation to the Green Party of Canada's Participatory Democracy Platform
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
   gpc:
+    chat_button: AGM Chat (beta)
     donate_button: Donate $10
     donate_text_1: "We're building a new kind of politics. One that is open, participatory, and people-powered"
     donate_text_2: "If you believe in what we're doing, please consider making a small donation to help us build it"
