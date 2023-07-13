@@ -1,0 +1,9 @@
+<% if Rails.application.secrets.dig(:gpc, :donate_button) %>
+  <div class="card extra" style="padding: 1rem">
+    <p><%= t("gpc.donate_text_1") %></p>
+    <p><%= link_to Rails.application.secrets.dig(:gpc, :donate_button), class: "button primary expanded" do %>
+     <%= icon("flash") + " " + t("gpc.donate_button") %>
+    <% end %></p>
+    <p><%= t("gpc.donate_text_2") %></p>
+  </div>
+<% end %>

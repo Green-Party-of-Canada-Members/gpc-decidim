@@ -24,6 +24,7 @@ These ENV vars modifies the behavior of the application in some ways:
 
 | ENV | Description |
 | --- | --- |
+| `DONATE_BUTTON` | If present, it will show a button with the text "donate" linked to this url. Currently in the process sidebar and when creating a proposal. Locale can be handled with interpolations (ie: `http://some.thing/${locale}/pay_here`) |
 | `REDIRECT_SIGN_UP` | If present and sign up is enabled, it redirects user registration to the URL specified in it. Can process some variable interpolation like `%{locale}` that would be replace by the current users' locale |
 | `REDIRECT_AFTER_INVITATION` | If present, it redirects users registered that registers using an internal invitation (not users registered without it) to the URL specified in this var. |
 | `WATCH_RACE_IFRAME` | If present, it adds a menu named "Watch race! Live" and a page with and iframe pointing to whatever URL specified in this var. |

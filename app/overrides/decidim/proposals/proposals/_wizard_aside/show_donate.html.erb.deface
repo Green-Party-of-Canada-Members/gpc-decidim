@@ -1,0 +1,3 @@
+<!-- insert_bottom '.columns.large-3' -->
+
+<%= render "decidim/donate" %>
