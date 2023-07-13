@@ -34,6 +34,10 @@ module ApplicationHelper
     "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{I18n.locale}"
   end
 
+  def generic_donate_url
+    @generic_donate_url ||= Rails.application.secrets.dig(:gpc, :donate_button).gsub("{{locale}}", I18n.locale.to_s)
+  end
+
   def campaign_assembly_link(title)
     parent = Decidim::Assembly.find_by(slug: Rails.application.secrets.dig(:gpc, :assemblies, :leadership))
     return unless parent
