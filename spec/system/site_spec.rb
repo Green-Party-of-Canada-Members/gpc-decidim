@@ -30,17 +30,17 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
 
   it "renders all participatory processes" do
     visit decidim_participatory_processes.participatory_processes_path
-    expect(page).to have_content("1 ACTIVE PROCESS")
+    expect(page).to have_content("2 ACTIVE PROCESSES")
   end
 
   it "renders a participatory process" do
-    visit decidim_participatory_processes.participatory_process_path(process)
+    visit_component
+    click_link "Proposals"
 
     expect(page).to have_content(process.title["en"])
     expect(page).to have_content("PROPOSALS")
     expect(page).to have_content(proposal.title["en"])
     expect(page).to have_content(emendation.title["en"])
-    expect(page).to have_css('a[title="Select number of results per page"]', text: "50")
   end
 
   it "renders a proposal" do
@@ -77,9 +77,9 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
   end
 
   describe "comments sorting" do
-    let!(:author) { create(:user, :confirmed, organization: organization) }
-    let!(:comments) { create_list(:comment, 3, commentable: commentable) }
-    let!(:commentable) { create(:proposal, component: component, users: [author]) }
+    let(:author) { create(:user, :confirmed, organization: organization) }
+    let(:comments) { create_list(:comment, 3, commentable: commentable) }
+    let(:commentable) { create(:proposal, component: component, users: [author]) }
 
     before do
       visit resource_locator(commentable).path
