@@ -11,7 +11,7 @@ gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
-gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm"
+gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm", branch: "release/0.26-stable"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications"
