@@ -19,6 +19,8 @@ AllCops:
     - "node_modules/**/*"
     - "db/migrate/*"
     - "db/schema.rb"
+    - "app/controllers/concerns/invites_controller_override.rb"
+    - "app/controllers/concerns/omniauth_registrations_controller_override.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -1751,4 +1753,3 @@ Faker/DeprecatedArguments:
       questions:
         - number
         - supplemental
-
