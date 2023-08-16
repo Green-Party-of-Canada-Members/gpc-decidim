@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-civicrm.git
-  revision: 64934ea88f52c5d76e4284e49d99a47b7b80a8f1
+  revision: 6126ad859f3971989001b7da07b74911ed83aa4f
   branch: release/0.26-stable
   specs:
     decidim-civicrm (0.26.8)
