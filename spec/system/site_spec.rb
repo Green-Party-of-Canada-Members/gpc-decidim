@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe "Visit the home page", versioning: true, type: :system, perform_enqueued: true do
+  include_context "with a component"
+
   let(:organization) { create :organization }
   let(:process) { create :participatory_process, show_statistics: false, organization: organization }
   let!(:component) { create(:proposal_component, participatory_space: process) }
@@ -28,11 +30,12 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
 
   it "renders all participatory processes" do
     visit decidim_participatory_processes.participatory_processes_path
-    expect(page).to have_content("1 ACTIVE PROCESS")
+    expect(page).to have_content("2 ACTIVE PROCESSES")
   end
 
   it "renders a participatory process" do
-    visit decidim_participatory_processes.participatory_process_path(process)
+    visit_component
+    click_link "Proposals"
 
     expect(page).to have_content(process.title["en"])
     expect(page).to have_content("PROPOSALS")
@@ -60,5 +63,41 @@ describe "Visit the home page", versioning: true, type: :system, perform_enqueue
 
     expect(page).to have_content(emendation.title["en"])
     expect(page).to have_content("Amendment to \"#{proposal.title["en"]}\"")
+  end
+
+  describe "default 50 per page" do
+    %w(Proposals Meetings).each do |component|
+      it "renders a list of 50 #{component}" do
+        visit_component
+        click_link component
+
+        expect(page).to have_css('a[title="Select number of results per page"]', text: "50")
+      end
+    end
+  end
+
+  describe "comments sorting" do
+    let(:author) { create(:user, :confirmed, organization: organization) }
+    let(:comments) { create_list(:comment, 3, commentable: commentable) }
+    let(:commentable) { create(:proposal, component: component, users: [author]) }
+
+    before do
+      visit resource_locator(commentable).path
+    end
+
+    it "renders a list of comments are sorted by recent" do
+      visit resource_locator(commentable).path
+
+      expect(page).to have_css("#comments-order-menu-control", text: "Recent")
+    end
+
+    it "saves the sorting to a cookie" do
+      click_link "Recent"
+      click_link "Older"
+      sleep 1
+      visit current_path
+
+      expect(page).to have_css("#comments-order-menu-control", text: "Older")
+    end
   end
 end
