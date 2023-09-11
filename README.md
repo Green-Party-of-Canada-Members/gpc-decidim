@@ -37,7 +37,8 @@ These ENV vars modifies the behavior of the application in some ways:
 | `ASSEMBLY_LEADERSHIP` | If defined, shows a menu directly to that assembly (used when leadership race is on). It also applies some custom design to the assembly children (each being an assembly contestant), particularly, it adds a "donate" button. Used to be `leadership-campaigns` |
 | `ASSEMBLY_LEADERSHIP_EVENTS` | If defined, redirects the specified assembly to the first published component instead of showing the main info page of the assembly. Used to be `events` |
 | `CONTESTANTS_COMPONENTS` | IDs of components (separated by spaces) that will hold contestants. This applies a special design to the proposals page, removing filters for instance. It also adds a link to "donate" money to this particular candidate. |
-| `TRANSLATOR_API_KEY` | If defined, automic translations are enabled. We use [DeepL API](https://www.deepl.com/pro-api) service, only api keys from there are valid |
+| `ALWAYS_SHOW_DONATE_BUTTON` | if `true`, all proposals will show a generic donate button in the sidebar |
+| `TRANSLATOR_API_KEY` | If defined, automatic translations are enabled. We use [DeepL API](https://www.deepl.com/pro-api) service, only api keys from there are valid |
 | `TRANSLATOR_HOST` | The URL for the translator API. For the free service must be `https://api-free.deepl.com`. For the "pro" service is `https://api.deepl.com` |
 
 Please refer to the private documentation repository for further details.
@@ -46,7 +47,7 @@ Please refer to the private documentation repository for further details.
 
 If you wan to contribute to this repository, please open a Pull Request and wait until the test pass.
 
-In order to configure your enviroment for development, please install [RBENV](https://github.com/rbenv/rbenv) and (optionally but recommended) [RBENV-VARS](https://github.com/rbenv/rbenv-vars) and [PostgreSQL](https://www.postgresql.org/) in your own machine.
+In order to configure your environment for development, please install [RBENV](https://github.com/rbenv/rbenv) and (optionally but recommended) [RBENV-VARS](https://github.com/rbenv/rbenv-vars) and [PostgreSQL](https://www.postgresql.org/) in your own machine.
 
 Then, make a copy of this repository, create a development instance with seeds and start your local application:
 
