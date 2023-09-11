@@ -1,3 +1,5 @@
-<!-- insert_after 'erb[loud]:contains("render_proposal_body(@proposal)")' -->
+<!-- insert_top '.columns.section.view-side.mediumlarge-4.large-3' -->
 
-<%= render "decidim/proposals/proposals/donate" %>
+<% if show_donate_on_proposal? %>
+	<%= render "decidim/donate" %>
+<% end %>

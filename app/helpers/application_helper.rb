@@ -30,6 +30,10 @@ module ApplicationHelper
     return true if component.id.in?(contestants)
   end
 
+  def show_donate_on_proposal?
+    Rails.application.secrets.dig(:gpc, :always_show_donate_button)
+  end
+
   def donate_link(name)
     "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{I18n.locale}"
   end
