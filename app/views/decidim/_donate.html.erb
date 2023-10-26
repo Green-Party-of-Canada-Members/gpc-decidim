@@ -1,0 +1,9 @@
+<% if generic_donate_url %>
+  <div class="card extra" style="padding: 1rem">
+    <p><%= t("gpc.donate_text_1") %></p>
+    <p><%= link_to generic_donate_url, class: "button primary expanded", target: "_blank" do %>
+     <%= icon("flash") + " " + t("gpc.donate_button") %>
+    <% end %></p>
+    <p><%= t("gpc.donate_text_2") %></p>
+  </div>
+<% end %>

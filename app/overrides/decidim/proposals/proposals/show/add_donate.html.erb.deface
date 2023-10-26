@@ -1,0 +1,5 @@
+<!-- insert_top '.columns.section.view-side.mediumlarge-4.large-3' -->
+
+<% if show_donate_on_proposal? %>
+	<%= render "decidim/donate" %>
+<% end %>

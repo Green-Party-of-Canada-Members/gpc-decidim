@@ -4,21 +4,23 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: "https://github.com/openpoke/decidim", tag: "0.26-canada" }.freeze
+DECIDIM_VERSION = { github: "openpoke/decidim", tag: "0.26-canada" }.freeze
 # DECIDIM_VERSION = "~> 0.26.2"
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar", tag: "update-26"
-gem "decidim-civicrm", git: "https://github.com/openpoke/decidim-module-civicrm", branch: "docs-envs"
+gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
+gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm", branch: "release/0.26-stable"
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-decidim_awesome", git: "https://github.com/openpoke/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications"
 gem "decidim-templates", DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer", tag: "master"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
 
 gem "bootsnap", "~> 1.7"
+
+gem "deface"
 
 gem "puma"
 
@@ -46,4 +48,6 @@ group :production do
   gem "aws-sdk-s3", require: false
   gem "sidekiq"
   gem "sidekiq-cron"
+  # # Used to restart puma workers every 6h and free memory
+  # gem "puma_worker_killer"
 end

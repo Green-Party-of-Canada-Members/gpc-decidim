@@ -7,12 +7,18 @@ require "rails_helper"
 # file should be updated to match any change/bug fix introduced in the core
 checksums = [
   {
+    package: "decidim-comments",
+    files: {
+      "/app/cells/decidim/comments/comments_cell.rb" => "5b1e571f3e5ffdedd9205931e6f6173c"
+    }
+  },
+  {
     package: "decidim-core",
     files: {
       # controllers
       "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
-      "/app/controllers/decidim/devise/registrations_controller.rb" => "0bd735750a5be12a2a0bf41a774248ad",
-      "/app/controllers/decidim/devise/invitations_controller.rb" => "faa5403c358f686a87eea2d9f4eaf1d4",
+      "/app/controllers/decidim/devise/registrations_controller.rb" => "a98113386111645ec6e4a9e3144aca23",
+      "/app/controllers/decidim/devise/invitations_controller.rb" => "679873eb1166db142625b9ce8283302c",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       "/app/views/decidim/devise/sessions/new.html.erb" => "1da8569a34bcd014ffb5323c96391837",
@@ -42,7 +48,13 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "f409a2c1cc8383d769cc37b329cf616c"
+      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "9b06118d61009d60fbe955e81593f74b"
+    }
+  },
+  {
+    package: "decidim-participatory_processes",
+    files: {
+      "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "747ee665f0c08484436f320865df62cc"
     }
   },
   {
@@ -57,7 +69,8 @@ checksums = [
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       "/app/views/decidim/proposals/proposals/show.html.erb" => "f27bbec257eb6da28dbdd07ac0a224a5",
       "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "de95bcb5d3eecf93244c3f566a29fc6d",
-      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "c080ee4886c7fa162dc198f43b068e33"
+      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "c080ee4886c7fa162dc198f43b068e33",
+      "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df"
     }
   }
 ]

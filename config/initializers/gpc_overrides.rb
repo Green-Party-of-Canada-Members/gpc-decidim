@@ -19,4 +19,7 @@ Rails.application.config.to_prepare do
 
   # more highlighted elements for leadership process
   Decidim::Proposals::HighlightedProposalsForComponentCell.include(HighlightedProposalsForComponentCellOverride)
+
+  # change the default sorting for comments
+  Decidim::Comments::CommentsCell.include(CommentsCellOverride)
 end

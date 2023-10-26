@@ -24,13 +24,26 @@ module ApplicationHelper
   end
 
   def contestants_component?(component)
-    return false if component.blank?
+    contestants = Rails.application.secrets.dig(:gpc, :components, :contestants)
+    return false if component.blank? || contestants.blank?
 
-    return true if component.id.in?(Rails.application.secrets.dig(:gpc, :proposals, :contestants))
+    return true if component.id.in?(contestants)
+  end
+
+  def show_donate_on_proposal?
+    Rails.application.secrets.dig(:gpc, :always_show_donate_button)
   end
 
   def donate_link(name)
     "https://www.greenparty.ca/en/donations/#{name.strip.gsub(" ", ".")}-#{I18n.locale}"
+  end
+
+  def generic_donate_url
+    @generic_donate_url ||= Rails.application.secrets.dig(:gpc, :donate_button).gsub("%{locale}", I18n.locale.to_s)
+  end
+
+  def generic_chat_url
+    @generic_chat_url ||= Rails.application.secrets.dig(:gpc, :chat_button).gsub("%{locale}", I18n.locale.to_s)
   end
 
   def campaign_assembly_link(title)
