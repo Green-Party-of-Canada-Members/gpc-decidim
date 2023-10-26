@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 05ab8848b0aad43edba8af35e3e081ac577c02e2
-  specs:
-    decidim-decidim_awesome (0.9.3)
-      decidim-admin (>= 0.26.0, < 0.28)
-      decidim-core (>= 0.26.0, < 0.28)
-      sassc (~> 2.3)
-
-GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: f0d720710822f1231ea249dd71f978143d38a6c4
   branch: release/0.26-stable
@@ -34,6 +25,17 @@ GIT
       decidim-core (>= 0.26.1, < 0.27)
       decidim-verifications (>= 0.26.1, < 0.27)
       deface (~> 1.5)
+
+GIT
+  remote: https://github.com/openpoke/decidim-module-decidim_awesome.git
+  revision: 9af4f201ed7899de5b1d1993f6e22e06c5cbc310
+  branch: graded_proposal_voting
+  specs:
+    decidim-decidim_awesome (0.9.3)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/openpoke/decidim.git
@@ -891,7 +893,7 @@ DEPENDENCIES
   wicked_pdf (~> 2.1)
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 2.7.7p221
 
 BUNDLED WITH
    2.3.20
