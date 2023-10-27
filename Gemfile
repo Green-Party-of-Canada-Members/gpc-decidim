@@ -10,7 +10,7 @@ DECIDIM_VERSION = { github: "openpoke/decidim", tag: "0.26-canada" }.freeze
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-calendar", github: "openpoke/decidim-module-calendar"
+gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", tag: "54b486c84f1c65b69b0aab66160c32bafc4fe376"
 gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm", branch: "release/0.26-stable"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-decidim_awesome", github: "openpoke/decidim-module-decidim_awesome", branch: "graded_proposal_voting"
