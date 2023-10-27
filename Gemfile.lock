@@ -29,8 +29,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-decidim_awesome.git
-  revision: e822308a6aeae4af2d6ae04b20f92df3919aa7e0
-  branch: graded_proposal_voting
+  revision: 60774948b108fe5705e2ad65caf786675d3a93c8
+  branch: frontend-vote-action
   specs:
     decidim-decidim_awesome (0.9.3)
       decidim-admin (>= 0.26.0, < 0.28)
@@ -568,8 +568,6 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.14.5-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.14.5-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -865,7 +863,6 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
