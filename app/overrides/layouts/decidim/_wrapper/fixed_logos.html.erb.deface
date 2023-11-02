@@ -1,0 +1,8 @@
+<!-- replace '.logo-wrapper' -->
+
+<div class="logo-wrapper">
+	<%= content_tag :svg, role: "img" do
+      content_tag(:title, current_organization.name) + 
+      content_tag(:use, "", "href" => asset_pack_path("media/images/greenparty-#{locale}.svg") + "#logo")
+    end %>
+</div>
