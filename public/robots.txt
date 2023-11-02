@@ -1,11 +1,4 @@
 User-agent: *
-Disallow: /processes/
-Disallow: /assemblies/
-Disallow: /conferences/
-Disallow: /consultations/
-Disallow: /calendar/
-Disallow: /meetings/
 Disallow: /admin/
 Disallow: /system/
-Disallow: /pages/
 Disallow: /search
