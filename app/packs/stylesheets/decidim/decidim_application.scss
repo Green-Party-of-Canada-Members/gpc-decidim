@@ -6,6 +6,13 @@
 //
 // By default this is empty.
 
+.logo-wrapper {
+	> svg {
+		height: 45px;
+		width: auto;
+		fill: #3d9f3b;
+	}
+}
 .wrapper {
 	&.watch_race {
 		padding:0;
