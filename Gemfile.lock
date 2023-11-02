@@ -29,8 +29,8 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim-module-decidim_awesome.git
-  revision: 1a828335dffad1fc58c8d2369fc739094cd91881
-  branch: graded_voting/modal-window
+  revision: 6d30e1641f021ecbd844abd2c811992a99fffc0d
+  branch: graded_voting/final-fixes
   specs:
     decidim-decidim_awesome (0.9.3)
       decidim-admin (>= 0.26.0, < 0.28)
