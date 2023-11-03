@@ -8,6 +8,17 @@ GIT
       decidim-core (>= 0.25.0, < 0.27)
 
 GIT
+  remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
+  revision: 43a61bd7099a04b47fdab9cffb0623c02d308ab1
+  branch: develop
+  specs:
+    decidim-decidim_awesome (0.10.0)
+      decidim-admin (>= 0.26.0, < 0.28)
+      decidim-core (>= 0.26.0, < 0.28)
+      deface (>= 1.5)
+      sassc (~> 2.3)
+
+GIT
   remote: https://github.com/mainio/decidim-module-term_customizer.git
   revision: f0d720710822f1231ea249dd71f978143d38a6c4
   branch: release/0.26-stable
@@ -26,17 +37,6 @@ GIT
       decidim-core (>= 0.26.1, < 0.27)
       decidim-verifications (>= 0.26.1, < 0.27)
       deface (~> 1.5)
-
-GIT
-  remote: https://github.com/openpoke/decidim-module-decidim_awesome.git
-  revision: 6d30e1641f021ecbd844abd2c811992a99fffc0d
-  branch: graded_voting/final-fixes
-  specs:
-    decidim-decidim_awesome (0.9.3)
-      decidim-admin (>= 0.26.0, < 0.28)
-      decidim-core (>= 0.26.0, < 0.28)
-      deface (>= 1.5)
-      sassc (~> 2.3)
 
 GIT
   remote: https://github.com/openpoke/decidim.git

@@ -52,6 +52,13 @@ checksums = [
     }
   },
   {
+    package: "decidim-conferences",
+    files: {
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "94e3fb8ee4e092678ce0f229c87e1bc0",
+      "/app/views/layouts/decidim/_conference_hero.html.erb" => "db2e565169a5ce7f8a3e7d03dd0ebfd9"
+    }
+  },
+  {
     package: "decidim-participatory_processes",
     files: {
       "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "747ee665f0c08484436f320865df62cc"

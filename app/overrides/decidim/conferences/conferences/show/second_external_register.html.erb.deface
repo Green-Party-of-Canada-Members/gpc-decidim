@@ -1,0 +1,14 @@
+<!-- replace '.columns.mediumlarge-12 > erb[silent]:contains("if current_participatory_space.registrations_enabled?")' -->
+
+<% if external_conference_registration %>
+  <hr class="reset mt-none mb-m">
+  <section class="section">
+    <h3 class="section-heading"><%= t(".register") %></h3>
+    <div class="card p-m text-center">
+      <p><%= t(".make_conference_registration") %></p>
+      <div class="medium-3" style="margin: 0 auto;">
+        <%= render "decidim/conferences/external_register_button" %>
+      </div>
+    </div>
+  </div>
+<% elsif current_participatory_space.registrations_enabled? %>
