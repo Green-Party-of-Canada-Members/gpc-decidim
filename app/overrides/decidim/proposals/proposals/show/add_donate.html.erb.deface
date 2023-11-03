@@ -1,5 +1,5 @@
 <!-- insert_before 'erb[loud]:contains("resource_reference(@proposal)")' -->
 
 <% if show_donate_on_proposal? %>
-	<%= render "decidim/donate" %>
+  <%= render "decidim/donate" %>
 <% end %>

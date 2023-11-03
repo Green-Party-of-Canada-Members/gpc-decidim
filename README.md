@@ -40,6 +40,7 @@ These ENV vars modifies the behavior of the application in some ways:
 | `ALWAYS_SHOW_DONATE_BUTTON` | if `true`, all proposals will show a generic donate button in the sidebar |
 | `TRANSLATOR_API_KEY` | If defined, automatic translations are enabled. We use [DeepL API](https://www.deepl.com/pro-api) service, only api keys from there are valid |
 | `TRANSLATOR_HOST` | The URL for the translator API. For the free service must be `https://api-free.deepl.com`. For the "pro" service is `https://api.deepl.com` |
+| `CONFERENCE_{CONF_SLUG}_REGISTRATION` | If defined, it will replace the link to register into a conference by the one provided in this env var. Note that `{CONF_SLUG}` corresponds to the "slug" of the conference replacing any `-` hyphen with an `_` underscore. For instance a conference with the slug `gpc-2023` will expect an env var called `CONFERENCE_GPC_2023_REGISTRATION` |
 
 Please refer to the private documentation repository for further details.
 

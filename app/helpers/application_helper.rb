@@ -55,4 +55,12 @@ module ApplicationHelper
 
     decidim_assemblies.assembly_path(assembly.slug)
   end
+
+  def external_conference_registration
+    @external_conference_registration ||= begin
+      path = ENV.fetch("CONFERENCE_#{current_participatory_space.slug.parameterize.gsub(/[^a-z0-9]/, "_").upcase}_REGISTRATION", nil).presence
+
+      path.gsub("%{locale}", I18n.locale.to_s) if path
+    end
+  end
 end
