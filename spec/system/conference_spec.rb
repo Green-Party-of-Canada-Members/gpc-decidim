@@ -9,6 +9,7 @@ describe "Visit a conference", type: :system do
   let(:slug) { "my-conference" }
   let(:conference_env) { "CONFERENCE_#{slug.gsub("-", "_").upcase}_REGISTRATION" }
   let(:external_path) { "https://example.org" }
+  let(:compare_path) { external_path }
 
   before do
     allow(ENV).to receive(:fetch).and_call_original
@@ -19,7 +20,7 @@ describe "Visit a conference", type: :system do
 
   shared_examples "external links" do
     it "has a link to external site" do
-      expect(page).to have_link("Register", href: external_path, count: 3)
+      expect(page).to have_link("Register", href: compare_path, count: 3)
       expect(page).not_to have_link("Register", href: decidim_conferences.conference_registration_types_path(conference))
     end
   end
@@ -27,7 +28,7 @@ describe "Visit a conference", type: :system do
   shared_examples "internal links" do
     it "has the internal link" do
       expect(page).to have_link("Register", href: decidim_conferences.conference_registration_types_path(conference), count: 2)
-      expect(page).not_to have_link("Register", href: external_path)
+      expect(page).not_to have_link("Register", href: compare_path)
     end
   end
 
@@ -38,6 +39,13 @@ describe "Visit a conference", type: :system do
   end
 
   it_behaves_like "external links"
+
+  context "when language interpolation" do
+    let(:external_path) { "https://example.org/%{locale}" }
+    let(:compare_path) { "https://example.org/#{I18n.locale}" }
+
+    it_behaves_like "external links"
+  end
 
   context "when registrations not enabled" do
     let(:registrations_enabled) { false }
