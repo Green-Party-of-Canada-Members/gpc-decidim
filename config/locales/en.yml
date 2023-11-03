@@ -12,7 +12,7 @@ en:
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
   gpc:
     campaign_space: "%{name} Campaign"
-    chat_button: AGM Chat (beta)
+    chat_button: GREEN CHAT (beta)
     donate: Donate to %{name}
     donate_button: Donate $10
     donate_text_1: We're building a new kind of politics. One that is open, participatory, and people-powered
