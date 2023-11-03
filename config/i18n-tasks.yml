@@ -36,6 +36,7 @@ data:
     - "<%= %x[bundle info decidim-assemblies --path].chomp %>/config/locales/%{locale}.yml"
     - "<%= %x[bundle info decidim-participatory_processes --path].chomp %>/config/locales/%{locale}.yml"
     - "<%= %x[bundle info decidim-proposals --path].chomp %>/config/locales/%{locale}.yml"
+    - "<%= %x[bundle info decidim-conferences --path].chomp %>/config/locales/%{locale}.yml"
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
   # router: conservative_router
 
@@ -72,6 +73,7 @@ search:
     - app/assets/images
     - app/assets/fonts
     - app/assets/videos
+    - app/overrides
 
   ## Alternatively, the only files or `File.fnmatch patterns` to search in `paths`:
   ## If specified, this settings takes priority over `exclude`, but `exclude` still applies.
