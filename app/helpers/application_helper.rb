@@ -39,11 +39,17 @@ module ApplicationHelper
   end
 
   def generic_donate_url
-    @generic_donate_url ||= Rails.application.secrets.dig(:gpc, :donate_button).gsub("%{locale}", I18n.locale.to_s)
+    @generic_donate_url ||= begin
+      path = Rails.application.secrets.dig(:gpc, :donate_button).presence
+      path ? path.gsub("%{locale}", I18n.locale.to_s) : nil
+    end
   end
 
   def generic_chat_url
-    @generic_chat_url ||= Rails.application.secrets.dig(:gpc, :chat_button).gsub("%{locale}", I18n.locale.to_s)
+    @generic_chat_url ||= begin
+      path = Rails.application.secrets.dig(:gpc, :chat_button).presence
+      path ? path.gsub("%{locale}", I18n.locale.to_s) : nil
+    end
   end
 
   def campaign_assembly_link(title)
@@ -54,5 +60,12 @@ module ApplicationHelper
     return unless assembly
 
     decidim_assemblies.assembly_path(assembly.slug)
+  end
+
+  def external_conference_registration
+    @external_conference_registration ||= begin
+      path = ENV.fetch("CONFERENCE_#{current_participatory_space.slug.parameterize.gsub(/[^a-z0-9]/, "_").upcase}_REGISTRATION", nil).presence
+      path ? path.gsub("%{locale}", I18n.locale.to_s) : nil
+    end
   end
 end

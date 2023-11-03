@@ -34,7 +34,8 @@ services:
       - DECIDIM_FORCE_SSL=false
       - QUEUE_ADAPTER=sidekiq
       - REDIS_URL=redis://redis:6379/1
-      - SIDEKIQ_WORKER=true
+      - RUN_RAILS=false
+      - RUN_SIDEKIQ=true
     depends_on:
       - redis
     command: /app/init.sh

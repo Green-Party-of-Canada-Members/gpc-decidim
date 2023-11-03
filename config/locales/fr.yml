@@ -20,7 +20,7 @@ fr:
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
     campaign_space: Campagne de %{name}
-    chat_button: Chat AG (beta)
+    chat_button: CHAT VERT (beta)
     donate: Faites un don à %{name}
     donate_button: Don $10
     donate_text_1: Nous construisons un nouveau type de politique. Une politique ouverte et participative

@@ -10,13 +10,40 @@ This is the open-source repository for https://gpcmembers.com based on [Decidim]
 
 ## Deploying the app
 
-Deployed with [Capistrano](http://capistranorb.com/) using [Figaro](https://github.com/laserlemon/figaro) for `ENV` configuration.
-
-In your machine, execute:
+This is a [Ruby on Rails](https://rubyonrails.org/) application packaged with Docker. It can be deployed into a Docker (or a Docker Swarm) environment with the usual commands:
 
 ```bash
-cap production deploy
+docker-compose up -d
 ```
+
+To update between commit, you can force the build:
+
+```bash
+docker-compose up -d --build
+```
+
+To enter the container and run commands, you can use (you need to have the container running):
+
+```bash
+docker-compose exec app bash
+```
+
+Once inside, you can run Rails/rake command as usual:
+
+```bash
+bin/rails db:migrate:status
+```
+
+Or enter the Rails console:
+
+```bash
+bin/rails c
+```
+
+Note that some ENV vars are dedicated to the Docker environment. Please check the [entrypoint.sh](entrypoint.sh) for details.
+Mainly, you can specify if you want to run the Sidekiq worker or the Rails server with the `RUN_SIDEKIQ` ENV var. If not specified, defaults to false. Also the env `RUN_RAILS` is available to run the Rails server (defaults to true).
+
+Finally, note that every time the container is started migrations are run. If you want to avoid this, you can use the `SKIP_MIGRATIONS` ENV var.
 
 ### ENV vars
 
@@ -40,6 +67,7 @@ These ENV vars modifies the behavior of the application in some ways:
 | `ALWAYS_SHOW_DONATE_BUTTON` | if `true`, all proposals will show a generic donate button in the sidebar |
 | `TRANSLATOR_API_KEY` | If defined, automatic translations are enabled. We use [DeepL API](https://www.deepl.com/pro-api) service, only api keys from there are valid |
 | `TRANSLATOR_HOST` | The URL for the translator API. For the free service must be `https://api-free.deepl.com`. For the "pro" service is `https://api.deepl.com` |
+| `CONFERENCE_{CONF_SLUG}_REGISTRATION` | If defined, it will replace the link to register into a conference by the one provided in this env var. Note that `{CONF_SLUG}` corresponds to the "slug" of the conference replacing any `-` hyphen with an `_` underscore. For instance a conference with the slug `gpc-2023` will expect an env var called `CONFERENCE_GPC_2023_REGISTRATION`. Also, language interpolation is available by substituing any string `%{locale}` by the current locale. |
 
 Please refer to the private documentation repository for further details.
 
