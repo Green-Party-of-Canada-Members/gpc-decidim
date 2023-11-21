@@ -9,9 +9,9 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: af40e0ce83f8db0a2a373b19ace3146dfd489465
+  revision: 720e68b1812490b65292c8fc203f35372a7aed2c
   specs:
-    decidim-decidim_awesome (0.10.1)
+    decidim-decidim_awesome (0.10.2)
       decidim-admin (>= 0.26.0, < 0.28)
       decidim-core (>= 0.26.0, < 0.28)
       deface (>= 1.5)
@@ -283,8 +283,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.848.0)
-    aws-sdk-core (3.186.0)
+    aws-partitions (1.854.0)
+    aws-sdk-core (3.187.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.651.0)
       aws-sigv4 (~> 1.5)
@@ -292,7 +292,7 @@ GEM
     aws-sdk-kms (1.72.0)
       aws-sdk-core (~> 3, >= 3.184.0)
       aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.136.0)
+    aws-sdk-s3 (1.137.0)
       aws-sdk-core (~> 3, >= 3.181.0)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.6)
@@ -311,7 +311,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     base64 (0.2.0)
     batch-loader (1.5.0)
-    bcrypt (3.1.19)
+    bcrypt (3.1.20)
     better_html (1.0.16)
       actionview (>= 4.0)
       activesupport (>= 4.0)
@@ -557,7 +557,7 @@ GEM
     msgpack (1.7.2)
     multi_xml (0.6.0)
     mustache (1.1.1)
-    net-imap (0.4.4)
+    net-imap (0.4.5)
       date
       net-protocol
     net-pop (0.1.2)
@@ -566,7 +566,7 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.6.1)
     nokogiri (1.14.5-x86_64-linux)
       racc (~> 1.4)
     oauth (1.1.0)
@@ -626,7 +626,7 @@ GEM
       actionmailer (>= 3)
       net-smtp
       premailer (~> 1.7, >= 1.7.9)
-    public_suffix (5.0.3)
+    public_suffix (5.0.4)
     puma (5.6.7)
       nio4r (~> 2.0)
     raabro (1.4.0)
@@ -790,7 +790,7 @@ GEM
       version_gem (~> 1.1, >= 1.1.1)
     social-share-button (1.2.4)
       coffee-rails
-    spring (4.1.1)
+    spring (4.1.2)
     spring-watcher-listen (2.1.0)
       listen (>= 2.7, < 4.0)
       spring (>= 4)
