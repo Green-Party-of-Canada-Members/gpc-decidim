@@ -884,8 +884,8 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  x86_64-linux
   x86_64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3

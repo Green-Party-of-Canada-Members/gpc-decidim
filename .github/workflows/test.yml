@@ -54,11 +54,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Precompile assets
-        run: |
-          npm ci
-          bundle exec rake assets:precompile
-        env:
-          RAILS_ENV: test
+        run: RAILS_ENV=test bundle exec rails assets:precompile
 
       - name: Run RSpec
         run: SIMPLECOV=1 CODECOV=1 bundle exec rspec

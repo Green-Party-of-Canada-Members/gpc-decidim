@@ -9,6 +9,7 @@ on:
 
 env:
   RUBY_VERSION: 3.0.6
+  NODE_VERSION: 16.9.1
 
 jobs:
   lint-report:
@@ -25,3 +26,6 @@ jobs:
 
       - run: bundle exec rubocop -P
         name: Lint Ruby files
+
+      - run: bundle exec erblint app/**/*.erb
+        name: Lint ERB files
