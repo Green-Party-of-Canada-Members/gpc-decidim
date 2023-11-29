@@ -4,19 +4,19 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { github: "openpoke/decidim", tag: "0.26-canada" }.freeze
-# DECIDIM_VERSION = "~> 0.26.2"
+DECIDIM_VERSION = { github: "openpoke/decidim", branch: "0.27-canada" }.freeze
+# DECIDIM_VERSION = "~> 0.27.4"
 
 gem "decidim", DECIDIM_VERSION
 # gem "decidim-consultations", DECIDIM_VERSION
 # gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", tag: "54b486c84f1c65b69b0aab66160c32bafc4fe376"
-gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm", branch: "release/0.26-stable"
+gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar"
+gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm"
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome"
 gem "decidim-direct_verifications"
 gem "decidim-templates", DECIDIM_VERSION
-gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.26-stable"
+gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer"
 
 gem "bootsnap", "~> 1.7"
 
