@@ -5,7 +5,8 @@
         "forceAllTransforms": true,
         "useBuiltIns": "entry",
         "corejs": 3,
-        "modules": false
+        "modules": false,
+        "loose": true
       }
     ],
     ["@babel/preset-react"]
@@ -24,6 +25,16 @@
       "@babel/plugin-transform-regenerator",
       {
         "async": false
+      }
+    ],
+    [
+      "@babel/plugin-transform-private-property-in-object", {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-transform-private-methods", {
+        "loose": true
       }
     ]
   ]
