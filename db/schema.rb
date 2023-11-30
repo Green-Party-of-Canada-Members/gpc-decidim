@@ -334,6 +334,15 @@ ActiveRecord::Schema.define(version: 2023_11_29_095546) do
     t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
   end
 
+  create_table "decidim_awesome_proposal_extra_fields", force: :cascade do |t|
+    t.bigint "decidim_proposal_id", null: false
+    t.jsonb "vote_weight_totals"
+    t.integer "weight_total", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_proposal_id"], name: "decidim_awesome_extra_fields_on_proposal"
+  end
+
   create_table "decidim_awesome_vote_weights", force: :cascade do |t|
     t.bigint "proposal_vote_id", null: false
     t.integer "weight", default: 1, null: false
