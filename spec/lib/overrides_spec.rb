@@ -17,8 +17,8 @@ checksums = [
     files: {
       # controllers
       "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
-      "/app/controllers/decidim/devise/registrations_controller.rb" => "26c4957beb2af6316cec92d92693bf4a",
-      "/app/controllers/decidim/devise/invitations_controller.rb" => "990e7d658abe88e5eb9d57244f4adb21",
+      "/app/controllers/decidim/devise/registrations_controller.rb" => "f519953daa03df46b98d34b3311a17d0",
+      "/app/controllers/decidim/devise/invitations_controller.rb" => "32ef1da80ec9dd20b884e5829c3307e6",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
       "/app/views/decidim/devise/sessions/new.html.erb" => "9d090fc9e565ded80a9330d4e36e495c",
@@ -48,20 +48,20 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "9407793621346b1b58f9b3385490e4a9"
+      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "eeabef769e29b59de98af16d3549dcab"
     }
   },
   {
     package: "decidim-conferences",
     files: {
-      "/app/views/decidim/conferences/conferences/show.html.erb" => "2a39789fdca15b55f9a8eee8d6af9184",
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "94e3fb8ee4e092678ce0f229c87e1bc0",
       "/app/views/layouts/decidim/_conference_hero.html.erb" => "db2e565169a5ce7f8a3e7d03dd0ebfd9"
     }
   },
   {
     package: "decidim-participatory_processes",
     files: {
-      "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "6905bb3badfefd1fdaddbfa053af3749"
+      "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "747ee665f0c08484436f320865df62cc"
     }
   },
   {
@@ -76,7 +76,7 @@ checksums = [
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       "/app/views/decidim/proposals/proposals/show.html.erb" => "f27bbec257eb6da28dbdd07ac0a224a5",
       "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
-      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "102e287e47ea5635b041012c95ec2cf4",
+      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
       "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df"
     }
   }
