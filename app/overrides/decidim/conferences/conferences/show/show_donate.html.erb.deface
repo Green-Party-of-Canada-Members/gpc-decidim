@@ -4,7 +4,7 @@
   <div class="row">
     <div class="column medium-9">
       <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
     </div>
     <div class="column medium-3">
       <%= render "decidim/donate" %>
@@ -13,6 +13,6 @@
   </div>
 <% else %>
   <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
-  <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+  <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
 <% end %>
 app/overrides/decidim/conferences/conferences/show/show_donate.html.erb.deface
