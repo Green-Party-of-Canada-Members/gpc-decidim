@@ -98,9 +98,12 @@ RSpec.configure do |config|
   config.before do
     I18n.available_locales = [:en, :es, :ca]
     I18n.default_locale = :en
-    I18n.locale = :en
     Decidim.available_locales = [:en, :es, :ca]
     Decidim.default_locale = :en
     Capybara.server = :puma
+  end
+
+  config.around do |example|
+    I18n.with_locale(:en) { example.run }
   end
 end

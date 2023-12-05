@@ -9,7 +9,7 @@ checksums = [
   {
     package: "decidim-comments",
     files: {
-      "/app/cells/decidim/comments/comments_cell.rb" => "5b1e571f3e5ffdedd9205931e6f6173c"
+      "/app/cells/decidim/comments/comments_cell.rb" => "2189e89b4ca78b7e4300b1097d2296e5"
     }
   },
   {
@@ -17,11 +17,11 @@ checksums = [
     files: {
       # controllers
       "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
-      "/app/controllers/decidim/devise/registrations_controller.rb" => "a98113386111645ec6e4a9e3144aca23",
-      "/app/controllers/decidim/devise/invitations_controller.rb" => "679873eb1166db142625b9ce8283302c",
+      "/app/controllers/decidim/devise/registrations_controller.rb" => "f519953daa03df46b98d34b3311a17d0",
+      "/app/controllers/decidim/devise/invitations_controller.rb" => "32ef1da80ec9dd20b884e5829c3307e6",
       # layouts
       "/app/views/layouts/decidim/_head_extra.html.erb" => "1b8237357754cf519f4e418135f78440",
-      "/app/views/decidim/devise/sessions/new.html.erb" => "1da8569a34bcd014ffb5323c96391837",
+      "/app/views/decidim/devise/sessions/new.html.erb" => "9d090fc9e565ded80a9330d4e36e495c",
       "/app/views/decidim/devise/shared/_omniauth_buttons_mini.html.erb" => "d3a413ce7c64959eee3b912406075f84",
       # cells
       "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
@@ -48,7 +48,7 @@ checksums = [
   {
     package: "decidim-assemblies",
     files: {
-      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "9b06118d61009d60fbe955e81593f74b"
+      "/app/views/decidim/assemblies/assemblies/show.html.erb" => "eeabef769e29b59de98af16d3549dcab"
     }
   },
   {
@@ -67,7 +67,7 @@ checksums = [
   {
     package: "decidim-forms",
     files: {
-      "/app/commands/decidim/forms/answer_questionnaire.rb" => "e935b815a42f7f57815a4c70e098580f"
+      "/app/commands/decidim/forms/answer_questionnaire.rb" => "c53587b220467c2d6889f657ac2404a0"
     }
   },
   {
@@ -75,8 +75,8 @@ checksums = [
     files: {
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       "/app/views/decidim/proposals/proposals/show.html.erb" => "f27bbec257eb6da28dbdd07ac0a224a5",
-      "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "de95bcb5d3eecf93244c3f566a29fc6d",
-      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "c080ee4886c7fa162dc198f43b068e33",
+      "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
+      "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
       "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df"
     }
   }
