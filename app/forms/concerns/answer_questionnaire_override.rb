@@ -30,14 +30,14 @@ module AnswerQuestionnaireOverride
       emails = Rails.application.secrets.dig(:gpc, :questionnaire_notify_emails)
       return if emails.blank?
 
-      answers = form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).map do |form_answer|
+      answers = form.responses_by_step.flatten.select(&:display_conditions_fulfilled?).to_h do |form_answer|
         body = if form_answer.choices.present?
                  form_answer.choices.map { |c| c.custom_body.present? ? "#{c.body} (#{c.custom_body})" : c.body }.join("<br>\n")
                else
                  form_answer.body
                end
         [translated_attribute(form_answer.question.body), body]
-      end.to_h
+      end
 
       emails.each do |email|
         QuestionnaireSubmitMailer.notify(@current_user, email, questionnaire, answers).deliver_later

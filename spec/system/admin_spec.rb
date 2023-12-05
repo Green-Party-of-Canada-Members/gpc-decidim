@@ -13,7 +13,7 @@ describe "Visit the signup page", type: :system, perform_enqueued: true do
   end
 
   it "renders the dashboard page" do
-    expect(page).to have_content("Welcome to the Decidim Admin Panel")
+    expect(page).to have_content("Welcome to the Admin Panel")
   end
 
   it "renders the processes page" do
