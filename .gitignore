@@ -48,3 +48,4 @@ config/deploy*
 /public/packs-test
 /public/decidim-packs
 /public/decidim-packs-test
+/public/sw.js*
