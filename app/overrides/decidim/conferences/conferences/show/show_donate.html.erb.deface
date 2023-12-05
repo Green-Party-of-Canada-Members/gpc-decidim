@@ -15,4 +15,3 @@
   <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
   <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
 <% end %>
-app/overrides/decidim/conferences/conferences/show/show_donate.html.erb.deface
