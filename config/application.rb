@@ -12,16 +12,10 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Decidim
-  def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}") && "Decidim::#{mod.to_s.camelize}".safe_constantize
-  end
-end
-
 module DecidimApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 6.1
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
