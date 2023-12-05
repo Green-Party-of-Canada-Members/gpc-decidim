@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/Platoniq/decidim-verifications-direct_verifications.git
+  revision: a1581ece91df31b1abfc3b375de71d1125b1eaa8
+  specs:
+    decidim-direct_verifications (1.3.0)
+      decidim-admin (>= 0.27.0, < 0.28)
+      decidim-core (>= 0.27.0, < 0.28)
+
+GIT
   remote: https://github.com/decidim-ice/decidim-module-calendar.git
   revision: 29e90cc9db5a28f24e5ea978d705679a8af6a81f
   specs:
@@ -382,9 +390,6 @@ GEM
     db-query-matchers (0.10.0)
       activesupport (>= 4.0, < 7)
       rspec (~> 3.0)
-    decidim-direct_verifications (1.2.1)
-      decidim-admin (>= 0.25.0)
-      decidim-core (>= 0.25.0)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
@@ -897,7 +902,7 @@ DEPENDENCIES
   decidim-conferences!
   decidim-decidim_awesome!
   decidim-dev!
-  decidim-direct_verifications
+  decidim-direct_verifications!
   decidim-templates!
   decidim-term_customizer!
   deepl-rb
@@ -918,4 +923,4 @@ RUBY VERSION
    ruby 3.0.6p216
 
 BUNDLED WITH
-   2.4.20
+   2.4.21
