@@ -351,15 +351,6 @@ ActiveRecord::Schema.define(version: 2023_12_01_123203) do
     t.index ["proposal_vote_id"], name: "decidim_awesome_proposals_weights_vote"
   end
 
-  create_table "decidim_awesome_weight_caches", force: :cascade do |t|
-    t.bigint "decidim_proposal_id", null: false
-    t.jsonb "totals"
-    t.integer "weight_total", default: 0
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_proposal_id"], name: "decidim_awesome_proposals_weights_cache"
-  end
-
   create_table "decidim_blogs_posts", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "body"
