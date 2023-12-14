@@ -51,6 +51,7 @@ COPY ./db /app/db
 COPY ./lib /app/lib
 COPY ./packages /app/packages
 COPY ./public/*.* /app/public/
+COPY ./public/.well-known /app/public/.well-known
 COPY ./config.ru /app/config.ru
 COPY ./Rakefile /app/Rakefile
 COPY ./babel.config.json /app/babel.config.json
