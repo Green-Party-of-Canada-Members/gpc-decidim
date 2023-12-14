@@ -1,0 +1,33 @@
+{
+  "name": "WeDecide: The Green Party of Canada's Participatory Democracy Engine",
+  "short_name": "WeDecide",
+  "lang": "<%= organization_params.default_locale %>",
+  "description": "<%= organization_params.translated_description %>",
+  "display": "<%= organization_params.pwa_display %>",
+  "orientation" : "any",
+  "enableNotifications" : "true",
+  "id": "<%= root_url(host: current_organization.host) %>",
+  "start_url": "<%= organization_params.start_url %>",
+  "background_color" : "#3d9b35",
+  "theme_color" : "#3d9b35",
+  "scope": "/",
+  "dir": "ltr",
+  "description": "WeDecide is the engine used by members of the Green Party of Canada to decide the future of the Green Party of Canada. It can be used by Party members to collaborate on the Party's policy and participate in internal elections.\n\nCette application peut également être utilisée en français.",
+  "icons": [
+    {
+      "src": "/WeDecideLogo-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/WeDecideLogo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/WeDecideLogo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
