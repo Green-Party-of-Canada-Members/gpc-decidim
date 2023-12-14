@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "ca.green.wedecide.twa",
+    "sha256_cert_fingerprints": ["64:79:2E:FB:06:22:0A:F1:2D:94:02:CE:F3:D6:B3:A1:0E:28:59:1C:1C:08:E5:1E:89:6E:80:AD:D8:5E:AE:3B"]
+  }
+}]
