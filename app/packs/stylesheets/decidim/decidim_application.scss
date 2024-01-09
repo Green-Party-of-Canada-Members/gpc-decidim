@@ -43,3 +43,11 @@
 		}
 	}
 }
+
+@media screen and (max-width: 576px) {
+	.conference-speaker {
+		div.speaker-bio.js-bio {
+			top: 60px !important;
+		}
+	}
+}
