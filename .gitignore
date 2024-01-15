@@ -36,6 +36,8 @@ config/application.yml
 
 # Ignore public uploads
 public/uploads/*
+public/sw.js
+public/sw.js.map
 
 # ignore capistrano files
 Capfile
