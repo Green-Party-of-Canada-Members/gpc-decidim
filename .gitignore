@@ -51,3 +51,5 @@ config/deploy*
 /public/decidim-packs
 /public/decidim-packs-test
 /public/sw.js*
+
+coverage/*
