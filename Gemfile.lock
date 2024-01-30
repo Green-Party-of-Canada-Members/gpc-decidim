@@ -16,7 +16,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 720e68b1812490b65292c8fc203f35372a7aed2c
+  revision: b9f0fb40ab054b30a596c9bec73cb5509d039d01
+  branch: limit-amendments
   specs:
     decidim-decidim_awesome (0.10.2)
       decidim-admin (>= 0.26.0, < 0.28)
@@ -923,4 +924,4 @@ RUBY VERSION
    ruby 3.0.6p216
 
 BUNDLED WITH
-   2.4.21
+   2.4.22
