@@ -5,12 +5,16 @@ module AmendableRejectOverride
   extend ActiveSupport::Concern
 
   included do
+    alias_method :original_notify_emendation_authors_and_followers, :notify_emendation_authors_and_followers
+
     private
 
     def notify_emendation_authors_and_followers
+      return original_notify_emendation_authors_and_followers unless @amendable.component.settings.limit_pending_amendments
+
       # do not send the standard notification to the amnendable followers
       affected_users = @emendation.authors + @amendable.notifiable_identities
-      followers = @emendation.followers - affected_users
+      followers = @emendation.followers + affected_users
 
       Decidim::EventsManager.publish(
         event: "decidim.events.amendments.amendment_rejected",

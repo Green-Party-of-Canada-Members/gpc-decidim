@@ -6,3 +6,13 @@ import "iframe-resizer"
 require.context("../../images", true)
 
 iFrameResize({ log: true }, '.auto-height-iframe')
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".js-limit-amendment-follow-proposal").addEventListener("click", (evt) => {
+  	evt.preventDefault();
+  	const button = document.querySelector('.view-side form[action="/follow"] button')
+		if(button.querySelector('.text-wrap').innerText.indexOf("Follow") == 0) {
+			button.click();
+		}
+	});
+});

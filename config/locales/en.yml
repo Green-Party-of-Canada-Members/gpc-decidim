@@ -25,6 +25,9 @@ en:
         subject: Your invitation to the Green Party of Canada's Participatory Democracy Platform
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
   gpc:
+    amendments:
+      limit_modal:
+        extra_html: You can also be notified when the current amendment is accepted or rejected by <a href="#" class="js-limit-amendment-follow-proposal">following this proposal</a> (you will receive a notification/email when the amendment is accepted or rejected depending on your notification preferences).
     campaign_space: "%{name} Campaign"
     chat_button: GREEN CHAT (beta)
     donate: Donate to %{name}
