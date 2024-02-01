@@ -5,9 +5,13 @@ module AmendableAcceptOverride
   extend ActiveSupport::Concern
 
   included do
+    alias_method :original_notify_amendable_and_emendation_authors_and_followers, :notify_amendable_and_emendation_authors_and_followers
+
     private
 
     def notify_amendable_and_emendation_authors_and_followers
+      return original_notify_amendable_and_emendation_authors_and_followers unless @amendable.component.settings.limit_pending_amendments
+
       affected_users = emendation.authors + @amendable.notifiable_identities
       followers = emendation.followers + affected_users
       # do not send the standard notification to the amnendable followers

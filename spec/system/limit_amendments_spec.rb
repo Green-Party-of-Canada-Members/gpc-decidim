@@ -18,11 +18,12 @@ describe "Custom proposals fields", type: :system, versioning: true do
   let(:settings) { { amendments_enabled: amendments_enabled, limit_pending_amendments: limit_pending_amendments } }
   let(:creator) { create(:user, :confirmed, organization: organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:amender) { create(:user, :confirmed, organization: organization) }
   let(:follower) { create(:user, :confirmed, organization: organization) }
   let!(:follow) { create :follow, user: follower, followable: proposal }
 
   let!(:proposal) { create :proposal, users: [creator], component: component }
-  let!(:emendation) { create(:proposal, title: { en: "An emendation for the proposal" }, component: component) }
+  let!(:emendation) { create(:proposal, users: [amender], title: { en: "An emendation for the proposal" }, component: component) }
   let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation, state: amendment_state) }
 
   let(:amendment_state) { "evaluating" }
@@ -55,7 +56,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       within ".limit_amendments_modal" do
         expect(page).to have_link(href: amendment_path)
         expect(page).to have_content("Currently, there's another amendment being evaluated for this proposal.")
-        # TODO: check text with "follow" to be notified is present
+        expect(page).to have_content("You can also be notified when the current amendment is accepted or rejected")
       end
     end
   end
@@ -70,13 +71,79 @@ describe "Custom proposals fields", type: :system, versioning: true do
         click_button "Accept amendment"
       end
 
-      # TODO: check authors have received emails as creators
-      # todo: check followers have received emails as followers (if not already creators)
+      emails.each do |email|
+        expect(email.subject).to have_content("Accepted amendment for")
+        case email.to.first
+        when follower.email
+          expect(email.text_part.to_s).to have_content("If you are planning to make an amendment yourself")
+        else
+          expect(email.text_part.to_s).not_to have_content("If you are planning to make an amendment yourself")
+        end
+      end
       expect(page).to have_content("The amendment has been accepted successfully")
     end
 
     it "can be rejected" do
-      # todo
+      click_link "An emendation for the proposal"
+      perform_enqueued_jobs do
+        click_link "Reject"
+      end
+
+      emails.each do |email|
+        expect(email.subject).to have_content("Amendment rejected for")
+        case email.to.first
+        when follower.email
+          expect(email.text_part.to_s).to have_content("planning to make an amendment yourself")
+        else
+          expect(email.text_part.to_s).not_to have_content("planning to make an amendment yourself")
+        end
+      end
+      expect(page).to have_content("The amendment has been successfully rejected")
+    end
+  end
+
+  context "when amendments are not limited" do
+    let(:limit_pending_amendments) { false }
+
+    it "can create a new one" do
+      expect(page).to have_content(proposal.title["en"])
+      expect(page).to have_content(emendation.title["en"])
+      click_link "Amend"
+
+      expect(page).not_to have_content("Currently, there's another amendment being evaluated for this proposal.")
+      expect(page).not_to have_content(proposal.title["en"])
+      expect(page).to have_content("CREATE AMENDMENT DRAFT")
+    end
+
+    context "when the author is logged" do
+      let(:logged_user) { creator }
+
+      it "can be accepted" do
+        click_link "An emendation for the proposal"
+        click_link "Accept"
+        perform_enqueued_jobs do
+          click_button "Accept amendment"
+        end
+
+        emails.each do |email|
+          expect(email.subject).to have_content("Accepted amendment for")
+          expect(email.text_part.to_s).not_to have_content("If you are planning to make an amendment yourself")
+        end
+        expect(page).to have_content("The amendment has been accepted successfully")
+      end
+
+      it "can be rejected" do
+        click_link "An emendation for the proposal"
+        perform_enqueued_jobs do
+          click_link "Reject"
+        end
+
+        emails.each do |email|
+          expect(email.subject).to have_content("Amendment rejected for")
+          expect(email.text_part.to_s).not_to have_content("planning to make an amendment yourself")
+        end
+        expect(page).to have_content("The amendment has been successfully rejected")
+      end
     end
   end
 end
