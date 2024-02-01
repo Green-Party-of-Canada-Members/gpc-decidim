@@ -11,6 +11,9 @@ Rails.application.config.to_prepare do
   # disables inviting external users if enabled
   Decidim::Meetings::Admin::InvitesController.include(InvitesControllerOverride)
 
+  # ensures same language is enforce on amendments to proposals
+  Decidim::AmendmentsController.include(AmendmentsEnforceLocale)
+
   # sends notifications for answering surveys
   Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
 

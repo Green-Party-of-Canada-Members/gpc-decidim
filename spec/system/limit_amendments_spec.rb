@@ -31,12 +31,13 @@ describe "Custom proposals fields", type: :system, versioning: true do
   let(:amendments_enabled) { true }
   let(:amendment_creation_enabled) { true }
   let(:logged_user) { user }
+  let(:enforce_locale) { true }
 
   before do
+    allow(Rails.application.secrets).to receive(:enforce_original_amendments_locale).and_return(enforce_locale)
     switch_to_host(organization.host)
     login_as logged_user, scope: :user
     visit_component
-    click_link proposal.title["en"]
   end
 
   def visit_component
@@ -49,6 +50,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
 
   context "when there's pending amendments" do
     it "cannot create a new one" do
+      click_link proposal.title["en"]
       expect(page).to have_content(proposal.title["en"])
       expect(page).to have_content(emendation.title["en"])
       click_link "Amend"
@@ -65,6 +67,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
     let(:logged_user) { creator }
 
     it "can be accepted" do
+      click_link proposal.title["en"]
       click_link "An emendation for the proposal"
       click_link "Accept"
       perform_enqueued_jobs do
@@ -84,6 +87,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
     end
 
     it "can be rejected" do
+      click_link proposal.title["en"]
       click_link "An emendation for the proposal"
       perform_enqueued_jobs do
         click_link "Reject"
@@ -105,7 +109,32 @@ describe "Custom proposals fields", type: :system, versioning: true do
   context "when amendments are not limited" do
     let(:limit_pending_amendments) { false }
 
+    context "when proposal original locale is not the users locale" do
+      let(:proposal) { create :proposal, users: [creator], component: component, title: { fr: "Proposal in french" } }
+
+      it "Enforces the original locale" do
+        click_link proposal.title["fr"]
+        click_link "Amend"
+
+        expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
+        expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+      end
+
+      context "and not enforced" do
+        let(:enforce_locale) { false }
+
+        it "does not enforce the original locale" do
+          click_link proposal.title["fr"]
+          click_link "Amend"
+
+          expect(page).to have_content("CREATE AMENDMENT DRAFT")
+          expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
+        end
+      end
+    end
+
     it "can create a new one" do
+      click_link proposal.title["en"]
       expect(page).to have_content(proposal.title["en"])
       expect(page).to have_content(emendation.title["en"])
       click_link "Amend"
@@ -119,6 +148,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       let(:logged_user) { creator }
 
       it "can be accepted" do
+        click_link proposal.title["en"]
         click_link "An emendation for the proposal"
         click_link "Accept"
         perform_enqueued_jobs do
@@ -133,6 +163,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       end
 
       it "can be rejected" do
+        click_link proposal.title["en"]
         click_link "An emendation for the proposal"
         perform_enqueued_jobs do
           click_link "Reject"
