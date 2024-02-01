@@ -5,6 +5,20 @@ fr:
       index:
         filters:
           civicrm: Green Party
+    events:
+      ready_to_amend:
+        amendment_accepted:
+          follower:
+            email_intro: 'Une modification a été acceptée pour %{amendable_title}. Si vous envisagez de faire une modification vous-même, vous pouvez le faire maintenant depuis cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_rejected:
+          follower:
+            email_intro: 'Une modification a été rejetée pour %{amendable_title}. Si vous envisagez de faire une modification vous-même, vous pouvez le faire maintenant depuis cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
   devise:
     mailer:
       direct_invite:
