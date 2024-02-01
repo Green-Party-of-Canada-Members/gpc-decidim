@@ -22,4 +22,7 @@ Rails.application.config.to_prepare do
 
   # change the default sorting for comments
   Decidim::Comments::CommentsCell.include(CommentsCellOverride)
+
+  Decidim::Amendable::Accept.include(AmendableAcceptOverride)
+  Decidim::Amendable::Reject.include(AmendableRejectOverride)
 end

@@ -5,6 +5,20 @@ en:
       index:
         filters:
           civicrm: Green Party
+    events:
+      ready_to_amend:
+        amendment_accepted:
+          follower:
+            email_intro: 'An amendment has been accepted for %{amendable_title}. If you are planning to make an amendment yourself you can do it now in from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_rejected:
+          follower:
+            email_intro: 'An amendment has been rejected for %{amendable_title}. If you are planning to make an amendment yourself you can do it now in from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
   devise:
     mailer:
       direct_invite:
