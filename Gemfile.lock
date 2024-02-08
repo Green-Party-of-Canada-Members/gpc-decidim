@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: a1d53f705987dd035dec5cfef9ebf35c2319963c
+  revision: a4d5ab306ee305d7ee109fb9371be2597e67d6be
   branch: limit-amendments
   specs:
     decidim-decidim_awesome (0.10.2)
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: 724e785cc62ce9e2a6c72ec37f07e114ba015c04
+  revision: 501a1f905e0e8c7fa5de0ae7c7ab763b3bdac4f3
   branch: 0.27-canada
   specs:
     decidim (0.27.5)
@@ -294,8 +294,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     aws-eventstream (1.3.0)
-    aws-partitions (1.887.0)
-    aws-sdk-core (3.191.0)
+    aws-partitions (1.888.0)
+    aws-sdk-core (3.191.1)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.651.0)
       aws-sigv4 (~> 1.8)
@@ -573,7 +573,7 @@ GEM
     mime-types-data (3.2024.0206)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    minitest (5.22.1)
+    minitest (5.22.2)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.27)
       tomlrb
