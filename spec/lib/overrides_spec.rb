@@ -26,7 +26,9 @@ checksums = [
       # cells
       "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
       # other overrides
-      "/app/helpers/decidim/card_helper.rb" => "b9e7f943ae7c289b2855d328de7b371b"
+      "/app/helpers/decidim/card_helper.rb" => "b9e7f943ae7c289b2855d328de7b371b",
+      "/app/commands/decidim/amendable/accept.rb" => "c561b69a7bd5b68dfc4684c11001cb2c",
+      "/app/commands/decidim/amendable/reject.rb" => "efd7062b0942b0ec80e336345ffca62f"
 
     }
   },
@@ -35,7 +37,7 @@ checksums = [
     files: {
       "/app/controllers/decidim/meetings/admin/invites_controller.rb" => "2cf91718146e0223d7b7794f44d5d8c6",
       "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-      "/app/views/decidim/meetings/meetings/show.html.erb" => "d0f2ec43188acab470151f40294bdbc8"
+      "/app/views/decidim/meetings/meetings/show.html.erb" => "69914b0ea3e30b47506bb254269fbd3d"
     }
   },
   {

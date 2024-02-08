@@ -63,6 +63,7 @@ These ENV vars modifies the behavior of the application in some ways:
 | `PROCESS_POLICY` | If defined, shows a menu directly to the process indicated. Use to be `Policy2021` |
 | `ASSEMBLY_LEADERSHIP` | If defined, shows a menu directly to that assembly (used when leadership race is on). It also applies some custom design to the assembly children (each being an assembly contestant), particularly, it adds a "donate" button. Used to be `leadership-campaigns` |
 | `ASSEMBLY_LEADERSHIP_EVENTS` | If defined, redirects the specified assembly to the first published component instead of showing the main info page of the assembly. Used to be `events` |
+| `ENFORCE_ORIGINAL_AMENDMENTS_LOCALE` | If defined, when creating an amendment it will enforce users to do it in the same language as the original proposal |
 | `CONTESTANTS_COMPONENTS` | IDs of components (separated by spaces) that will hold contestants. This applies a special design to the proposals page, removing filters for instance. It also adds a link to "donate" money to this particular candidate. |
 | `ALWAYS_SHOW_DONATE_BUTTON` | if `true`, all proposals will show a generic donate button in the sidebar |
 | `TRANSLATOR_API_KEY` | If defined, automatic translations are enabled. We use [DeepL API](https://www.deepl.com/pro-api) service, only api keys from there are valid |

@@ -10,6 +10,7 @@ RUN NODE_MAJOR=16 && \
     apt-get update && apt-get install -y nodejs yarn \
     build-essential \
     postgresql-client \
+    p7zip-full \
     libpq-dev && \
     apt-get clean
 
@@ -37,6 +38,9 @@ RUN gem install bundler:$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1 | xa
     find /usr/local/bundle/ -name ".github" -exec rm -rf {} + && \
     # whkhtmltopdf has binaries for all platforms, we don't need them once uncompressed
     rm -rf /usr/local/bundle/gems/wkhtmltopdf-binary-*/bin/*.gz && \
+    # fix possible 7zip problems by manually adding the 7z.so libray
+    # ln -s /usr/lib/p7zip/7z.so /usr/local/bundle/gems/seven_zip_ruby-1.3.0/lib/seven_zip_ruby/7z.so && \
+    rm -f /usr/local/bundle/gems/seven_zip_ruby-1.3.0/lib/seven_zip_ruby/*.dll && \
     # Remove additional unneded decidim files
     find /usr/local/bundle/ -name "decidim_app-design" -exec rm -rf {} + && \
     find /usr/local/bundle/ -name "spec" -exec rm -rf {} +
