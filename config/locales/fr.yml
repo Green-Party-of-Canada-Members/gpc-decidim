@@ -5,6 +5,20 @@ fr:
       index:
         filters:
           civicrm: Green Party
+    events:
+      ready_to_amend:
+        amendment_accepted:
+          follower:
+            email_intro: 'Une modification a été acceptée pour %{amendable_title}. Si vous envisagez de faire une modification vous-même, vous pouvez le faire maintenant depuis cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Un amendement accepté pour %{amendable_title} du %{emendation_author_nickname}
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été accepté pour <a href="%{amendable_path}">%{amendable_title}</a>.
+        amendment_rejected:
+          follower:
+            email_intro: 'Une modification a été rejetée pour %{amendable_title}. Si vous envisagez de faire une modification vous-même, vous pouvez le faire maintenant depuis cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+            email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
+            notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
   devise:
     mailer:
       direct_invite:
@@ -19,6 +33,10 @@ fr:
         subject: Votre invitation à la plateforme de démocratie participative du Parti Vert du Canada
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
+    amendments:
+      enforced_locale: Cette proposition a été initialement créée dans %{locale}. Vous ne pouvez soumettre des amendements que dans la même langue.
+      limit_modal:
+        extra_html: Vous pouvez également être informé de l'acceptation ou du rejet de l'amendement en cours en suivant cette proposition (vous recevrez une notification/un courriel lorsque l'amendement sera accepté ou rejeté, en fonction de vos préférences de notification).
     campaign_space: Campagne de %{name}
     chat_button: CHAT VERT (beta)
     donate: Faites un don à %{name}

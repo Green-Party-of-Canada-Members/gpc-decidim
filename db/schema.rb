@@ -351,6 +351,15 @@ ActiveRecord::Schema.define(version: 2023_12_01_123203) do
     t.index ["proposal_vote_id"], name: "decidim_awesome_proposals_weights_vote"
   end
 
+  create_table "decidim_awesome_weight_caches", force: :cascade do |t|
+    t.bigint "decidim_proposal_id", null: false
+    t.jsonb "totals"
+    t.integer "weight_total", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["decidim_proposal_id"], name: "decidim_awesome_proposals_weights_cache"
+  end
+
   create_table "decidim_blogs_posts", id: :serial, force: :cascade do |t|
     t.jsonb "title"
     t.jsonb "body"
@@ -814,6 +823,56 @@ ActiveRecord::Schema.define(version: 2023_12_01_123203) do
     t.index ["decidim_scope_id"], name: "index_decidim_debates_debates_on_decidim_scope_id"
     t.index ["decidim_user_group_id"], name: "index_decidim_debates_debates_on_decidim_user_group_id"
     t.index ["endorsements_count"], name: "idx_decidim_debates_debates_on_endorsemnts_count"
+  end
+
+  create_table "decidim_dummy_resources_coauthorable_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.string "title"
+    t.string "body"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "published_at"
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "endorsements_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.bigint "decidim_component_id"
+    t.bigint "decidim_category_id"
+    t.bigint "decidim_scope_id"
+    t.string "reference"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "decidim_dummy_resources_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.jsonb "title"
+    t.string "body"
+    t.text "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "published_at"
+    t.integer "coauthorships_count", default: 0, null: false
+    t.integer "endorsements_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.integer "follows_count", default: 0, null: false
+    t.bigint "decidim_component_id"
+    t.integer "decidim_author_id"
+    t.string "decidim_author_type"
+    t.integer "decidim_user_group_id"
+    t.bigint "decidim_category_id"
+    t.bigint "decidim_scope_id"
+    t.string "reference"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "decidim_dummy_resources_nested_dummy_resources", force: :cascade do |t|
+    t.jsonb "translatable_text"
+    t.string "title"
+    t.bigint "dummy_resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "decidim_editor_images", force: :cascade do |t|

@@ -1,0 +1,4 @@
+<!-- insert_before 'div.text-center' -->
+
+<div class="instructions"><%= t("gpc.amendments.limit_modal.extra_html") %></div>
+<br>
