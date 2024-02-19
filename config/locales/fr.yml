@@ -34,7 +34,7 @@ fr:
   email_not_registered: Désolé, l'email %{email} n'est pas enregistré. Seuls les utilisateurs existants sont autorisés à se connecter.
   gpc:
     amendments:
-      enforced_locale: Cette proposition a été initialement créée dans %{locale}. Vous ne pouvez soumettre des amendements que dans la même langue.
+      enforced_locale: Cette proposition a été initialement créée dans %{lang}. Vous ne pouvez soumettre des amendements que dans la même langue.
       limit_modal:
         extra_html: Vous pouvez également être informé de l'acceptation ou du rejet de l'amendement en cours en suivant cette proposition (vous recevrez une notification/un courriel lorsque l'amendement sera accepté ou rejeté, en fonction de vos préférences de notification).
     campaign_space: Campagne de %{name}

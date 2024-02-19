@@ -14,10 +14,9 @@ module AmendmentsEnforceLocale
       return unless Rails.application.secrets.enforce_original_amendments_locale
 
       amendable_locale = amendable.title.keys.first
-      return if locale.to_s == amendable_locale
+      return if current_locale.to_s == amendable_locale
 
-      # flash[:alert] = t("pending_limit_reached", scope: "decidim.decidim_awesome.amendments", emendation: translated_attribute(emendation.title))
-      flash[:alert] = t("gpc.amendments.enforced_locale", locale: amendable_locale)
+      flash[:alert] = I18n.t("gpc.amendments.enforced_locale", lang: I18n.t("locale.name", locale: amendable_locale))
       redirect_to new_amend_path(amendable_gid: amendable_gid, locale: amendable.title.keys.first)
     end
   end
