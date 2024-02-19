@@ -131,6 +131,18 @@ describe "Custom proposals fields", type: :system, versioning: true do
           expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
         end
       end
+
+      context "and user has as preference the translated locale" do
+        let(:logged_user) { create(:user, :confirmed, organization: organization, locale: "fr") }
+
+        it "Enforces the original locale" do
+          click_link proposal.title["fr"]
+          click_link "Amend"
+
+          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
+          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+        end
+      end
     end
 
     it "can create a new one" do
