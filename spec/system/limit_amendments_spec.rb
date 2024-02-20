@@ -32,9 +32,15 @@ describe "Custom proposals fields", type: :system, versioning: true do
   let(:amendment_creation_enabled) { true }
   let(:logged_user) { user }
   let(:enforce_locale) { true }
+  let(:gpc_conf) do
+    {
+      enforce_original_amendments_locale: enforce_locale
+    }
+  end
 
   before do
-    allow(Rails.application.secrets).to receive(:enforce_original_amendments_locale).and_return(enforce_locale)
+    allow(Rails.application.secrets).to receive(:gpc).and_return(gpc_conf)
+    allow(Decidim).to receive(:machine_translation_service_klass).and_return(nil)
     switch_to_host(organization.host)
     login_as logged_user, scope: :user
     visit_component
@@ -110,12 +116,14 @@ describe "Custom proposals fields", type: :system, versioning: true do
     let(:limit_pending_amendments) { false }
 
     context "when proposal original locale is not the organization locale" do
+      before do
+        click_link "Proposal in french language"
+        click_link "Amend"
+      end
+
       let(:proposal) { create :proposal, users: [creator], component: component, title: { fr: "Proposition en langue française", machine_translations: { en: "Proposal in french language" } } }
 
       it "Enforces the original locale" do
-        click_link proposal.title["fr"]
-        click_link "Amend"
-
         expect(page).to have_content("This proposal was originally created in Français")
         expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
         expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
@@ -127,14 +135,11 @@ describe "Custom proposals fields", type: :system, versioning: true do
         let(:enforce_locale) { false }
 
         it "does not enforce the original locale" do
-          click_link proposal.title["fr"]
-          click_link "Amend"
-
           expect(page).not_to have_content("This proposal was originally created in Français")
           expect(page).to have_content("CREATE AMENDMENT DRAFT")
           expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
-          expect(page).to have_field(with: "Proposition en langue française")
-          expect(page).not_to have_field(with: "Proposal in french language")
+          expect(page).not_to have_field(with: "Proposition en langue française")
+          expect(page).to have_field(with: "Proposal in french language")
         end
       end
 
@@ -142,9 +147,6 @@ describe "Custom proposals fields", type: :system, versioning: true do
         let(:user) { create(:user, :confirmed, organization: organization, locale: "en") }
 
         it "Enforces the original locale" do
-          click_link proposal.title["fr"]
-          click_link "Amend"
-
           expect(page).to have_content("This proposal was originally created in Français")
           expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
           expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
@@ -158,14 +160,16 @@ describe "Custom proposals fields", type: :system, versioning: true do
       let(:creator) { create(:user, :confirmed, organization: organization, locale: "fr") }
       let(:proposal) { create :proposal, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
 
-      it "Enforces the original locale" do
+      before do
         within_language_menu do
           click_link "Français"
         end
 
         click_link "Proposition en langue anglaise"
         click_link "Modifier Proposition"
+      end
 
+      it "Enforces the original locale" do
         expect(page).to have_content("Cette proposition a été initialement créée dans English")
         expect(page).to have_content("CREATE AMENDMENT DRAFT")
         expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
@@ -173,18 +177,22 @@ describe "Custom proposals fields", type: :system, versioning: true do
         expect(page).not_to have_field(with: "Proposition en langue anglaise")
       end
 
+      context "and not enforced" do
+        let(:enforce_locale) { false }
+
+        it "does not enforce the original locale" do
+          expect(page).not_to have_content("Cette proposition a été initialement créée dans English")
+          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
+          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).not_to have_field(with: "Proposal in english language")
+          expect(page).to have_field(with: "Proposition en langue anglaise")
+        end
+      end
+
       context "and user has as preference the translated locale" do
         let(:user) { create(:user, :confirmed, organization: organization, locale: "fr") }
 
-
         it "Enforces the original locale" do
-          within_language_menu do
-            click_link "Français"
-          end
-
-          click_link "Proposition en langue anglaise"
-          click_link "Modifier Proposition"
-
           expect(page).to have_content("Cette proposition a été initialement créée dans English")
           expect(page).to have_content("CREATE AMENDMENT DRAFT")
           expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
