@@ -11,7 +11,7 @@ module AmendmentsEnforceLocale
     def enforce_locale
       return unless amendable.component.settings.try(:amendments_enabled)
       return unless amendable.component.current_settings.try(:amendment_creation_enabled)
-      return unless Rails.application.secrets.enforce_original_amendments_locale
+      return unless Rails.application.secrets.gpc[:enforce_original_amendments_locale]
 
       amendable_locale = amendable.title.keys.first
       return if current_locale.to_s == amendable_locale

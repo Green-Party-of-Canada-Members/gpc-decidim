@@ -16,7 +16,7 @@ checksums = [
     package: "decidim-core",
     files: {
       # controllers
-      "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "05bc35af4b5f855736f14efbd22e439b",
+      "/app/controllers/decidim/devise/omniauth_registrations_controller.rb" => "d2470bf88b509572affa7f225f6ee424",
       "/app/controllers/decidim/devise/registrations_controller.rb" => "f519953daa03df46b98d34b3311a17d0",
       "/app/controllers/decidim/devise/invitations_controller.rb" => "32ef1da80ec9dd20b884e5829c3307e6",
       # layouts
