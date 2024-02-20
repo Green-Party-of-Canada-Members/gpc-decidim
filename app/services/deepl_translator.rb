@@ -12,7 +12,7 @@ class DeeplTranslator
   end
 
   def translate
-    translation = DeepL.translate text, source_locale, target_locale
+    translation = DeepL.translate text, source_locale, target_locale, tag_handling: tag_handling
 
     Decidim::MachineTranslationSaveJob.perform_later(
       resource,
@@ -20,5 +20,13 @@ class DeeplTranslator
       target_locale,
       translation.text
     )
+  end
+
+  def tag_handling
+    "html" if organization&.rich_text_editor_in_public_views
+  end
+
+  def organization
+    resource.try(:organization) || resource.try(:participatory_space).try(:organization) || resource.try(:component).try(:organization)
   end
 end
