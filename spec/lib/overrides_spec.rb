@@ -77,11 +77,13 @@ checksums = [
   {
     package: "decidim-proposals",
     files: {
+      "/app/controllers/decidim/proposals/proposals_controller.rb" => "b263741e3335110fa0e37c488c777190",
       "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       "/app/views/decidim/proposals/proposals/show.html.erb" => "f27bbec257eb6da28dbdd07ac0a224a5",
       "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
       "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
-      "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df"
+      "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df",
+      "/app/views/decidim/proposals/proposals/_filters.html.erb" => "ab4fe3f5b9237d786595374fbb6b729c"
     }
   }
 ]

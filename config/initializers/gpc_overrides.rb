@@ -11,6 +11,8 @@ Rails.application.config.to_prepare do
   # disables inviting external users if enabled
   Decidim::Meetings::Admin::InvitesController.include(InvitesControllerOverride)
 
+  # makes "type" proposals in the filter the default
+  Decidim::Proposals::ProposalsController.include(ProposalsControllerOverride)
   # ensures same language is enforce on amendments to proposals
   Decidim::AmendmentsController.include(AmendmentsEnforceLocale)
 
