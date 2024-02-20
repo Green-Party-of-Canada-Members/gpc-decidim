@@ -25,6 +25,8 @@ checksums = [
       "/app/views/decidim/devise/shared/_omniauth_buttons_mini.html.erb" => "d3a413ce7c64959eee3b912406075f84",
       # cells
       "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
+      "/app/cells/decidim/diff/attribute.erb" => "d648bc8e71e27c404d82132d6e3c3241",
+      "/app/cells/decidim/diff/diff_mode_dropdown.erb" => "770563c121c875159a88cd5e142658e3",
       # other overrides
       "/app/helpers/decidim/card_helper.rb" => "b9e7f943ae7c289b2855d328de7b371b",
       "/app/commands/decidim/amendable/accept.rb" => "c561b69a7bd5b68dfc4684c11001cb2c",
