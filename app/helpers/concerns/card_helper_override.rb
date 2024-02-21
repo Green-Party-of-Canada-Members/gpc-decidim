@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# A command with all the business logic to create a user from omniauth
 module CardHelperOverride
   extend ActiveSupport::Concern
   include ApplicationHelper
