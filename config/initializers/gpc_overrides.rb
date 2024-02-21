@@ -19,6 +19,8 @@ Rails.application.config.to_prepare do
   # sends notifications for answering surveys
   Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
 
+  # sets the number of items in a submenu from configuration
+  Decidim::LayoutHelper.include(LayoutHelperOverride)
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
 

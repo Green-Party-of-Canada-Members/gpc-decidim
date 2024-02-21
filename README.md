@@ -51,6 +51,7 @@ These ENV vars modifies the behavior of the application in some ways:
 
 | ENV | Description |
 | --- | --- |
+| `SUBMENU_MAX_ITEMS` | Number of items before the button "more" appears in a submenu of a participatory space (defaults to `6`) |
 | `DONATE_BUTTON` | If present, it will show a button with the text "donate" linked to this url. Currently in the process sidebar and when creating a proposal. Locale can be handled with interpolations (ie: `http://some.thing/%{locale}/pay_here`) |
 | `CHAT_BUTTON` | If present, it will show a button with the text "AGM Chat (beta)" linked to this url. Currently in the process sidebar. Locale can be handled with interpolations (ie: `http://some.thing/%{locale}/chat_here`) |
 | `REDIRECT_SIGN_UP` | If present and sign up is enabled, it redirects user registration to the URL specified in it. Can process some variable interpolation like `%{locale}` that would be replace by the current users' locale |
