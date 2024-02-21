@@ -5,7 +5,7 @@ module AmendmentsEnforceLocale
 
   included do
     # rubocop:disable Rails/LexicallyScopedActionFilter
-    around_action :enforce_amendment_locale, except: [:reject, :promote, :review, :accept, :withdraw]
+    around_action :enforce_amendment_locale, except: [:reject, :accept, :withdraw]
     # rubocop:enable Rails/LexicallyScopedActionFilter
 
     def enforce_amendment_locale(&action)
