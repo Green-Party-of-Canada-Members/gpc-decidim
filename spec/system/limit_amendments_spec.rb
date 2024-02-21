@@ -175,6 +175,9 @@ describe "Custom proposals fields", type: :system, versioning: true do
         expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
         expect(page).to have_field(with: "Proposal in english language")
         expect(page).not_to have_field(with: "Proposition en langue anglaise")
+        fill_in "Title", with: "New Proposal in english language"
+        click_button "Create"
+        expect(page).to have_content("No similar emendations found")
       end
 
       context "and not enforced" do
