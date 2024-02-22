@@ -13,7 +13,7 @@ module AmendmentsEnforceLocale
          amendable.component.current_settings.try(:amendment_creation_enabled) &&
          !amendable&.official? &&
          Rails.application.secrets.gpc[:enforce_original_amendments_locale]
-        amendable_locale = amendable.title.keys.first
+        amendable_locale = (amendable.title.keys - ["machine_translations"]).first
 
         flash[:alert] = I18n.t("gpc.amendments.enforced_locale", lang: I18n.t("locale.name", locale: amendable_locale)) if current_locale.to_s != amendable_locale
 
