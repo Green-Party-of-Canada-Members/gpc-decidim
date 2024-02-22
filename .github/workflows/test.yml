@@ -40,7 +40,6 @@ jobs:
         with:
           chromedriver-version: 119.0.6045.105
 
-
       - name: List Chrome
         run: apt list --installed | grep chrome
 
