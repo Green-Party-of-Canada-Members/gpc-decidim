@@ -159,6 +159,8 @@ describe "Custom proposals fields", type: :system, versioning: true do
     context "when proposal original locale is the organization locale" do
       let(:creator) { create(:user, :confirmed, organization: organization, locale: "fr") }
       let(:proposal) { create :proposal, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+      let(:amendment) { nil }
+      let(:emendation) { nil }
 
       before do
         within_language_menu do
@@ -177,7 +179,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
         expect(page).not_to have_field(with: "Proposition en langue anglaise")
         fill_in "Title", with: "New Proposal in english language"
         click_button "Create"
-        expect(page).to have_content("Amendment draft has been created successfully.")
+        expect(page).to have_content("EDIT AMENDMENT DRAFT")
       end
 
       context "and is an official proposal" do
