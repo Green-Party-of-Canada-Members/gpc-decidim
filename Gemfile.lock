@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: f67c330b03d78932b4137b3ef38fa8f1bd9d1c2f
+  revision: c5287ba32ff16e41e2b86676426ffbb13091abd5
   branch: 0.27-canada
   specs:
     decidim (0.27.5)
