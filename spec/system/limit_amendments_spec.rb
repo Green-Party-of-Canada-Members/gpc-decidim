@@ -177,7 +177,22 @@ describe "Custom proposals fields", type: :system, versioning: true do
         expect(page).not_to have_field(with: "Proposition en langue anglaise")
         fill_in "Title", with: "New Proposal in english language"
         click_button "Create"
-        expect(page).to have_content("No similar emendations found")
+        expect(page).to have_content("Amendment draft has been created successfully.")
+      end
+
+      context "and is an official proposal" do
+        let(:proposal) { create :proposal, :official, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+
+        it "Does not enforce the original locale" do
+          expect(page).not_to have_content("Cette proposition a été initialement créée dans English")
+          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
+          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).not_to have_field(with: "Proposal in english language")
+          expect(page).to have_field(with: "Proposition en langue anglaise")
+          fill_in "Titre", with: "Nouveau proposition en langue anglaise"
+          click_button "Créer"
+          expect(page).to have_content("Aucune modification similaire trouvé.")
+        end
       end
 
       context "and not enforced" do
