@@ -49,6 +49,7 @@ $small: 576px;
 @media screen and (max-width: $small) {
 		.conference-speaker {
 			div.speaker-bio.js-bio {
+				position: -webkit-sticky;
 				position: fixed;
 				top: 60px !important;
 				overflow-y: scroll !important;
