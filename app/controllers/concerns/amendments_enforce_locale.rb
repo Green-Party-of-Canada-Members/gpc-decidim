@@ -11,6 +11,7 @@ module AmendmentsEnforceLocale
     def enforce_amendment_locale(&action)
       if amendable.component.settings.try(:amendments_enabled) &&
          amendable.component.current_settings.try(:amendment_creation_enabled) &&
+         !amendable&.official? &&
          Rails.application.secrets.gpc[:enforce_original_amendments_locale]
         amendable_locale = amendable.title.keys.first
 
