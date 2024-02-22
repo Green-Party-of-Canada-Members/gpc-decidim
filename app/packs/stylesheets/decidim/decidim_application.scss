@@ -47,9 +47,15 @@
 $small: 576px;
 
 @media screen and (max-width: $small) {
-	.conference-speaker {
-		div.speaker-bio.js-bio {
-			top: 60px !important;
+		.conference-speaker {
+			div.speaker-bio.js-bio {
+				position: -webkit-sticky;
+				position: fixed;
+				top: 60px !important;
+				overflow-y: scroll !important;
+				max-height: 95vh;
+				height: fit-content;
+				overflow: visible;
+			}
 		}
-	}
 }
