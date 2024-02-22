@@ -29,7 +29,7 @@ checksums = [
       "/app/cells/decidim/diff/diff_mode_dropdown.erb" => "770563c121c875159a88cd5e142658e3",
       # other overrides
       "/app/helpers/decidim/card_helper.rb" => "b9e7f943ae7c289b2855d328de7b371b",
-      "/app/commands/decidim/amendable/accept.rb" => "c561b69a7bd5b68dfc4684c11001cb2c",
+      "/app/commands/decidim/amendable/accept.rb" => "25b86fc0e881251dbda0a176b4c8a9af",
       "/app/commands/decidim/amendable/reject.rb" => "efd7062b0942b0ec80e336345ffca62f"
 
     }
