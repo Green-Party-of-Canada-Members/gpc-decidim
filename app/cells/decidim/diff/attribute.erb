@@ -1,0 +1,16 @@
+<div class="diff-for-<%= data[:label].parameterize %>">
+  <div class="row">
+    <h3 class="section-heading mediumlarge-12 columns">
+      <%= data[:label] %>
+    </h3>
+  </div>
+
+  <div class="row diff_view diff_view_split" id="attribute-diff-unified-<%= data[:label].parameterize %>-<%= format %>">
+    <%= diff_split(data, "left", format) %>
+    <%= diff_split(data, "right", format) %>
+  </div>
+
+  <div class="row diff_view diff_view_unified hide" id="attribute-diff-unified-<%= data[:label].parameterize %>-<%= format %>">
+    <%= diff_unified(data, format) %>
+  </div>
+</div>

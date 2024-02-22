@@ -11,12 +11,16 @@ Rails.application.config.to_prepare do
   # disables inviting external users if enabled
   Decidim::Meetings::Admin::InvitesController.include(InvitesControllerOverride)
 
+  # makes "type" proposals in the filter the default
+  Decidim::Proposals::ProposalsController.include(ProposalsControllerOverride)
   # ensures same language is enforce on amendments to proposals
   Decidim::AmendmentsController.include(AmendmentsEnforceLocale)
 
   # sends notifications for answering surveys
   Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
 
+  # sets the number of items in a submenu from configuration
+  Decidim::LayoutHelper.include(LayoutHelperOverride)
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
 

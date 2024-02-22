@@ -26,7 +26,7 @@ en:
   email_not_registered: Sorry, the email %{email} is not registered. Only existing users are allowed to login.
   gpc:
     amendments:
-      enforced_locale: This proposal was originally created in %{locale}. You can only submit amendments in the same language.
+      enforced_locale: This proposal was originally created in %{lang}. You can only submit amendments in the same language.
       limit_modal:
         extra_html: You can also be notified when the current amendment is accepted or rejected by <a href="#" class="js-limit-amendment-follow-proposal">following this proposal</a> (you will receive a notification/email when the amendment is accepted or rejected depending on your notification preferences).
     campaign_space: "%{name} Campaign"

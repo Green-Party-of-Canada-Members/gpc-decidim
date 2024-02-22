@@ -8,7 +8,7 @@
 
   <div class="column <%= " mediumlarge-8 large-9" if contestants_component?(current_component) %>">
     <% if @proposal.emendation? %>
-      <h2 class="heading3"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
+      <h2 class="heading3"><%= t("changes_at_title", scope: "decidim.proposals.proposals.show", title: present(@proposal.amendable).title(links: true, html_escape: false)) %></h2>
     <% else %>
       <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
     <% end %>
