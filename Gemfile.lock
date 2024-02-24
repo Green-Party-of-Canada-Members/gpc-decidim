@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: https://github.com/openpoke/decidim.git
-  revision: b69120dcd096bb761aa5ca0ac8ad4798d8c16739
+  revision: e8f4504a9446392734db63c706fc0160fb36739a
   branch: 0.27-canada
   specs:
     decidim (0.27.5)
@@ -755,7 +755,7 @@ GEM
       rspec-support (~> 3.10)
     rspec-retry (0.6.2)
       rspec-core (> 3.3)
-    rspec-support (3.13.0)
+    rspec-support (3.13.1)
     rspec_junit_formatter (0.3.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.28.2)
