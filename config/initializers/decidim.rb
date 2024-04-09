@@ -308,6 +308,7 @@ Decidim.configure do |config|
   # Enable machine translations
   config.enable_machine_translations = Rails.application.secrets.translator[:api_key].present?
   config.machine_translation_service = "DeeplTranslator"
+  config.machine_translation_delay = Rails.application.secrets.translator[:delay].to_i.seconds
 
   # If you want to enable machine translation you can create your own service
   # to interact with third party service to translate the user content.
