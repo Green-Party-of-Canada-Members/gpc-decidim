@@ -13,7 +13,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", branch: "release/0.27-stable"
 gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm"
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "limit-amendments"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
 gem "decidim-direct_verifications", github: "Platoniq/decidim-verifications-direct_verifications"
 gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "release/0.27-stable"
