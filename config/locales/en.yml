@@ -19,6 +19,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+    meetings:
+      meetings:
+        show:
+          join: Sign-up for meeting
+          started: Join meeting
   devise:
     mailer:
       direct_invite:

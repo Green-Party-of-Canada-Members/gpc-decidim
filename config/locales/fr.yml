@@ -19,6 +19,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez %{amendable_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Un amendement rejeté pour %{amendable_title} à %{emendation_author_nickname}
             notification_title: Le <a href="%{emendation_path}">amendement</a> créé par <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> a été rejetée pour <a href="%{amendable_path}">%{amendable_title}</a>.
+    meetings:
+      meetings:
+        show:
+          join: S'inscrire à la réunion
+          started: Rejoindre la réunion
   devise:
     mailer:
       direct_invite:
