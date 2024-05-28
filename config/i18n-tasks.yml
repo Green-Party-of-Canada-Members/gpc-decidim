@@ -111,6 +111,7 @@ ignore_unused:
   - decidim.events.ready_to_amend.*
   - devise.*
   - decidim.calendar.*
+  - decidim.meetings.meetings.show.join
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
 #   all:

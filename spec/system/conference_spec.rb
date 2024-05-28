@@ -87,13 +87,17 @@ describe "Visit a conference", type: :system do
     let(:timezone) { "CET" }
 
     context "when the user is logged in" do
+      around do |example|
+        Time.use_zone(timezone) { example.run }
+      end
+
       before do
         sign_in user
         visit decidim_conferences.conference_conference_program_path(conference, component)
       end
 
       it "shows user's time zone" do
-        expect(page).to have_content("CET")
+        expect(page).to have_content(Time.current.zone)
       end
     end
 
