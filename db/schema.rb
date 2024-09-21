@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_05_123825) do
+ActiveRecord::Schema.define(version: 2024_09_21_124028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -323,13 +323,16 @@ ActiveRecord::Schema.define(version: 2024_07_05_123825) do
     t.index ["decidim_organization_id"], name: "decidim_awesome_editor_images_constraint_organization"
   end
 
-  create_table "decidim_awesome_proposal_extra_fields", id: :bigint, default: -> { "nextval('decidim_awesome_weight_caches_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "decidim_awesome_proposal_extra_fields", force: :cascade do |t|
     t.bigint "decidim_proposal_id", null: false
     t.jsonb "vote_weight_totals"
     t.integer "weight_total", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["decidim_proposal_id"], name: "decidim_awesome_extra_fields_on_proposal"
+    t.string "private_body"
+    t.string "decidim_proposal_type", null: false
+    t.datetime "private_body_updated_at"
+    t.index ["decidim_proposal_id", "decidim_proposal_type"], name: "index_decidim_awesome_proposal_extra_fields_on_decidim_proposal"
   end
 
   create_table "decidim_awesome_vote_weights", force: :cascade do |t|
@@ -860,10 +863,10 @@ ActiveRecord::Schema.define(version: 2024_07_05_123825) do
   end
 
   create_table "decidim_forms_answers", id: :serial, force: :cascade do |t|
-    t.text "body"
     t.integer "decidim_user_id"
     t.integer "decidim_questionnaire_id"
     t.integer "decidim_question_id"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "session_token", default: "", null: false
