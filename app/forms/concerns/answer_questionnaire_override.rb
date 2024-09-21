@@ -40,7 +40,7 @@ module AnswerQuestionnaireOverride
       end
 
       emails.each do |email|
-        QuestionnaireSubmitMailer.notify(@current_user, email, questionnaire, answers).deliver_later
+        QuestionnaireSubmitMailer.notify(current_user, email, questionnaire, answers).deliver_later
       end
     end
   end
