@@ -34,7 +34,7 @@ module AnswerQuestionnaireOverride
         body = if form_answer.choices.present?
                  form_answer.choices.map { |c| c.custom_body.present? ? "#{c.body} (#{c.custom_body})" : c.body }.join("<br>\n")
                else
-                 form_answer.body
+                 form_answer.body.presence || "N/A"
                end
         [translated_attribute(form_answer.question.body), body]
       end
