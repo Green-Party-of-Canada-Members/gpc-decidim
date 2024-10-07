@@ -1,10 +1,8 @@
-FROM ruby:3.0.6 AS builder
+FROM ruby:3.1.6 AS builder
 
-RUN NODE_MAJOR=16 && \
-    apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates curl gnupg && \
     mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && apt-get install -y nodejs yarn \
@@ -38,11 +36,8 @@ RUN gem install bundler:$(grep -A 1 'BUNDLED WITH' Gemfile.lock | tail -n 1 | xa
     find /usr/local/bundle/ -name ".github" -exec rm -rf {} + && \
     # whkhtmltopdf has binaries for all platforms, we don't need them once uncompressed
     rm -rf /usr/local/bundle/gems/wkhtmltopdf-binary-*/bin/*.gz && \
-    # fix possible 7zip problems by manually adding the 7z.so libray
-    # ln -s /usr/lib/p7zip/7z.so /usr/local/bundle/gems/seven_zip_ruby-1.3.0/lib/seven_zip_ruby/7z.so && \
     rm -f /usr/local/bundle/gems/seven_zip_ruby-1.3.0/lib/seven_zip_ruby/*.dll && \
     # Remove additional unneded decidim files
-    find /usr/local/bundle/ -name "decidim_app-design" -exec rm -rf {} + && \
     find /usr/local/bundle/ -name "spec" -exec rm -rf {} +
 
 RUN npm ci
@@ -74,10 +69,10 @@ RUN mv config/credentials config/credentials.bak 2>/dev/null || true
 
 RUN RAILS_ENV=production \
     SECRET_KEY_BASE=dummy \
-    RAILS_MASTER_KEY=dummy \
+    RAILS_MASTER_KEY=0b809804a9de874fb0627b6cf5b6cada \
     DB_ADAPTER=nulldb \
     TRANSLATOR_API_KEY=00000000-0000-0000-0000-000000000000 \
-    bundle exec rails assets:precompile
+    bin/rails assets:precompile
 
 RUN mv config/credentials.yml.enc.bak config/credentials.yml.enc 2>/dev/null || true
 RUN mv config/credentials.bak config/credentials 2>/dev/null || true
@@ -85,12 +80,13 @@ RUN mv config/credentials.bak config/credentials 2>/dev/null || true
 RUN rm -rf node_modules tmp/cache vendor/bundle test spec app/packs .git
 
 # This image is for production env only
-FROM ruby:3.0.6-slim AS final
+FROM ruby:3.1.6-slim AS final
 
 RUN apt-get update && \
     apt-get install -y postgresql-client \
     imagemagick \
     curl \
+    p7zip-full \
     supervisor && \
     apt-get clean
 
@@ -102,13 +98,6 @@ ENV RAILS_ENV production
 
 ARG RUN_RAILS
 ARG RUN_SIDEKIQ
-ARG COMMIT_SHA
-ARG COMMIT_TIME
-ARG COMMIT_VERSION
-
-ENV COMMIT_SHA ${COMMIT_SHA}
-ENV COMMIT_TIME ${COMMIT_TIME}
-ENV COMMIT_VERSION ${COMMIT_VERSION}
 
 # Add user
 RUN addgroup --system --gid 1000 app && \
@@ -122,8 +111,7 @@ COPY --from=builder --chown=app:app /app /app
 
 USER app
 HEALTHCHECK --interval=1m --timeout=5s --start-period=30s \
-    CMD (curl -sSH "Content-Type: application/json" -d '{"query": "{ decidim { version } }"}' http://localhost:3000/api) || exit 1
-
+    CMD (curl -sS http://localhost:3000/health_check | grep success) || exit 1
 
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["/usr/bin/supervisord"]

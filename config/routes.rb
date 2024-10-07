@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
+  namespace :admin do
+    resources :iframe, only: [:index]
+  end
+
   watch_race = Rails.application.secrets.dig(:gpc, :watch_race_iframe)
   redirect_homepage = Rails.application.secrets.dig(:gpc, :redirect_homepage)
 

@@ -8,8 +8,14 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.6
-  NODE_VERSION: 16.9.1
+  CI: 1
+  SIMPLECOV: 1
+  NODE_VERSION: 18.17.1
+  RUBY_VERSION: 3.1.6
+  DISPLAY: ":99"
+  RUBYOPT: '-W:no-deprecated'
+  RAILS_ENV: test
+  NODE_ENV: test
 
 jobs:
   test-report:
@@ -38,7 +44,7 @@ jobs:
 
       - uses: nanasess/setup-chromedriver@v2
         with:
-          chromedriver-version: 119.0.6045.105
+          chromedriver-version: 126.0.6478.182
 
       - name: List Chrome
         run: apt list --installed | grep chrome
@@ -48,7 +54,7 @@ jobs:
 
       - uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 119.0.6045.105
+          chrome-version: 126.0.6478.182
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -58,10 +64,6 @@ jobs:
       - name: Setup & create Database
         run: |
           bundle exec rails db:create db:schema:load
-        env:
-          RAILS_ENV: test
-          DATABASE_USERNAME: postgres
-          DATABASE_PASSWORD: postgres
 
       - uses: actions/setup-node@master
         with:
@@ -75,8 +77,4 @@ jobs:
           RAILS_ENV: test
 
       - name: Run RSpec
-        run: SIMPLECOV=1 CODECOV=1 bundle exec rspec
-        env:
-          RAILS_ENV: test
-          DATABASE_USERNAME: postgres
-          DATABASE_PASSWORD: postgres
+        run: bundle exec rspec
