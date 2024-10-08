@@ -13,6 +13,7 @@ Rails.application.config.to_prepare do
 
   # makes "type" proposals in the filter the default
   Decidim::Proposals::ProposalsController.include(ProposalsControllerOverride)
+  Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   # ensures same language is enforce on amendments to proposals
   Decidim::AmendmentsController.include(AmendmentsEnforceLocale)
 

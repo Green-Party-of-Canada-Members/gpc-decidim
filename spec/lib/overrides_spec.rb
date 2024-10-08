@@ -6,12 +6,12 @@ require "rails_helper"
 # as the expected. If this test fails, it means that the overriden
 # file should be updated to match any change/bug fix introduced in the core
 checksums = [
-  # {
-  #   package: "decidim-comments",
-  #   files: {
-  #     "/app/cells/decidim/comments/comments_cell.rb" => "2189e89b4ca78b7e4300b1097d2296e5"
-  #   }
-  # },
+  {
+    package: "decidim-comments",
+    files: {
+      "/app/cells/decidim/comments/comments_cell.rb" => "97caf9da49dbcab9d8d13b42c224d3df"
+    }
+  },
   {
     package: "decidim-core",
     files: {
@@ -76,18 +76,18 @@ checksums = [
   #     "/app/commands/decidim/forms/answer_questionnaire.rb" => "c53587b220467c2d6889f657ac2404a0"
   #   }
   # },
-  # {
-  #   package: "decidim-proposals",
-  #   files: {
-  #     "/app/controllers/decidim/proposals/proposals_controller.rb" => "b263741e3335110fa0e37c488c777190",
-  #     "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
-  #     "/app/views/decidim/proposals/proposals/show.html.erb" => "23188e6a12cc1ac6ce44c857b3b81a4c",
-  #     "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
-  #     "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
-  #     "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df",
-  #     "/app/views/decidim/proposals/proposals/_filters.html.erb" => "ab4fe3f5b9237d786595374fbb6b729c"
-  #   }
-  # }
+  {
+    package: "decidim-proposals",
+    files: {
+      "/app/controllers/decidim/proposals/proposals_controller.rb" => "5ec87417fc0231203fc39b02ebab82f0",
+      "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8"
+      #     "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
+      #     "/app/views/decidim/proposals/proposals/show.html.erb" => "23188e6a12cc1ac6ce44c857b3b81a4c",
+      #     "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
+      #     "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
+      #     "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df",
+    }
+  }
 ]
 
 describe "Overriden files", type: :view do
