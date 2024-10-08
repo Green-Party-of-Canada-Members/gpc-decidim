@@ -25,32 +25,23 @@ checksums = [
       "/app/views/decidim/devise/shared/_omniauth_buttons.html.erb" => "de3f80dda35889bc1947d8e6eff3c19a",
       "/app/views/decidim/shared/_login_modal.html.erb" => "a29d4fcebe8c689044e3c15f6144f3d1",
       # cells
-      # "/app/cells/decidim/date_range/show.erb" => "7e050b942e447386fc96ef6528039cec",
+      "/app/cells/decidim/card_metadata_cell.rb" => "3e9ee8e6a82728c0c88c4ec53a279a21",
       # "/app/cells/decidim/diff/attribute.erb" => "d648bc8e71e27c404d82132d6e3c3241",
       # "/app/cells/decidim/diff/diff_mode_dropdown.erb" => "770563c121c875159a88cd5e142658e3",
       # other overrides
+      "/app/helpers/decidim/date_range_helper.rb" => "5b0e26880b2fcd594180b634362cfcf2",
       # "/app/helpers/decidim/card_helper.rb" => "b9e7f943ae7c289b2855d328de7b371b",
       "/app/commands/decidim/amendable/accept.rb" => "e42b7ef2f975319d608c1fa47cba49bd",
       "/app/commands/decidim/amendable/reject.rb" => "733c23005c5016c4fdc3e68fd1fc1123"
-
     }
   },
-  # {
-  #   package: "decidim-meetings",
-  #   files: {
-  #     "/app/controllers/decidim/meetings/admin/invites_controller.rb" => "2cf91718146e0223d7b7794f44d5d8c6",
-  #     "/app/cells/decidim/meetings/meeting_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-  #     "/app/cells/decidim/meetings/online_meeting_link/show.erb" => "9557df6e46040a6395c71c75cd84792c",
-  #     "/app/views/decidim/meetings/meetings/show.html.erb" => "1a1ed9e537d856fede9834cde396293d"
-  #   }
-  # },
-  # {
-  #   package: "decidim-debates",
-  #   files: {
-  #     "/app/cells/decidim/debates/debate_m/single_date.erb" => "d7bb73188f6c1299c926bafa59aedc24",
-  #     "/app/cells/decidim/debates/debate_m/multiple_dates.erb" => "d56d9a5d2e37cf1a7c75974f6254db4f"
-  #   }
-  # },
+  {
+    package: "decidim-meetings",
+    files: {
+      "/app/controllers/decidim/meetings/admin/invites_controller.rb" => "be9ee4cf9891b0fbf885af3f7c2cd5dc",
+      "/app/views/decidim/meetings/meetings/_meeting.html.erb" => "c160c2d7eea4ba9d00e2e0428396a7b2"
+    }
+  },
   # {
   #   package: "decidim-assemblies",
   #   files: {

@@ -4,6 +4,7 @@ inherit_gem:
 AllCops:
   Exclude:
     - 'db/**/*'
+    - 'vendor/**/*'
 
 RSpec/DescribeClass:
   Exclude:

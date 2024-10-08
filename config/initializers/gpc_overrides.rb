@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
+  Decidim::ViewModel.include(ApplicationHelper)
   # redirect registration if specified in secrets
   Decidim::Devise::RegistrationsController.include(RegistrationsControllerOverride)
   # block registration through Omniauth signin
@@ -20,8 +21,8 @@ Rails.application.config.to_prepare do
   # sends notifications for answering surveys
   Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
 
-  # sets the number of items in a submenu from configuration
-  Decidim::LayoutHelper.include(LayoutHelperOverride)
+  # Dates formatting
+  Decidim::CardMetadataCell.include(CardMetadataCellOverride)
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
 
