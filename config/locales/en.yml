@@ -23,7 +23,6 @@ en:
       meetings:
         show:
           join: Sign-up for meeting
-          started: Join meeting
   devise:
     mailer:
       direct_invite:

@@ -23,7 +23,6 @@ fr:
       meetings:
         show:
           join: S'inscrire à la réunion
-          started: Rejoindre la réunion
   devise:
     mailer:
       direct_invite:

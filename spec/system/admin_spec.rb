@@ -13,19 +13,20 @@ describe "Visit the signup page", perform_enqueued: true do
   end
 
   it "renders the dashboard page" do
-    expect(page).to have_content("Welcome to the Admin Panel")
+    expect(page).to have_content("Dashboard #{organization.name}")
   end
 
   it "renders the processes page" do
     click_link "Processes"
     within ".layout-content" do
-      expect(page).to have_content("Participatory processes")
+      expect(page).to have_content("Processes")
+      expect(page).to have_content("Process groups")
     end
   end
 
   it "renders the assemblies page" do
     click_link "Assemblies"
-    within "#assemblies" do
+    within ".layout-content" do
       expect(page).to have_content("Assemblies")
       expect(page).to have_content("New assembly")
     end
@@ -76,7 +77,7 @@ describe "Visit the signup page", perform_enqueued: true do
   it "renders Decidim awesome" do
     click_link "Decidim awesome"
     within ".layout-content" do
-      expect(page).to have_content("Tweaks for editors")
+      expect(page).to have_content("Tweaks for Editor Hacks")
     end
   end
 
