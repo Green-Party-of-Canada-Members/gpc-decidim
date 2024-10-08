@@ -1,7 +1,5 @@
-<!-- insert_after 'erb[loud]:contains("decidim/devise/shared/omniauth_buttons_mini")' -->
+<!-- insert_before ".form__wrapper" -->
 
-<div class="row">
-  <div class="columns large-8 large-centered">
-    <%= button_tag t("gpc.login.admin_login"), class: "button expanded hollow", onclick: "$('.login_box').toggleClass('hide');$(this).toggleClass('hollow');" %>
-  </div>
+<div class="flex justify-center mt-10">
+  <%= button_tag t("gpc.login.admin_login"), type: "button", class: "button button__xs button__transparent-primary", onclick: "$('.login_toggle').toggleClass('!hidden');return false;" %>
 </div>

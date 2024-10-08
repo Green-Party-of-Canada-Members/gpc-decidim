@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_civicrm (originally 20210908095922)
 class CreateDecidimCivicrmGroupMemberships < ActiveRecord::Migration[5.2]
   def change
@@ -10,8 +11,7 @@ class CreateDecidimCivicrmGroupMemberships < ActiveRecord::Migration[5.2]
 
       t.timestamps
 
-      t.index ["civicrm_contact_id", "group_id"], name: "index_unique_civicrm_membership_group_and_contact", unique: true
+      t.index %w(civicrm_contact_id group_id), name: "index_unique_civicrm_membership_group_and_contact", unique: true
     end
   end
 end
-

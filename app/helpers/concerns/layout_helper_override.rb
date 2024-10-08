@@ -12,10 +12,10 @@ module LayoutHelperOverride
       active_item = items.find { |item| item[:active] }
 
       controller.view_context.render partial: "decidim/shared/extended_navigation_bar", locals: {
-        items: items,
-        extra_items: extra_items,
-        active_item: active_item,
-        max_items: max_items
+        items:,
+        extra_items:,
+        active_item:,
+        max_items:
       }
     end
   end

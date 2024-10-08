@@ -44,11 +44,11 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
-  config.ssl_options = { redirect: { exclude: -> request { request.path =~ /health_check/ } } }
+  config.ssl_options = { redirect: { exclude: ->(request) { request.path =~ /health_check/ } } }
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = %w(debug info warn error fatal).include?(ENV.fetch("RAILS_LOG_LEVEL", nil)) ? ENV["RAILS_LOG_LEVEL"] : :info
+  config.log_level = %w(debug info warn error fatal).include?(ENV.fetch("RAILS_LOG_LEVEL", nil)) ? ENV.fetch("RAILS_LOG_LEVEL", nil) : :info
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -74,7 +74,7 @@ Rails.application.configure do
   config.active_support.report_deprecations = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
   config.action_mailer.smtp_settings = {
     address: Rails.application.secrets.smtp_address,
     port: Rails.application.secrets.smtp_port,

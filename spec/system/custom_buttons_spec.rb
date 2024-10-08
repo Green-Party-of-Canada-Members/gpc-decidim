@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-describe "Custom buttons", type: :system do
-  let(:organization) { create :organization }
-  let(:space) { create :assembly, organization: organization }
+describe "Custom buttons" do
+  let(:organization) { create(:organization) }
+  let(:space) { create(:assembly, organization:) }
   let(:space_path) { decidim_assemblies.assembly_path(space) }
   let(:env) { :chat_button }
   let(:url) { "http://example.org" }
@@ -66,7 +66,7 @@ describe "Custom buttons", type: :system do
   it_behaves_like "handles the donate button"
 
   context "when participatory_process" do
-    let(:space) { create :participatory_process, organization: organization }
+    let(:space) { create(:participatory_process, organization:) }
     let(:space_path) { decidim_participatory_processes.participatory_process_path(space) }
 
     it_behaves_like "handles the chat button"
@@ -74,7 +74,7 @@ describe "Custom buttons", type: :system do
   end
 
   context "when conference" do
-    let(:space) { create :conference, organization: organization }
+    let(:space) { create(:conference, organization:) }
     let(:space_path) { decidim_conferences.conference_path(space) }
 
     it_behaves_like "handles the chat button"

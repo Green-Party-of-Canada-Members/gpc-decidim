@@ -17,9 +17,9 @@ gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", 
 gem "bootsnap", "~> 1.7"
 gem "deepl-rb", require: "deepl"
 gem "deface"
+gem "health_check"
 gem "puma"
 gem "wicked_pdf", "~> 2.1"
-gem "health_check"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri

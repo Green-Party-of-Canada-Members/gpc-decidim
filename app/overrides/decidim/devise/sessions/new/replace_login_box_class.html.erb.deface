@@ -1,2 +1,3 @@
-<!-- set_attributes '.columns.large-6.medium-centered > .card'
-     attributes :class => 'card login_box hide' -->
+<!-- set_attributes '.form__wrapper'
+     attributes :class => 'form__wrapper login_toggle !hidden'
+      -->

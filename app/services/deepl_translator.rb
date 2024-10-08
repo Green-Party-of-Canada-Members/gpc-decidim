@@ -12,7 +12,7 @@ class DeeplTranslator
   end
 
   def translate
-    translation = DeepL.translate text, source_locale, target_locale, tag_handling: tag_handling
+    translation = DeepL.translate(text, source_locale, target_locale, tag_handling:)
 
     Decidim::MachineTranslationSaveJob.perform_later(
       resource,

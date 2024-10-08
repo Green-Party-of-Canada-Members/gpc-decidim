@@ -2,29 +2,29 @@
 
 require "rails_helper"
 
-describe "Custom proposals fields", type: :system, versioning: true do
-  let(:organization) { create :organization, enable_machine_translations: true, machine_translation_display_priority: "translation" }
+describe "Custom proposals fields", versioning: true do
+  let(:organization) { create(:organization, enable_machine_translations: true, machine_translation_display_priority: "translation") }
   let(:participatory_process) do
-    create(:participatory_process, :with_steps, organization: organization)
+    create(:participatory_process, :with_steps, organization:)
   end
 
   let(:component) do
     create(:proposal_component,
-           participatory_space: participatory_process, settings: settings, step_settings: step_settings)
+           participatory_space: participatory_process, settings:, step_settings:)
   end
   let(:active_step_id) { participatory_process.active_step.id }
-  let(:step_settings) { { active_step_id => { amendment_creation_enabled: amendment_creation_enabled, amendments_visibility: visibility } } }
+  let(:step_settings) { { active_step_id => { amendment_creation_enabled:, amendments_visibility: visibility } } }
   let(:visibility) { "all" }
-  let(:settings) { { amendments_enabled: amendments_enabled, limit_pending_amendments: limit_pending_amendments } }
-  let(:creator) { create(:user, :confirmed, organization: organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:amender) { create(:user, :confirmed, organization: organization) }
-  let(:follower) { create(:user, :confirmed, organization: organization) }
-  let!(:follow) { create :follow, user: follower, followable: proposal }
+  let(:settings) { { amendments_enabled:, limit_pending_amendments: } }
+  let(:creator) { create(:user, :confirmed, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:amender) { create(:user, :confirmed, organization:) }
+  let(:follower) { create(:user, :confirmed, organization:) }
+  let!(:follow) { create(:follow, user: follower, followable: proposal) }
 
-  let!(:proposal) { create :proposal, users: [creator], component: component }
-  let!(:emendation) { create(:proposal, users: [amender], title: { en: "An emendation for the proposal" }, component: component) }
-  let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation, state: amendment_state) }
+  let!(:proposal) { create(:proposal, users: [creator], component:) }
+  let!(:emendation) { create(:proposal, users: [amender], title: { en: "An emendation for the proposal" }, component:) }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:, state: amendment_state) }
 
   let(:amendment_state) { "evaluating" }
   let(:limit_pending_amendments) { true }
@@ -121,7 +121,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
         click_link "Amend"
       end
 
-      let(:proposal) { create :proposal, users: [creator], component: component, title: { fr: "Proposition en langue française", machine_translations: { en: "Proposal in french language" } } }
+      let(:proposal) { create(:proposal, users: [creator], component:, title: { fr: "Proposition en langue française", machine_translations: { en: "Proposal in french language" } }) }
 
       it "Enforces the original locale" do
         expect(page).to have_content("This proposal was originally created in Français")
@@ -144,7 +144,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       end
 
       context "and user has as preference the translated locale" do
-        let(:user) { create(:user, :confirmed, organization: organization, locale: "en") }
+        let(:user) { create(:user, :confirmed, organization:, locale: "en") }
 
         it "Enforces the original locale" do
           expect(page).to have_content("This proposal was originally created in Français")
@@ -157,8 +157,8 @@ describe "Custom proposals fields", type: :system, versioning: true do
     end
 
     context "when proposal original locale is the organization locale" do
-      let(:creator) { create(:user, :confirmed, organization: organization, locale: "fr") }
-      let(:proposal) { create :proposal, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+      let(:creator) { create(:user, :confirmed, organization:, locale: "fr") }
+      let(:proposal) { create(:proposal, users: [creator], component:, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } }) }
       let(:amendment) { nil }
       let(:emendation) { nil }
 
@@ -183,7 +183,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       end
 
       context "and is an official proposal" do
-        let(:proposal) { create :proposal, :official, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+        let(:proposal) { create(:proposal, :official, users: [creator], component:, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } }) }
 
         it "Does not enforce the original locale" do
           expect(page).not_to have_content("Cette proposition a été initialement créée dans English")
@@ -210,7 +210,7 @@ describe "Custom proposals fields", type: :system, versioning: true do
       end
 
       context "and user has as preference the translated locale" do
-        let(:user) { create(:user, :confirmed, organization: organization, locale: "fr") }
+        let(:user) { create(:user, :confirmed, organization:, locale: "fr") }
 
         it "Enforces the original locale" do
           expect(page).to have_content("Cette proposition a été initialement créée dans English")

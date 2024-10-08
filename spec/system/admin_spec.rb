@@ -2,9 +2,9 @@
 
 require "rails_helper"
 
-describe "Visit the signup page", type: :system, perform_enqueued: true do
-  let(:organization) { create :organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+describe "Visit the signup page", perform_enqueued: true do
+  let(:organization) { create(:organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

@@ -13,7 +13,7 @@ module CardHelperOverride
       # elsif model.is_a?(Decidim::Meetings::Meeting) && leadership_assembly?(model.try(:participatory_space))
       #   cell "leadership_meeting_m", model
       # else
-        cell "decidim/card", model, options
+      cell "decidim/card", model, options
       # end
     end
   end
