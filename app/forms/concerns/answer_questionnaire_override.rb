@@ -12,7 +12,9 @@ module AnswerQuestionnaireOverride
     def call
       return broadcast(:invalid) if @form.invalid? || user_already_answered?
 
-      answer_questionnaire
+      with_events do
+        answer_questionnaire
+      end
 
       if @errors
         reset_form_attachments

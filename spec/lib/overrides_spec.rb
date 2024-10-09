@@ -48,33 +48,33 @@ checksums = [
   #     "/app/views/decidim/assemblies/assemblies/show.html.erb" => "eeabef769e29b59de98af16d3549dcab"
   #   }
   # },
-  # {
-  #   package: "decidim-conferences",
-  #   files: {
-  #     "/app/views/decidim/conferences/conferences/show.html.erb" => "94e3fb8ee4e092678ce0f229c87e1bc0",
-  #     "/app/views/layouts/decidim/_conference_hero.html.erb" => "db2e565169a5ce7f8a3e7d03dd0ebfd9"
-  #   }
-  # },
+  {
+    package: "decidim-conferences",
+    files: {
+      "/app/views/decidim/conferences/conferences/_conference_hero.html.erb" => "da4e86d29cf4272356d4bed6130d641f",
+      "/app/views/decidim/conferences/conferences/show.html.erb" => "eb94f807d798fe1ed4d1404dd1dfcad9"
+    }
+  },
   # {
   #   package: "decidim-participatory_processes",
   #   files: {
   #     "/app/views/decidim/participatory_processes/participatory_processes/show.html.erb" => "747ee665f0c08484436f320865df62cc"
   #   }
   # },
-  # {
-  #   package: "decidim-forms",
-  #   files: {
-  #     "/app/commands/decidim/forms/answer_questionnaire.rb" => "c53587b220467c2d6889f657ac2404a0"
-  #   }
-  # },
+  {
+    package: "decidim-forms",
+    files: {
+      "/app/commands/decidim/forms/answer_questionnaire.rb" => "04911ecd2621f959f512b34e4dd9ab3f"
+    }
+  },
   {
     package: "decidim-proposals",
     files: {
       "/app/controllers/decidim/proposals/proposals_controller.rb" => "5ec87417fc0231203fc39b02ebab82f0",
-      "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8"
+      "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8",
       #     "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       #     "/app/views/decidim/proposals/proposals/show.html.erb" => "23188e6a12cc1ac6ce44c857b3b81a4c",
-      #     "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "b8a9a1b573b2f888b293d10a7fab6577",
+      "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "99565100beee10448dac976d6d5e8b87",
       #     "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
       #     "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df",
     }

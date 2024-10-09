@@ -6,6 +6,7 @@ require "selenium/webdriver"
 describe "Visit a conference" do
   let(:organization) { create(:organization) }
   let(:conference) { create(:conference, slug:, registrations_enabled:, organization:) }
+  let!(:registration_type) { create(:registration_type, conference:) }
   let(:registrations_enabled) { true }
   let(:slug) { "my-conference" }
   let(:conference_env) { "CONFERENCE_#{slug.gsub("-", "_").upcase}_REGISTRATION" }
