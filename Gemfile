@@ -10,7 +10,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-calendar", github: "decidim-ice/decidim-module-calendar", branch: "main"
 gem "decidim-civicrm", github: "openpoke/decidim-module-civicrm", branch: "main"
 gem "decidim-conferences", DECIDIM_VERSION
-gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "main"
+gem "decidim-decidim_awesome", github: "decidim-ice/decidim-module-decidim_awesome", branch: "user-timezones"
 gem "decidim-templates", DECIDIM_VERSION
 gem "decidim-term_customizer", github: "mainio/decidim-module-term_customizer", branch: "main"
 

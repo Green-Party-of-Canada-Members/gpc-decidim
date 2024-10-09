@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/decidim-ice/decidim-module-decidim_awesome.git
-  revision: 84374037d34a3ac80dc18406834169c65869f11b
-  branch: main
+  revision: 8bd03912f77ef384b395da79afd165e1fea42377
+  branch: user-timezones
   specs:
     decidim-decidim_awesome (0.11.2)
       decidim-admin (>= 0.28.0, < 0.29)
