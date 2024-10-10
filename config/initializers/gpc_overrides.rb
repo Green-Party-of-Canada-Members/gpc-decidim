@@ -34,4 +34,6 @@ Rails.application.config.to_prepare do
 
   Decidim::Amendable::Accept.include(AmendableAcceptOverride)
   Decidim::Amendable::Reject.include(AmendableRejectOverride)
+
+  Decidim.icons.register(name: "flashlight-line", icon: "flashlight-line", category: "system", description: "", engine: :core)
 end

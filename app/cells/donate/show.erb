@@ -1,0 +1,15 @@
+<div class="donate-box<%= "mb-0" if chat? %>">
+  <p><%= t("gpc.donate_text_1") %></p>
+  <p><a href="<%= generic_donate_url %>" class="button button__primary <%= button_class %> lg:w-full my-4" target="_blank">
+    <%= icon("flashlight-line") + " " + t("gpc.donate_button") %>
+  </a></p>
+  <p><%= t("gpc.donate_text_2") %></p>
+</div>
+
+<% if chat? %>
+  <div class="donate-box" style="padding:0">
+    <p><a href="<%= generic_chat_url %>" class="button button__primary <%= button_class %> lg:w-full my-4" target="_blank">
+      <%= icon("flashlight-line") + " " + t("gpc.donate_button") %>
+    </a></p>
+  </div>
+<% end %>

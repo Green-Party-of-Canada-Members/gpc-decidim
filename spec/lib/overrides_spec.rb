@@ -25,6 +25,7 @@ checksums = [
       "/app/views/decidim/devise/shared/_omniauth_buttons.html.erb" => "de3f80dda35889bc1947d8e6eff3c19a",
       "/app/views/decidim/shared/_login_modal.html.erb" => "a29d4fcebe8c689044e3c15f6144f3d1",
       # cells
+      "/app/cells/decidim/content_blocks/participatory_space_main_data/content.rb" => "f3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3",
       "/app/cells/decidim/card_metadata_cell.rb" => "3e9ee8e6a82728c0c88c4ec53a279a21",
       # "/app/cells/decidim/diff/attribute.erb" => "d648bc8e71e27c404d82132d6e3c3241",
       # "/app/cells/decidim/diff/diff_mode_dropdown.erb" => "770563c121c875159a88cd5e142658e3",
@@ -74,7 +75,7 @@ checksums = [
       "/app/helpers/decidim/proposals/application_helper.rb" => "317b0347528e697fa405a792bcfa3db8",
       #     "/app/views/decidim/proposals/proposals/index.html.erb" => "48fbf7a8332f5f4c026b793e7922bdbc",
       #     "/app/views/decidim/proposals/proposals/show.html.erb" => "23188e6a12cc1ac6ce44c857b3b81a4c",
-      "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "99565100beee10448dac976d6d5e8b87",
+      "/app/cells/decidim/proposals/highlighted_proposals_for_component_cell.rb" => "99565100beee10448dac976d6d5e8b87"
       #     "/app/views/decidim/proposals/proposals/_proposals.html.erb" => "a4057670154210aff98e5f206d0fdfc2",
       #     "/app/views/decidim/proposals/proposals/_wizard_aside.html.erb" => "45dc17085fabc549bee6474b8a3e79df",
     }
