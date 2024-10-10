@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_civicrm (originally 20211025165842)
 class CreateDecidimCivicrmEventMeetings < ActiveRecord::Migration[5.2]
   def change

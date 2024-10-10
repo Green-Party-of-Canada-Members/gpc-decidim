@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_civicrm (originally 20211009165842)
 class CreateDecidimCivicrmGroupParticipatorySpaces < ActiveRecord::Migration[5.2]
   def change
@@ -7,7 +8,7 @@ class CreateDecidimCivicrmGroupParticipatorySpaces < ActiveRecord::Migration[5.2
 
       t.timestamps
 
-      t.index ["group_id", "participatory_space_type", "participatory_space_id"], name: "index_unique_civicrm_space_and_group", unique: true
+      t.index %w(group_id participatory_space_type participatory_space_id), name: "index_unique_civicrm_space_and_group", unique: true
     end
   end
 end

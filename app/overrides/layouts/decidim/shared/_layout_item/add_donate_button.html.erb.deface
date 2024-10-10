@@ -1,0 +1,5 @@
+<!-- replace 'erb[loud]:contains("yield :aside")' -->
+
+<%= cell "donate", nil, { button_class: "button__sm" } %>
+
+<%= yield :aside %>

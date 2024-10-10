@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_civicrm (originally 20210908095923)
 class CreateDecidimCivicrmMembershipTypes < ActiveRecord::Migration[5.2]
   def change

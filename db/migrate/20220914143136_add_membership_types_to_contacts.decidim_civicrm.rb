@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This migration comes from decidim_civicrm (originally 20211126132120)
 class AddMembershipTypesToContacts < ActiveRecord::Migration[5.2]
   def change

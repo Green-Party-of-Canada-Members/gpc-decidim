@@ -4,9 +4,7 @@ module AmendmentsEnforceLocale
   extend ActiveSupport::Concern
 
   included do
-    # rubocop:disable Rails/LexicallyScopedActionFilter
-    around_action :enforce_amendment_locale, except: [:reject, :accept, :withdraw]
-    # rubocop:enable Rails/LexicallyScopedActionFilter
+    around_action :enforce_amendment_locale, except: [:reject, :accept, :withdraw] # rubocop:disable Rails/LexicallyScopedActionFilter
 
     def enforce_amendment_locale(&action)
       if amendable.component.settings.try(:amendments_enabled) &&

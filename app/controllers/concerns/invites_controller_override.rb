@@ -5,7 +5,7 @@ module InvitesControllerOverride
   extend ActiveSupport::Concern
 
   included do
-    before_action :ensure_external_invites_allowed, only: :create
+    before_action :ensure_external_invites_allowed, only: :create # rubocop:disable Rails/LexicallyScopedActionFilter:
 
     def ensure_external_invites_allowed
       return unless Rails.application.secrets.dig(:gpc, :disable_external_invites)

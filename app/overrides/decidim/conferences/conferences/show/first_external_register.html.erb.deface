@@ -1,4 +1,4 @@
-<!-- replace '.column.medium-9.medium-centered > erb[silent]:contains("if current_participatory_space.registrations_enabled?")' -->
+<!-- replace '.conference__content-block erb[silent]:contains("if current_participatory_space.registrations_enabled?")' -->
 
 <% if external_conference_registration %>
   <div class="column medium-6">

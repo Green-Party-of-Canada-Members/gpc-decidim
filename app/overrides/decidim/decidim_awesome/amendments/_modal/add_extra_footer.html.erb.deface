@@ -1,4 +1,4 @@
-<!-- insert_before 'div.text-center' -->
+<!-- insert_after 'div.instructions' -->
 
-<div class="instructions"><%= t("gpc.amendments.limit_modal.extra_html") %></div>
+<div class="instructions mt-4"><%= t("gpc.amendments.limit_modal.extra_html") %></div>
 <br>

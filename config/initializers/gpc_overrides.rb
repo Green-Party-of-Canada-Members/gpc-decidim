@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.config.to_prepare do
+  Decidim::ViewModel.include(ApplicationHelper)
   # redirect registration if specified in secrets
   Decidim::Devise::RegistrationsController.include(RegistrationsControllerOverride)
   # block registration through Omniauth signin
@@ -13,14 +14,15 @@ Rails.application.config.to_prepare do
 
   # makes "type" proposals in the filter the default
   Decidim::Proposals::ProposalsController.include(ProposalsControllerOverride)
+  Decidim::Proposals::ApplicationHelper.include(Decidim::Proposals::ApplicationHelperOverride)
   # ensures same language is enforce on amendments to proposals
   Decidim::AmendmentsController.include(AmendmentsEnforceLocale)
 
   # sends notifications for answering surveys
   Decidim::Forms::AnswerQuestionnaire.include(AnswerQuestionnaireOverride)
 
-  # sets the number of items in a submenu from configuration
-  Decidim::LayoutHelper.include(LayoutHelperOverride)
+  # Dates formatting
+  Decidim::CardMetadataCell.include(CardMetadataCellOverride)
   # detect custom cards for leadership campaigns
   Decidim::CardHelper.include(CardHelperOverride)
 
@@ -32,4 +34,6 @@ Rails.application.config.to_prepare do
 
   Decidim::Amendable::Accept.include(AmendableAcceptOverride)
   Decidim::Amendable::Reject.include(AmendableRejectOverride)
+
+  Decidim.icons.register(name: "flashlight-line", icon: "flashlight-line", category: "system", description: "", engine: :core)
 end

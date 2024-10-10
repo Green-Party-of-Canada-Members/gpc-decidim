@@ -3,9 +3,10 @@
 require "rails_helper"
 require "selenium/webdriver"
 
-describe "Visit a conference", type: :system do
-  let(:organization) { create :organization }
-  let(:conference) { create :conference, slug: slug, registrations_enabled: registrations_enabled, organization: organization }
+describe "Visit a conference" do
+  let(:organization) { create(:organization) }
+  let(:conference) { create(:conference, slug:, registrations_enabled:, organization:) }
+  let!(:registration_type) { create(:registration_type, conference:) }
   let(:registrations_enabled) { true }
   let(:slug) { "my-conference" }
   let(:conference_env) { "CONFERENCE_#{slug.gsub("-", "_").upcase}_REGISTRATION" }
@@ -79,11 +80,11 @@ describe "Visit a conference", type: :system do
   end
 
   context "when conference program show" do
-    let(:organization) { create :organization, time_zone: "UTC" }
+    let(:organization) { create(:organization, time_zone: "UTC") }
     let!(:component) { create(:component, manifest_name: :meetings, participatory_space: conference) }
-    let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference: conference, meetings_component: component) }
-    let(:meetings) { Decidim::ConferenceMeeting.where(component: component) }
-    let!(:user) { create(:user, :confirmed, organization: organization, time_zone: timezone) }
+    let!(:conference_speakers) { create_list(:conference_speaker, 3, :with_meeting, conference:, meetings_component: component) }
+    let(:meetings) { Decidim::ConferenceMeeting.where(component:) }
+    let!(:user) { create(:user, :confirmed, organization:, time_zone: timezone) }
     let(:timezone) { "CET" }
 
     context "when the user is logged in" do

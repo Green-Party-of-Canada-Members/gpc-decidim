@@ -2,29 +2,29 @@
 
 require "rails_helper"
 
-describe "Custom proposals fields", type: :system, versioning: true do
-  let(:organization) { create :organization, enable_machine_translations: true, machine_translation_display_priority: "translation" }
+describe "Custom proposals fields", versioning: true do
+  let(:organization) { create(:organization, enable_machine_translations: true, machine_translation_display_priority: "translation") }
   let(:participatory_process) do
-    create(:participatory_process, :with_steps, organization: organization)
+    create(:participatory_process, :with_steps, organization:)
   end
 
   let(:component) do
     create(:proposal_component,
-           participatory_space: participatory_process, settings: settings, step_settings: step_settings)
+           participatory_space: participatory_process, settings:, step_settings:)
   end
   let(:active_step_id) { participatory_process.active_step.id }
-  let(:step_settings) { { active_step_id => { amendment_creation_enabled: amendment_creation_enabled, amendments_visibility: visibility } } }
+  let(:step_settings) { { active_step_id => { amendment_creation_enabled:, amendments_visibility: visibility } } }
   let(:visibility) { "all" }
-  let(:settings) { { amendments_enabled: amendments_enabled, limit_pending_amendments: limit_pending_amendments } }
-  let(:creator) { create(:user, :confirmed, organization: organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:amender) { create(:user, :confirmed, organization: organization) }
-  let(:follower) { create(:user, :confirmed, organization: organization) }
-  let!(:follow) { create :follow, user: follower, followable: proposal }
+  let(:settings) { { amendments_enabled:, limit_pending_amendments: } }
+  let(:creator) { create(:user, :confirmed, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:amender) { create(:user, :confirmed, organization:) }
+  let(:follower) { create(:user, :confirmed, organization:) }
+  let!(:follow) { create(:follow, user: follower, followable: proposal) }
 
-  let!(:proposal) { create :proposal, users: [creator], component: component }
-  let!(:emendation) { create(:proposal, users: [amender], title: { en: "An emendation for the proposal" }, component: component) }
-  let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation, state: amendment_state) }
+  let!(:proposal) { create(:proposal, users: [creator], component:) }
+  let!(:emendation) { create(:proposal, users: [amender], title: { en: "An emendation for the proposal" }, component:) }
+  let!(:amendment) { create(:amendment, amendable: proposal, emendation:, state: amendment_state) }
 
   let(:amendment_state) { "evaluating" }
   let(:limit_pending_amendments) { true }
@@ -56,12 +56,12 @@ describe "Custom proposals fields", type: :system, versioning: true do
 
   context "when there's pending amendments" do
     it "cannot create a new one" do
-      click_link proposal.title["en"]
+      click_on proposal.title["en"]
       expect(page).to have_content(proposal.title["en"])
       expect(page).to have_content(emendation.title["en"])
-      click_link "Amend"
+      click_on "Amend"
 
-      within ".limit_amendments_modal" do
+      within "#LimitAmendmentsModal" do
         expect(page).to have_link(href: amendment_path)
         expect(page).to have_content("Currently, there's another amendment being evaluated for this proposal.")
         expect(page).to have_content("You can also be notified when the current amendment is accepted or rejected")
@@ -73,9 +73,9 @@ describe "Custom proposals fields", type: :system, versioning: true do
     let(:logged_user) { creator }
 
     it "can be accepted" do
-      click_link proposal.title["en"]
-      click_link "An emendation for the proposal"
-      click_link "Accept"
+      click_on proposal.title["en"]
+      click_on "An emendation for the proposal"
+      click_on "Accept"
       perform_enqueued_jobs do
         click_button "Accept amendment"
       end
@@ -93,10 +93,10 @@ describe "Custom proposals fields", type: :system, versioning: true do
     end
 
     it "can be rejected" do
-      click_link proposal.title["en"]
-      click_link "An emendation for the proposal"
+      click_on proposal.title["en"]
+      click_on "An emendation for the proposal"
       perform_enqueued_jobs do
-        click_link "Reject"
+        click_on "Reject"
       end
 
       emails.each do |email|
@@ -117,16 +117,16 @@ describe "Custom proposals fields", type: :system, versioning: true do
 
     context "when proposal original locale is not the organization locale" do
       before do
-        click_link "Proposal in french language"
-        click_link "Amend"
+        click_on "Proposal in french language"
+        click_on "Amend"
       end
 
-      let(:proposal) { create :proposal, users: [creator], component: component, title: { fr: "Proposition en langue française", machine_translations: { en: "Proposal in french language" } } }
+      let(:proposal) { create(:proposal, users: [creator], component:, title: { fr: "Proposition en langue française", machine_translations: { en: "Proposal in french language" } }) }
 
       it "Enforces the original locale" do
         expect(page).to have_content("This proposal was originally created in Français")
-        expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
-        expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+        expect(page).not_to have_content("Create Amendment Draft")
+        expect(page).to have_content("Créer un projet d'amendement")
         expect(page).to have_field(with: "Proposition en langue française")
         expect(page).not_to have_field(with: "Proposal in french language")
       end
@@ -136,20 +136,20 @@ describe "Custom proposals fields", type: :system, versioning: true do
 
         it "does not enforce the original locale" do
           expect(page).not_to have_content("This proposal was originally created in Français")
-          expect(page).to have_content("CREATE AMENDMENT DRAFT")
-          expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).to have_content("Create Amendment Draft")
+          expect(page).not_to have_content("Créer un projet d'amendement")
           expect(page).not_to have_field(with: "Proposition en langue française")
           expect(page).to have_field(with: "Proposal in french language")
         end
       end
 
       context "and user has as preference the translated locale" do
-        let(:user) { create(:user, :confirmed, organization: organization, locale: "en") }
+        let(:user) { create(:user, :confirmed, organization:, locale: "en") }
 
         it "Enforces the original locale" do
           expect(page).to have_content("This proposal was originally created in Français")
-          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
-          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).not_to have_content("Create Amendment Draft")
+          expect(page).to have_content("Créer un projet d'amendement")
           expect(page).to have_field(with: "Proposition en langue française")
           expect(page).not_to have_field(with: "Proposal in french language")
         end
@@ -157,38 +157,38 @@ describe "Custom proposals fields", type: :system, versioning: true do
     end
 
     context "when proposal original locale is the organization locale" do
-      let(:creator) { create(:user, :confirmed, organization: organization, locale: "fr") }
-      let(:proposal) { create :proposal, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+      let(:creator) { create(:user, :confirmed, organization:, locale: "fr") }
+      let(:proposal) { create(:proposal, users: [creator], component:, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } }) }
       let(:amendment) { nil }
       let(:emendation) { nil }
 
       before do
         within_language_menu do
-          click_link "Français"
+          click_on "Français"
         end
 
-        click_link "Proposition en langue anglaise"
-        click_link "Modifier Proposition"
+        click_on "Proposition en langue anglaise"
+        click_on "Modifier"
       end
 
       it "Enforces the original locale" do
         expect(page).to have_content("Cette proposition a été initialement créée dans English")
-        expect(page).to have_content("CREATE AMENDMENT DRAFT")
-        expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
+        expect(page).to have_content("Create Amendment Draft")
+        expect(page).not_to have_content("Créer un projet d'amendement")
         expect(page).to have_field(with: "Proposal in english language")
         expect(page).not_to have_field(with: "Proposition en langue anglaise")
         fill_in "Title", with: "New Proposal in english language"
         click_button "Create"
-        expect(page).to have_content("EDIT AMENDMENT DRAFT")
+        expect(page).to have_content("Edit Amendment Draft")
       end
 
       context "and is an official proposal" do
-        let(:proposal) { create :proposal, :official, users: [creator], component: component, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } } }
+        let(:proposal) { create(:proposal, :official, users: [creator], component:, title: { en: "Proposal in english language", machine_translations: { fr: "Proposition en langue anglaise" } }) }
 
         it "Does not enforce the original locale" do
           expect(page).not_to have_content("Cette proposition a été initialement créée dans English")
-          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
-          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).not_to have_content("Create Amendment Draft")
+          expect(page).to have_content("Créer un projet d'amendement")
           expect(page).not_to have_field(with: "Proposal in english language")
           expect(page).to have_field(with: "Proposition en langue anglaise")
           fill_in "Titre", with: "Nouveau proposition en langue anglaise"
@@ -202,20 +202,20 @@ describe "Custom proposals fields", type: :system, versioning: true do
 
         it "does not enforce the original locale" do
           expect(page).not_to have_content("Cette proposition a été initialement créée dans English")
-          expect(page).not_to have_content("CREATE AMENDMENT DRAFT")
-          expect(page).to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).not_to have_content("Create Amendment Draft")
+          expect(page).to have_content("Créer un projet d'amendement")
           expect(page).not_to have_field(with: "Proposal in english language")
           expect(page).to have_field(with: "Proposition en langue anglaise")
         end
       end
 
       context "and user has as preference the translated locale" do
-        let(:user) { create(:user, :confirmed, organization: organization, locale: "fr") }
+        let(:user) { create(:user, :confirmed, organization:, locale: "fr") }
 
         it "Enforces the original locale" do
           expect(page).to have_content("Cette proposition a été initialement créée dans English")
-          expect(page).to have_content("CREATE AMENDMENT DRAFT")
-          expect(page).not_to have_content("CRÉER UN PROJET D'AMENDEMENT")
+          expect(page).to have_content("Create Amendment Draft")
+          expect(page).not_to have_content("Créer un projet d'amendement")
           expect(page).to have_field(with: "Proposal in english language")
           expect(page).not_to have_field(with: "Proposition en langue anglaise")
         end
@@ -223,23 +223,23 @@ describe "Custom proposals fields", type: :system, versioning: true do
     end
 
     it "can create a new one" do
-      click_link proposal.title["en"]
+      click_on proposal.title["en"]
       expect(page).to have_content(proposal.title["en"])
       expect(page).to have_content(emendation.title["en"])
-      click_link "Amend"
+      click_on "Amend"
 
       expect(page).not_to have_content("Currently, there's another amendment being evaluated for this proposal.")
       expect(page).not_to have_content(proposal.title["en"])
-      expect(page).to have_content("CREATE AMENDMENT DRAFT")
+      expect(page).to have_content("Create Amendment Draft")
     end
 
     context "when the author is logged" do
       let(:logged_user) { creator }
 
       it "can be accepted" do
-        click_link proposal.title["en"]
-        click_link "An emendation for the proposal"
-        click_link "Accept"
+        click_on proposal.title["en"]
+        click_on "An emendation for the proposal"
+        click_on "Accept"
         perform_enqueued_jobs do
           click_button "Accept amendment"
         end
@@ -252,10 +252,10 @@ describe "Custom proposals fields", type: :system, versioning: true do
       end
 
       it "can be rejected" do
-        click_link proposal.title["en"]
-        click_link "An emendation for the proposal"
+        click_on proposal.title["en"]
+        click_on "An emendation for the proposal"
         perform_enqueued_jobs do
-          click_link "Reject"
+          click_on "Reject"
         end
 
         emails.each do |email|

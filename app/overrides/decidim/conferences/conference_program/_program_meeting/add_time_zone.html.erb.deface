@@ -1,6 +1,0 @@
-<!-- replace '.programme-time' -->
-
-<div class="column medium-2 programme-time">
-  <%= gpc_time_format start_time %> – <%= gpc_time_format end_time %>
-  <%= gpc_time_zone(start_time) %>
-</div>

@@ -5,7 +5,7 @@ module OmniauthRegistrationsControllerOverride
   extend ActiveSupport::Concern
 
   included do
-    before_action :ensure_user_exists, only: :google_oauth2
+    before_action :ensure_user_exists, only: :google_oauth2 # rubocop:disable Rails/LexicallyScopedActionFilter:
 
     # if oauth via google is active, we don't want people to register if disabled in system (this is probably a bug in decidim)
     def ensure_user_exists
@@ -13,11 +13,11 @@ module OmniauthRegistrationsControllerOverride
       @form = form(Decidim::OmniauthRegistrationForm).from_params(form_params)
       email = @form.email || verified_email
 
-      return if email.present? && Decidim::User.exists?(email: email, organization: current_organization)
+      return if email.present? && Decidim::User.exists?(email:, organization: current_organization)
 
       # No registration allowed
       Rails.logger.info "WARNING: Attempt to register via OAuth: #{email}"
-      flash[:alert] = I18n.t("email_not_registered", email: email)
+      flash[:alert] = I18n.t("email_not_registered", email:)
       redirect_to decidim.root_path
     end
 

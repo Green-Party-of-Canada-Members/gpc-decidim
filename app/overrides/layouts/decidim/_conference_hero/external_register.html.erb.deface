@@ -1,7 +1,0 @@
-<!-- replace 'erb[silent]:contains("if current_participatory_space.registrations_enabled?")' -->
-
-        <% if external_conference_registration %>
-          <div class="column medium-3 end">
-            <%= render "decidim/conferences/external_register_button" %>
-          </div>
-        <% elsif current_participatory_space.registrations_enabled? %>

@@ -1,0 +1,5 @@
+<!-- replace 'erb[loud]:contains("author_presenter_for(meeting.normalized_author)")' -->
+
+<% unless leadership_assembly?(current_participatory_space) %>
+  <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+<% end %>
